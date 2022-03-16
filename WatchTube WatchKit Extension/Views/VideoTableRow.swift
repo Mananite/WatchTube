@@ -9,6 +9,8 @@ import Foundation
 import WatchKit
 
 class VideoRow: NSObject {
+    // used for every search result
+    
     var videoId: String!
     @IBOutlet var channelLabel: WKInterfaceLabel!
     @IBOutlet var titleLabel: WKInterfaceLabel!

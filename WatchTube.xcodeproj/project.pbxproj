@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		890FEA38275D57AA00B573B8 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 890FEA37275D57AA00B573B8 /* SDWebImage */; };
 		89826E802778B13800896853 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89826E7F2778B13800896853 /* ComplicationController.swift */; };
+		AA39DEC127DFB0410045D2E7 /* SubscriptionsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA39DEC027DFB0410045D2E7 /* SubscriptionsInterfaceController.swift */; };
 		AA64F0D027DE56DD00B70CE9 /* channelbanner.png in Resources */ = {isa = PBXBuildFile; fileRef = AA64F0CF27DE56DB00B70CE9 /* channelbanner.png */; };
 		AA678D6727A326F400C70893 /* maxresdefault.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AA678D6627A326F200C70893 /* maxresdefault.jpg */; };
 		AA71A0CE27B59B910099BDC9 /* hlsPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA71A0CD27B59B910099BDC9 /* hlsPlayer.swift */; };
@@ -43,6 +44,7 @@
 		AAF0F26127C3013300BE51C5 /* PlaylistTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F25A27C3013300BE51C5 /* PlaylistTableRow.swift */; };
 		AAF0F26227C3013300BE51C5 /* ChannelTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F25B27C3013300BE51C5 /* ChannelTableRow.swift */; };
 		AAF0F26327C3013300BE51C5 /* SearchTermsTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F25C27C3013300BE51C5 /* SearchTermsTableRow.swift */; };
+		AAFE89AA27E218370084887E /* SubscriptionsTableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE89A927E218370084887E /* SubscriptionsTableRow.swift */; };
 		D72C93D4257D97740056D0BA /* WatchTube WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D72C93D3257D97740056D0BA /* WatchTube WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D72C93DA257D97740056D0BA /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D72C93D8257D97740056D0BA /* Interface.storyboard */; };
 		D72C93E3257D97770056D0BA /* WatchTube WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D72C93E2257D97770056D0BA /* WatchTube WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -94,6 +96,7 @@
 
 /* Begin PBXFileReference section */
 		89826E7F2778B13800896853 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		AA39DEC027DFB0410045D2E7 /* SubscriptionsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsInterfaceController.swift; sourceTree = "<group>"; };
 		AA64F0CF27DE56DB00B70CE9 /* channelbanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = channelbanner.png; sourceTree = "<group>"; };
 		AA678D6627A326F200C70893 /* maxresdefault.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maxresdefault.jpg; sourceTree = "<group>"; };
 		AA71A0CD27B59B910099BDC9 /* hlsPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hlsPlayer.swift; sourceTree = "<group>"; };
@@ -125,6 +128,7 @@
 		AAF0F25A27C3013300BE51C5 /* PlaylistTableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistTableRow.swift; sourceTree = "<group>"; };
 		AAF0F25B27C3013300BE51C5 /* ChannelTableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelTableRow.swift; sourceTree = "<group>"; };
 		AAF0F25C27C3013300BE51C5 /* SearchTermsTableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTermsTableRow.swift; sourceTree = "<group>"; };
+		AAFE89A927E218370084887E /* SubscriptionsTableRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsTableRow.swift; sourceTree = "<group>"; };
 		D72C93CF257D97740056D0BA /* WatchTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D72C93D3257D97740056D0BA /* WatchTube WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchTube WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D72C93D9257D97740056D0BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 		AA84CB2127DF6D5300DB7212 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				AA39DEC027DFB0410045D2E7 /* SubscriptionsInterfaceController.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -365,6 +370,7 @@
 				AAF0F25827C3013300BE51C5 /* SubPlaylistTableRow.swift */,
 				AAF0F25727C3013300BE51C5 /* TrendingTableRow.swift */,
 				AAF0F25927C3013300BE51C5 /* VideoTableRow.swift */,
+				AAFE89A927E218370084887E /* SubscriptionsTableRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -527,6 +533,7 @@
 				AAF0F25F27C3013300BE51C5 /* SubPlaylistTableRow.swift in Sources */,
 				AAF0F25027C3005900BE51C5 /* InterfaceController.swift in Sources */,
 				AAF0F25E27C3013300BE51C5 /* TrendingTableRow.swift in Sources */,
+				AA39DEC127DFB0410045D2E7 /* SubscriptionsInterfaceController.swift in Sources */,
 				AAF0F26127C3013300BE51C5 /* PlaylistTableRow.swift in Sources */,
 				AAF0F25D27C3013300BE51C5 /* ChannelsTableRow.swift in Sources */,
 				AA71A0CE27B59B910099BDC9 /* hlsPlayer.swift in Sources */,
@@ -541,6 +548,7 @@
 				AAF0F24027C3002500BE51C5 /* ChannelDetailsInterfaceController.swift in Sources */,
 				AAF0F25227C3005900BE51C5 /* SettingsInterfaceController.swift in Sources */,
 				AAF0F23427C3000100BE51C5 /* Misc.swift in Sources */,
+				AAFE89AA27E218370084887E /* SubscriptionsTableRow.swift in Sources */,
 				AAF0F26227C3013300BE51C5 /* ChannelTableRow.swift in Sources */,
 				AAF0F24327C3002E00BE51C5 /* SubInfoInterfaceController.swift in Sources */,
 				AAF0F23327C3000100BE51C5 /* MetadataCache.swift in Sources */,

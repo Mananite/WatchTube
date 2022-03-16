@@ -100,9 +100,9 @@ class PlaylistInterfaceController: WKInterfaceController {
         var rangeHigher = rangeLower + (constant - 1)
         if list.count < rangeHigher {rangeHigher = list.count}
         
-        playlistTableRow.setNumberOfRows((rangeHigher - rangeLower) + 1, withRowType: "PlaylistRow")
+        playlistTableRow.setNumberOfRows((rangeHigher - rangeLower), withRowType: "PlaylistRow")
         
-        for index in rangeLower ..< rangeHigher + 1 {
+        for index in rangeLower ..< rangeHigher {
             let i = index
             guard let row = playlistTableRow.rowController(at: i) as? PlaylistTableRow else {
                 continue

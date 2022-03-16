@@ -9,6 +9,7 @@ import Foundation
 import WatchKit
 
 class SearchTermsRow: NSObject {
+    // used for the search terms and suggestions in the search view screen
     @IBOutlet weak var label: WKInterfaceLabel!
     var text: String!
 }

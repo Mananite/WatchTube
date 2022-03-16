@@ -10,7 +10,7 @@ import WatchKit
 
 
 class ChannelVideoRow: NSObject {
-    
+    // used for the videos in the channel view screen
     @IBOutlet var channelVideoTitleLabel: WKInterfaceLabel!
     @IBOutlet var channelVideoThumbImg: WKInterfaceImage!
     var videoId: String!

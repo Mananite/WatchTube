@@ -9,7 +9,7 @@ import Foundation
 import WatchKit
 
 class ChannelsRow: NSObject {
-    
+    // used in the search results screen
     @IBOutlet var channelTitleLabel: WKInterfaceLabel!
     @IBOutlet var channelThumbImg: WKInterfaceImage!
     @IBOutlet weak var channelSubsLabel: WKInterfaceLabel!

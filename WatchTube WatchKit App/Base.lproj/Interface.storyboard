@@ -148,7 +148,12 @@
                             <group key="contentGroup" width="1" height="40" alignment="left" id="SFH-vU-2ML">
                                 <items>
                                     <imageView alignment="left" verticalAlignment="center" image="clock.arrow.circlepath" catalog="system" id="5hr-8E-Vgq"/>
-                                    <label alignment="center" verticalAlignment="center" text="History" id="4vy-DY-J0s"/>
+                                    <label alignment="center" verticalAlignment="center" text="History" minimumScaleFactor="0.0" id="4vy-DY-J0s">
+                                        <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                        <variation key="device=watch38mm">
+                                            <fontDescription key="font" type="system" pointSize="13"/>
+                                        </variation>
+                                    </label>
                                 </items>
                                 <color key="backgroundColor" red="0.1333208978" green="0.1332592964" blue="0.13741382960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <edgeInsets key="margins" left="15" right="0.0" top="0.0" bottom="0.0"/>
@@ -162,7 +167,12 @@
                             <group key="contentGroup" width="1" height="40" alignment="left" id="NHZ-vx-UMu">
                                 <items>
                                     <imageView alignment="left" verticalAlignment="center" image="hand.thumbsup.circle.fill" catalog="system" id="AiE-u6-4IS"/>
-                                    <label alignment="center" verticalAlignment="center" text="Likes" id="k27-7D-Fdy"/>
+                                    <label alignment="center" verticalAlignment="center" text="Liked Videos" minimumScaleFactor="0.0" id="k27-7D-Fdy">
+                                        <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                        <variation key="device=watch38mm">
+                                            <fontDescription key="font" type="system" pointSize="13"/>
+                                        </variation>
+                                    </label>
                                 </items>
                                 <color key="backgroundColor" red="0.1333208978" green="0.1332592964" blue="0.13741382960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <edgeInsets key="margins" left="15" right="0.0" top="0.0" bottom="0.0"/>
@@ -172,13 +182,18 @@
                                 <action selector="likes" destination="YgX-XY-IDf" id="m1U-nY-gbK"/>
                             </connections>
                         </button>
-                        <button alignment="left" id="mHg-es-pn2" userLabel="collections">
+                        <button alignment="left" enabled="NO" id="mHg-es-pn2" userLabel="collections">
                             <group key="contentGroup" width="1" height="40" alignment="left" id="LTd-Pk-iRp">
                                 <items>
                                     <imageView alignment="left" verticalAlignment="center" image="rectangle.stack" catalog="system" id="XCQ-o2-pgz"/>
-                                    <label alignment="center" verticalAlignment="center" text="Collections" id="NGd-Mb-jng"/>
+                                    <label alignment="center" verticalAlignment="center" text="Coming Soon!" id="NGd-Mb-jng">
+                                        <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                        <variation key="device=watch38mm">
+                                            <fontDescription key="font" type="system" pointSize="13"/>
+                                        </variation>
+                                    </label>
                                 </items>
-                                <color key="backgroundColor" red="0.1333208978" green="0.1332592964" blue="0.13741382960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.13333333333333333" green="0.1332592964" blue="0.13741382960000001" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <edgeInsets key="margins" left="15" right="0.0" top="0.0" bottom="0.0"/>
                                 <variation key="device=watch38mm" height="35"/>
                             </group>
@@ -190,7 +205,12 @@
                             <group key="contentGroup" width="1" height="40" alignment="left" id="HS4-3a-Bcp">
                                 <items>
                                     <imageView alignment="left" verticalAlignment="center" image="rectangle.stack.badge.play.fill" catalog="system" id="o3n-kb-nEL"/>
-                                    <label alignment="center" verticalAlignment="center" text="Subscriptions" id="Ed1-ST-9Wl"/>
+                                    <label alignment="center" verticalAlignment="center" text="Subscriptions" minimumScaleFactor="0.0" id="Ed1-ST-9Wl">
+                                        <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                        <variation key="device=watch38mm">
+                                            <fontDescription key="font" type="system" pointSize="13"/>
+                                        </variation>
+                                    </label>
                                 </items>
                                 <color key="backgroundColor" red="0.1333208978" green="0.1332592964" blue="0.13741382960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <edgeInsets key="margins" left="15" right="0.0" top="0.0" bottom="0.0"/>
@@ -553,14 +573,96 @@
         <!--History-->
         <scene sceneID="JwL-VH-gCO">
             <objects>
-                <controller identifier="HistoryInterfaceController" title="History" id="OQr-ks-5sg"/>
+                <controller identifier="HistoryInterfaceController" title="History" id="OQr-ks-5sg">
+                    <items>
+                        <table alignment="left" id="DQB-ww-v3M">
+                            <items>
+                                <tableRow identifier="HistoryRow" id="jAh-pr-G8z" customClass="VideoRow" customModule="WatchTube_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" radius="15" id="hFj-OX-1XR">
+                                        <items>
+                                            <separator alignment="center" alpha="0.0" id="ehm-O9-FSP"/>
+                                            <label alignment="left" text="channel name" id="x2m-BK-4Ie">
+                                                <fontDescription key="font" type="system" pointSize="12"/>
+                                                <variation key="device=watch38mm">
+                                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                                </variation>
+                                            </label>
+                                            <group alignment="left" radius="5" id="XBX-ET-O1C">
+                                                <items>
+                                                    <imageView alignment="center" verticalAlignment="center" id="QXw-1T-EGd"/>
+                                                </items>
+                                            </group>
+                                            <label alignment="left" verticalAlignment="bottom" text="title" numberOfLines="2" id="4nM-2H-7lQ">
+                                                <fontDescription key="font" type="system" pointSize="12"/>
+                                                <variation key="device=watch38mm">
+                                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                                </variation>
+                                            </label>
+                                            <separator alignment="center" verticalAlignment="bottom" alpha="0.0" id="zs1-0J-cIK"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="channelLabel" destination="x2m-BK-4Ie" id="ox4-Ug-DPE"/>
+                                        <outlet property="thumbImg" destination="QXw-1T-EGd" id="52T-rK-1vF"/>
+                                        <outlet property="titleLabel" destination="4nM-2H-7lQ" id="EMt-By-3R1"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <separator width="0.80000000000000004" alignment="center" id="NJi-8B-oVa">
+                            <color key="color" red="0.1333208978" green="0.1332592964" blue="0.13741382960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </separator>
+                        <button width="0.90000000000000002" height="35" alignment="center" title="More" id="6M5-ej-jQP"/>
+                    </items>
+                </controller>
             </objects>
             <point key="canvasLocation" x="-168" y="455"/>
         </scene>
         <!--Liked Videos-->
         <scene sceneID="3a3-oh-jQH">
             <objects>
-                <controller identifier="LikesInterfaceController" title="Liked Videos" id="lFQ-Fi-GNq"/>
+                <controller identifier="LikedVideosInterfaceController" title="Liked Videos" id="lFQ-Fi-GNq">
+                    <items>
+                        <table alignment="left" id="MI4-OO-aU3">
+                            <items>
+                                <tableRow identifier="LikedRow" id="BT5-AD-1Oa" customClass="VideoRow" customModule="WatchTube_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" radius="15" id="oVM-qb-EcL">
+                                        <items>
+                                            <separator alignment="center" alpha="0.0" id="NyL-X3-YMM"/>
+                                            <label alignment="left" text="channel name" id="6e0-1m-Z3R">
+                                                <fontDescription key="font" type="system" pointSize="12"/>
+                                                <variation key="device=watch38mm">
+                                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                                </variation>
+                                            </label>
+                                            <group alignment="left" radius="5" id="RDD-zb-uKf">
+                                                <items>
+                                                    <imageView alignment="center" verticalAlignment="center" id="UzI-7F-gay"/>
+                                                </items>
+                                            </group>
+                                            <label alignment="left" verticalAlignment="bottom" text="title" numberOfLines="2" id="M9Z-3p-If2">
+                                                <fontDescription key="font" type="system" pointSize="12"/>
+                                                <variation key="device=watch38mm">
+                                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                                </variation>
+                                            </label>
+                                            <separator alignment="center" verticalAlignment="bottom" alpha="0.0" id="wwE-n4-3fx"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="channelLabel" destination="6e0-1m-Z3R" id="5Fz-Aa-Qrz"/>
+                                        <outlet property="thumbImg" destination="UzI-7F-gay" id="jh7-VO-2xD"/>
+                                        <outlet property="titleLabel" destination="M9Z-3p-If2" id="VlC-s9-aog"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <separator width="0.80000000000000004" alignment="center" id="PBE-gy-fCr">
+                            <color key="color" red="0.1333208978" green="0.1332592964" blue="0.13741382960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </separator>
+                        <button width="0.90000000000000002" height="35" alignment="center" title="More" id="unr-tt-e9I"/>
+                    </items>
+                </controller>
             </objects>
             <point key="canvasLocation" x="14" y="455"/>
         </scene>
@@ -574,7 +676,67 @@
         <!--Subscriptions-->
         <scene sceneID="yCJ-F0-2vn">
             <objects>
-                <controller identifier="SubscriptionsInterfaceController" title="Subscriptions" id="nAc-yA-hpO"/>
+                <controller identifier="SubscriptionsInterfaceController" title="Subscriptions" id="nAc-yA-hpO" customClass="SubscriptionsInterfaceController" customModule="WatchTube_WatchKit_Extension">
+                    <items>
+                        <table alignment="center" id="Wag-ta-Ufe">
+                            <items>
+                                <tableRow identifier="SubscriptionsRow" id="RrT-eT-fL3" customClass="SubscriptionsRow" customModule="WatchTube_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="7v0-4J-lQH">
+                                        <items>
+                                            <separator alignment="left" id="X6O-xA-0If">
+                                                <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </separator>
+                                            <group width="1" alignment="center" id="5eN-cs-yue" userLabel="horizontal">
+                                                <items>
+                                                    <group width="50" height="50" alignment="left" radius="25" id="c9J-om-Xbw" userLabel="pfp img">
+                                                        <items>
+                                                            <imageView width="1" height="1" alignment="left" image="pfp" id="e4e-mc-VnQ"/>
+                                                        </items>
+                                                        <variation key="device=watch38mm" height="35" radius="18" width="35"/>
+                                                        <variation key="device=watch40mm" height="40" radius="20" width="40"/>
+                                                    </group>
+                                                    <group width="0.69999999999999996" alignment="left" verticalAlignment="center" layout="vertical" spacing="0.0" id="ekA-Hc-d0Q">
+                                                        <items>
+                                                            <label alignment="left" verticalAlignment="center" text="channel" minimumScaleFactor="0.0" id="OkK-vg-Q5h"/>
+                                                            <label alignment="left" verticalAlignment="center" text="subs" minimumScaleFactor="0.0" id="VEq-I2-MNZ">
+                                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                            </label>
+                                                        </items>
+                                                    </group>
+                                                </items>
+                                            </group>
+                                            <separator alignment="left" id="Aus-iu-NbI">
+                                                <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </separator>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="channelLabel" destination="OkK-vg-Q5h" id="fu1-kt-eRU"/>
+                                        <outlet property="channelPfp" destination="e4e-mc-VnQ" id="QCQ-9y-tbh"/>
+                                        <outlet property="subsLabel" destination="VEq-I2-MNZ" id="3j4-pJ-bRD"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <separator width="0.80000000000000004" alignment="center" id="nvW-kk-Kqh">
+                            <color key="color" red="0.1333208978" green="0.1332592964" blue="0.13741382960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </separator>
+                        <button width="0.90000000000000002" height="35" alignment="center" title="More" id="3aT-Ig-E0q">
+                            <connections>
+                                <action selector="more" destination="nAc-yA-hpO" id="gEh-07-ydZ"/>
+                            </connections>
+                        </button>
+                        <label alignment="center" hidden="YES" text="You aren't subscribed to anybody!" textAlignment="center" numberOfLines="0" id="glE-XB-oIx">
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                    </items>
+                    <connections>
+                        <outlet property="moreButton" destination="3aT-Ig-E0q" id="oVm-gk-iBZ"/>
+                        <outlet property="notSubbedLabel" destination="glE-XB-oIx" id="KhL-OJ-wGq"/>
+                        <outlet property="subscriptionsTable" destination="Wag-ta-Ufe" id="YMg-Ch-20u"/>
+                    </connections>
+                </controller>
             </objects>
             <point key="canvasLocation" x="376" y="455"/>
         </scene>
@@ -1172,10 +1334,10 @@
             </objects>
             <point key="canvasLocation" x="-281.61616161616161" y="-3.5123966942148761"/>
         </scene>
-        <!--Now Playing-->
+        <!--HlsPlayer-->
         <scene sceneID="Kmj-Tq-jQ3">
             <objects>
-                <hostingController identifier="HlsPlayer" title="Now Playing" id="5nk-Sf-ssK" customClass="hlsPlayer" customModule="WatchTube_WatchKit_Extension"/>
+                <hostingController identifier="HlsPlayer" id="5nk-Sf-ssK" customClass="hlsPlayer" customModule="WatchTube_WatchKit_Extension"/>
             </objects>
             <point key="canvasLocation" x="-281" y="-283"/>
         </scene>
@@ -1190,7 +1352,7 @@
                                     <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" radius="15" id="tYe-qQ-bVm">
                                         <items>
                                             <separator alignment="center" alpha="0.0" id="ax7-Sj-stS"/>
-                                            <group width="1" height="0.0" alignment="left" hidden="YES" layout="vertical" radius="0.0" id="Lki-bu-xbE" userLabel="videoGroup">
+                                            <group width="1" height="0.0" alignment="left" layout="vertical" radius="0.0" id="Lki-bu-xbE" userLabel="videoGroup">
                                                 <items>
                                                     <label alignment="left" text="channel name" id="RsW-0s-2xw">
                                                         <fontDescription key="font" type="system" pointSize="12"/>
@@ -1234,7 +1396,7 @@
                                                     </group>
                                                 </items>
                                             </group>
-                                            <group width="1" alignment="left" layout="vertical" radius="0.0" id="XLv-5G-DMJ" userLabel="playlistGroup">
+                                            <group width="1" alignment="left" hidden="YES" layout="vertical" radius="0.0" id="XLv-5G-DMJ" userLabel="playlistGroup">
                                                 <items>
                                                     <group width="1" alignment="center" verticalAlignment="center" id="37X-S1-p8g" userLabel="horizontal">
                                                         <items>

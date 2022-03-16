@@ -28,11 +28,15 @@ class LibraryInterfaceController: WKInterfaceController {
     }
 
     @IBAction func history() {
+        pushController(withName: "HistoryInterfaceController", context: "")
     }
     @IBAction func likes() {
+        pushController(withName: "LikedVideosInterfaceController", context: "")
     }
     @IBAction func collections() {
+        pushController(withName: "CollectionsInterfaceController", context: "")
     }
     @IBAction func subscriptions() {
+        pushController(withName: "SubscriptionsInterfaceController", context: "")
     }
 }

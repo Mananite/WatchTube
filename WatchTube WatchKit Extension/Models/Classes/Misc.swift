@@ -122,6 +122,33 @@ class subscriptions {
             NSArray(array: mutable).write(to: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/subscriptions.json"), atomically: true)
         }
     }
+    
+    class func sortInternal() {
+        if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/subscriptions.json") == false {
+            NSArray(array: []).write(to: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/subscriptions.json"), atomically: true)
+        }
+        if let array = NSArray(contentsOf: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/subscriptions.json")) {
+            var mutable = array as! Array<String>
+            var withnames: Array<Dictionary<String, String>> = []
+            
+            for udid in mutable {
+                var data: Dictionary<String, String> = [:]
+                data["name"] = meta.getChannelInfo(udid: udid, key: "name") as? String
+                data["udid"] = udid
+                
+                withnames.append(data)
+            }
+            
+            withnames.sort(by: {$0["name"]!.lowercased() < $1["name"]!.lowercased()})
+            
+            mutable.removeAll()
+            for item in withnames {
+                mutable.append(item["udid"]!)
+            }
+            
+            NSArray(array: mutable).write(to: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/subscriptions.json"), atomically: true)
+        }
+    }
 }
 
 class liked {
@@ -161,6 +188,56 @@ class liked {
                 mutable.append(id)
             }
             NSArray(array: mutable).write(to: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/likes.json"), atomically: true)
+        }
+    }
+}
+
+class history {
+    class func getHistory() -> Array<String> {
+        if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/history.json") {
+            if let array = NSArray(contentsOf: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/history.json")) {
+                return (array as? Array<String> ?? []).reversed()
+            } else {
+                NSArray(array: []).write(to: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/history.json"), atomically: true)
+                return []
+            }
+        } else {
+            NSArray(array: []).write(to: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/history.json"), atomically: true)
+            return []
+        }
+    }
+
+    class func removeVideoAtIndex(index: Int) {
+        if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/history.json") == false {return}
+        if let array = NSArray(contentsOf: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/history.json")) {
+            var mutable = array as! Array<String>
+            mutable = mutable.reversed()
+            mutable.remove(at: index)
+            mutable = mutable.reversed()
+            NSArray(array: mutable).write(to: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/history.json"), atomically: true)
+        }
+    }
+    
+    class func removeLastVideo(id: String) {
+        if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/history.json") == false {return}
+        if let array = NSArray(contentsOf: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/history.json")) {
+            var mutable = array as! Array<String>
+            let index = mutable.firstIndex(of: id)
+            if index != nil {
+                mutable.remove(at: index!)
+            }
+            NSArray(array: mutable).write(to: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/history.json"), atomically: true)
+        }
+    }
+    
+    class func addToHistory(id: String) {
+        if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/history.json") == false {
+            NSArray(array: []).write(to: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/history.json"), atomically: true)
+        }
+        if let array = NSArray(contentsOf: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/history.json")) {
+            var mutable = array as! Array<String>
+            mutable.append(id)
+            NSArray(array: mutable).write(to: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/history.json"), atomically: true)
         }
     }
 }
