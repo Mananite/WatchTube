@@ -185,7 +185,9 @@ class liked {
         if let array = NSArray(contentsOf: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/likes.json")) {
             var mutable = array as! Array<String>
             if mutable.contains(id) {return} else {
+                mutable.reverse()
                 mutable.append(id)
+                mutable.reverse()
             }
             NSArray(array: mutable).write(to: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/likes.json"), atomically: true)
         }
@@ -236,6 +238,7 @@ class history {
         }
         if let array = NSArray(contentsOf: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/history.json")) {
             var mutable = array as! Array<String>
+            if mutable[mutable.count - 1].contains(id) {return}
             mutable.append(id)
             NSArray(array: mutable).write(to: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/history.json"), atomically: true)
         }

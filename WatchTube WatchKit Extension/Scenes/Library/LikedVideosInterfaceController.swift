@@ -1,72 +1,71 @@
 //
-//  SubscriptionsInterfaceController.swift
+//  LikedVideosInterfaceController.swift
 //  WatchTube WatchKit Extension
 //
-//  Created by llsc12 on 14/03/2022.
+//  Created by llsc12 on 17/03/2022.
 //
 
 import WatchKit
 import Foundation
 
 
-class SubscriptionsInterfaceController: WKInterfaceController {
+class LikedVideosInterfaceController: WKInterfaceController {
     var itemsShown = UserDefaults.standard.integer(forKey: settingsKeys.itemsCount)
-    
-    @IBOutlet weak var notSubbedLabel: WKInterfaceLabel!
+
+    @IBOutlet weak var likedVideosTable: WKInterfaceTable!
+    @IBOutlet weak var noLikedVideosLabel: WKInterfaceLabel!
     @IBOutlet weak var moreButton: WKInterfaceButton!
-    @IBOutlet weak var subscriptionsTable: WKInterfaceTable!
     
     override func willActivate() {
-        subscriptionsTable.curvesAtBottom = true
-        subscriptionsTable.curvesAtTop = true
-        
+        likedVideosTable.curvesAtBottom = true
+        likedVideosTable.curvesAtTop = true
         super.willActivate()
                 
-        if itemsShown >= subscriptions.getSubscriptions().count {
+        if itemsShown >= liked.getLikes().count {
             moreButton.setHidden(true)
-            itemsShown = subscriptions.getSubscriptions().count
+            itemsShown = liked.getLikes().count
         } else {
             moreButton.setHidden(false)
         }
         
-        if subscriptions.getSubscriptions().count == 0 {
+        if liked.getLikes().count == 0 {
             moreButton.setHidden(true)
-            notSubbedLabel.setHidden(false)
+            noLikedVideosLabel.setHidden(false)
             return
         }
-        subscriptions.sortInternal()
+
         setupTable(first: 0, last: itemsShown)
 
     }
 
     func setupTable(first: Int, last: Int) -> Void {
-        subscriptionsTable.setNumberOfRows(last, withRowType: "SubscriptionsRow")
+        likedVideosTable.setNumberOfRows(last, withRowType: "LikedVideosRow")
         
         for i in first ..< last {
-            guard let row = subscriptionsTable.rowController(at: i) as? SubscriptionsRow else {
+            guard let row = likedVideosTable.rowController(at: i) as? LikedVideosRow else {
                 continue
             }
             
-            if i >= subscriptions.getSubscriptions().count {
+            if i >= liked.getLikes().count {
                 break
             }
             
-            let udid = subscriptions.getSubscriptions()[i]
+            let id = liked.getLikes()[i]
 
-            row.channelLabel.setText(meta.getChannelInfo(udid: udid, key: "name") as? String ?? "Unknown")
-            row.subsLabel.setText("\((meta.getChannelInfo(udid: udid, key: "subscribers") as? Double ?? 0).abbreviated) Subscribers")
+            row.channelLabel.setText(meta.getVideoInfo(id: id, key: "channelName") as? String ?? "Unknown")
+            row.titleLabel.setText(meta.getVideoInfo(id: id, key: "title") as? String ?? "Unknown")
             
             if UserDefaults.standard.value(forKey: settingsKeys.thumbnailsToggle) == nil {
                 UserDefaults.standard.set(true, forKey: settingsKeys.thumbnailsToggle)
             }
             
             if UserDefaults.standard.bool(forKey: settingsKeys.thumbnailsToggle) == false {
-                row.channelPfp.setHidden(true)
+                row.thumbnail.setHidden(true)
             } else {
-                row.channelPfp.sd_setImage(with: URL(string: meta.getChannelInfo(udid: udid, key: "thumbnail") as! String))
+                row.thumbnail.sd_setImage(with: URL(string: meta.getVideoInfo(id: id, key: "thumbnail") as! String))
             }
             
-            meta.cacheChannelInfo(udid: udid)
+            meta.cacheVideoInfo(id: id)
         }
     }
     
@@ -77,9 +76,9 @@ class SubscriptionsInterfaceController: WKInterfaceController {
             self.moreButton.setAlpha(0)
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.08) {
-            if self.itemsShown >= subscriptions.getSubscriptions().count {
+            if self.itemsShown >= liked.getLikes().count {
                 self.moreButton.setHidden(true)
-                self.itemsShown = subscriptions.getSubscriptions().count
+                self.itemsShown = liked.getLikes().count
             } else {
                 self.moreButton.setHidden(false)
             }
@@ -89,12 +88,16 @@ class SubscriptionsInterfaceController: WKInterfaceController {
     }
     
     override func table(_ table: WKInterfaceTable, didSelectRowAt i: Int) {
-        let udid = subscriptions.getSubscriptions()[i]
-        if (meta.getChannelInfo(udid: udid, key: "name") as! String) == "???" {
+        let id = liked.getLikes()[i]
+        if (meta.getVideoInfo(id: id, key: "title") as! String) == "???" {
             let ok = WKAlertAction(title: "Okay", style: .default) {}
             presentAlert(withTitle: "Slow Down!", message: "We're still waiting for the data you requested. Wait just a second!", preferredStyle: .alert, actions: [ok])
         } else {
-            pushController(withName: "ChannelViewInterfaceController", context: udid)
+            let title = meta.getVideoInfo(id: id, key: "title") as! String
+            let img = meta.getVideoInfo(id: id, key: "thumbnail") as! String
+            let channel = meta.getVideoInfo(id: id, key: "channelName") as! String
+            let egg = Video(id: id, title: title, img: img, channel: channel, subs: "", type: "")
+            pushController(withName: "NowPlayingInterfaceController", context: egg)
         }
     }
 }

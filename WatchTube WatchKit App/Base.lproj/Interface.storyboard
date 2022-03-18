@@ -573,11 +573,11 @@
         <!--History-->
         <scene sceneID="JwL-VH-gCO">
             <objects>
-                <controller identifier="HistoryInterfaceController" title="History" id="OQr-ks-5sg">
+                <controller identifier="HistoryInterfaceController" title="History" id="OQr-ks-5sg" customClass="HistoryInterfaceController" customModule="WatchTube_WatchKit_Extension">
                     <items>
                         <table alignment="left" id="DQB-ww-v3M">
                             <items>
-                                <tableRow identifier="HistoryRow" id="jAh-pr-G8z" customClass="VideoRow" customModule="WatchTube_WatchKit_Extension">
+                                <tableRow identifier="HistoryRow" id="jAh-pr-G8z" customClass="HistoryRow" customModule="WatchTube_WatchKit_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" radius="15" id="hFj-OX-1XR">
                                         <items>
                                             <separator alignment="center" alpha="0.0" id="ehm-O9-FSP"/>
@@ -602,9 +602,9 @@
                                         </items>
                                     </group>
                                     <connections>
-                                        <outlet property="channelLabel" destination="x2m-BK-4Ie" id="ox4-Ug-DPE"/>
-                                        <outlet property="thumbImg" destination="QXw-1T-EGd" id="52T-rK-1vF"/>
-                                        <outlet property="titleLabel" destination="4nM-2H-7lQ" id="EMt-By-3R1"/>
+                                        <outlet property="channelLabel" destination="x2m-BK-4Ie" id="rg1-Ga-TPa"/>
+                                        <outlet property="thumbnail" destination="QXw-1T-EGd" id="EVp-zc-K9g"/>
+                                        <outlet property="titleLabel" destination="4nM-2H-7lQ" id="Feu-r8-DbZ"/>
                                     </connections>
                                 </tableRow>
                             </items>
@@ -612,8 +612,23 @@
                         <separator width="0.80000000000000004" alignment="center" id="NJi-8B-oVa">
                             <color key="color" red="0.1333208978" green="0.1332592964" blue="0.13741382960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </separator>
-                        <button width="0.90000000000000002" height="35" alignment="center" title="More" id="6M5-ej-jQP"/>
+                        <button width="0.90000000000000002" height="35" alignment="center" title="More" id="6M5-ej-jQP">
+                            <connections>
+                                <action selector="more" destination="OQr-ks-5sg" id="Ozo-ns-V6a"/>
+                            </connections>
+                        </button>
+                        <label alignment="center" hidden="YES" textAlignment="center" numberOfLines="0" id="fbr-7C-K8d">
+                            <string key="text">You have no video history!
+Go watch something!</string>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
                     </items>
+                    <connections>
+                        <outlet property="historyTable" destination="DQB-ww-v3M" id="a4v-9v-hp4"/>
+                        <outlet property="moreButton" destination="6M5-ej-jQP" id="rn5-zz-8fw"/>
+                        <outlet property="noHistoryLabel" destination="fbr-7C-K8d" id="aWg-xm-Zjz"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="-168" y="455"/>
@@ -621,11 +636,11 @@
         <!--Liked Videos-->
         <scene sceneID="3a3-oh-jQH">
             <objects>
-                <controller identifier="LikedVideosInterfaceController" title="Liked Videos" id="lFQ-Fi-GNq">
+                <controller identifier="LikedVideosInterfaceController" title="Liked Videos" id="lFQ-Fi-GNq" customClass="LikedVideosInterfaceController" customModule="WatchTube_WatchKit_Extension">
                     <items>
                         <table alignment="left" id="MI4-OO-aU3">
                             <items>
-                                <tableRow identifier="LikedRow" id="BT5-AD-1Oa" customClass="VideoRow" customModule="WatchTube_WatchKit_Extension">
+                                <tableRow identifier="LikedVideosRow" id="BT5-AD-1Oa" customClass="LikedVideosRow" customModule="WatchTube_WatchKit_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" radius="15" id="oVM-qb-EcL">
                                         <items>
                                             <separator alignment="center" alpha="0.0" id="NyL-X3-YMM"/>
@@ -650,9 +665,9 @@
                                         </items>
                                     </group>
                                     <connections>
-                                        <outlet property="channelLabel" destination="6e0-1m-Z3R" id="5Fz-Aa-Qrz"/>
-                                        <outlet property="thumbImg" destination="UzI-7F-gay" id="jh7-VO-2xD"/>
-                                        <outlet property="titleLabel" destination="M9Z-3p-If2" id="VlC-s9-aog"/>
+                                        <outlet property="channelLabel" destination="6e0-1m-Z3R" id="RYq-Jp-Vj7"/>
+                                        <outlet property="thumbnail" destination="UzI-7F-gay" id="E0Y-5T-Om3"/>
+                                        <outlet property="titleLabel" destination="M9Z-3p-If2" id="m05-VU-eWX"/>
                                     </connections>
                                 </tableRow>
                             </items>
@@ -660,8 +675,21 @@
                         <separator width="0.80000000000000004" alignment="center" id="PBE-gy-fCr">
                             <color key="color" red="0.1333208978" green="0.1332592964" blue="0.13741382960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </separator>
-                        <button width="0.90000000000000002" height="35" alignment="center" title="More" id="unr-tt-e9I"/>
+                        <button width="0.90000000000000002" height="35" alignment="center" title="More" id="unr-tt-e9I">
+                            <connections>
+                                <action selector="more" destination="lFQ-Fi-GNq" id="Y56-Tx-4b3"/>
+                            </connections>
+                        </button>
+                        <label alignment="center" hidden="YES" text="You haven't liked any videos yet!" textAlignment="center" numberOfLines="0" id="fud-vf-nMj">
+                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
                     </items>
+                    <connections>
+                        <outlet property="likedVideosTable" destination="MI4-OO-aU3" id="Nie-rb-g19"/>
+                        <outlet property="moreButton" destination="unr-tt-e9I" id="hPW-uu-W8M"/>
+                        <outlet property="noLikedVideosLabel" destination="fud-vf-nMj" id="nK0-pH-ECu"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="14" y="455"/>

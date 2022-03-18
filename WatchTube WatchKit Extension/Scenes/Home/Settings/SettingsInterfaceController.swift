@@ -30,7 +30,7 @@ class SettingsInterfaceController: WKInterfaceController {
         "music",
         "gaming",
         "news",
-//        "channels"
+//        "curated"
     ]
     
     var instances: Array<String> = []
@@ -181,14 +181,16 @@ class SettingsInterfaceController: WKInterfaceController {
     }
     
     func updateLabel() {
-        resultsLabel.setText("\(String(describing: userDefaults.value(forKey: settingsKeys.resultsCount) as! Int)) Results")
-        itemsLabel.setText("\(String(describing: userDefaults.value(forKey: settingsKeys.itemsCount) as! Int)) Items")
-        sizeLabel.setText("Size \(String(describing: userDefaults.value(forKey: settingsKeys.captionsSize) as! Int))")
+        animate(withDuration: 0.2) {
+            self.resultsLabel.setText("\(String(describing: self.userDefaults.value(forKey: settingsKeys.resultsCount) as! Int)) Results")
+            self.itemsLabel.setText("\(String(describing: self.userDefaults.value(forKey: settingsKeys.itemsCount) as! Int)) Items")
+            self.sizeLabel.setText("Size \(String(describing: self.userDefaults.value(forKey: settingsKeys.captionsSize) as! Int))")
 
-        let text = NSMutableAttributedString(string: "Hi I'm a test caption")
-        let regularFont = UIFont.systemFont(ofSize: CGFloat(userDefaults.integer(forKey: settingsKeys.captionsSize)))
-        text.addAttribute(NSAttributedString.Key.font, value: regularFont, range: NSMakeRange(0, "Hi I'm a test caption".count))
-        sizeCaptionTestLabel.setAttributedText(text)
+            let text = NSMutableAttributedString(string: "Hi I'm a test caption")
+            let regularFont = UIFont.systemFont(ofSize: CGFloat(self.userDefaults.integer(forKey: settingsKeys.captionsSize)))
+            text.addAttribute(NSAttributedString.Key.font, value: regularFont, range: NSMakeRange(0, "Hi I'm a test caption".count))
+            self.sizeCaptionTestLabel.setAttributedText(text)
+        }
     }
 }
 

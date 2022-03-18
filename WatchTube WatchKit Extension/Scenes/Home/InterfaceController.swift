@@ -18,6 +18,9 @@ class InterfaceController: WKInterfaceController {
     
     var videos: [Video]!
     override func awake(withContext context: Any?) {
+        TrendingTableRow.curvesAtBottom = true
+        TrendingTableRow.curvesAtTop = true
+
         let isFirstLaunch = context as? Bool ?? true
         self.loader.setWidth(0)
         self.loader.setHeight(0)
