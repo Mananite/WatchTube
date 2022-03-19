@@ -20,9 +20,6 @@ class VideoListInterfaceController: WKInterfaceController {
     var searchTerms = ""
     
     override func awake(withContext context: Any?) {
-        videoTableRow.curvesAtBottom = true
-        videoTableRow.curvesAtTop = true
-        
         reloadButton.setHidden(true)
         searchLoader.setHidden(false)
         searchInternetLabel.setHidden(true)

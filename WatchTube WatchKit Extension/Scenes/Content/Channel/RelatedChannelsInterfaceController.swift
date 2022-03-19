@@ -17,8 +17,6 @@ class RelatedChannelsInterfaceController: WKInterfaceController {
     var udid = ""
     
     override func awake(withContext context: Any?) {
-        ChannelsTableRow.curvesAtBottom = true
-        ChannelsTableRow.curvesAtTop = true
         
         super.awake(withContext: context)
         setTitle("Channels")

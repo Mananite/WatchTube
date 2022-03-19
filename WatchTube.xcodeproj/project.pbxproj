@@ -23,6 +23,7 @@
 		AAA4ED6927E47E1B00288883 /* HistoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4ED6827E47E1A00288883 /* HistoryRow.swift */; };
 		AAA4ED6B27E47ED400288883 /* HistoryInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4ED6A27E47ED400288883 /* HistoryInterfaceController.swift */; };
 		AAA4ED6E27E49F7B00288883 /* AdvancedSettingsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA4ED6D27E49F7B00288883 /* AdvancedSettingsInterfaceController.swift */; };
+		AAD836DF27E61B83007B0975 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AAD836DE27E61B83007B0975 /* SDWebImageSwiftUI */; };
 		AAF0F23027C2FFF900BE51C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAF0F22F27C2FFF900BE51C5 /* Assets.xcassets */; };
 		AAF0F23327C3000100BE51C5 /* MetadataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F23127C3000100BE51C5 /* MetadataCache.swift */; };
 		AAF0F23427C3000100BE51C5 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF0F23227C3000100BE51C5 /* Misc.swift */; };
@@ -168,6 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAD836DF27E61B83007B0975 /* SDWebImageSwiftUI in Frameworks */,
 				890FEA38275D57AA00B573B8 /* SDWebImage in Frameworks */,
 				AAA25C55278C933700E23892 /* Alamofire in Frameworks */,
 				AAF0F25527C3006F00BE51C5 /* YouTubeKit in Frameworks */,
@@ -458,6 +460,7 @@
 				890FEA37275D57AA00B573B8 /* SDWebImage */,
 				AAA25C54278C933700E23892 /* Alamofire */,
 				AAF0F25427C3006F00BE51C5 /* YouTubeKit */,
+				AAD836DE27E61B83007B0975 /* SDWebImageSwiftUI */,
 			);
 			productName = "WatchTube WatchKit Extension";
 			productReference = D72C93E2257D97770056D0BA /* WatchTube WatchKit Extension.appex */;
@@ -496,6 +499,7 @@
 				890FEA32275D579A00B573B8 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				AAA25C51278C932000E23892 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				AA5F49E927B038EB00D5105B /* XCRemoteSwiftPackageReference "YouTubeKit" */,
+				AAD836DB27E61B42007B0975 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = D72C93D0257D97740056D0BA /* Products */;
 			projectDirPath = "";
@@ -914,6 +918,14 @@
 				version = 5.4.4;
 			};
 		};
+		AAD836DB27E61B42007B0975 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -926,6 +938,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AAA25C51278C932000E23892 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		AAD836DE27E61B83007B0975 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AAD836DB27E61B42007B0975 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 		AAF0F25427C3006F00BE51C5 /* YouTubeKit */ = {
 			isa = XCSwiftPackageProductDependency;

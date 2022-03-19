@@ -17,8 +17,6 @@ class LikedVideosInterfaceController: WKInterfaceController {
     @IBOutlet weak var moreButton: WKInterfaceButton!
     
     override func willActivate() {
-        likedVideosTable.curvesAtBottom = true
-        likedVideosTable.curvesAtTop = true
         super.willActivate()
                 
         if itemsShown >= liked.getLikes().count {

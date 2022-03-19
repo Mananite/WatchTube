@@ -17,9 +17,6 @@ class SubscriptionsInterfaceController: WKInterfaceController {
     @IBOutlet weak var subscriptionsTable: WKInterfaceTable!
     
     override func willActivate() {
-        subscriptionsTable.curvesAtBottom = true
-        subscriptionsTable.curvesAtTop = true
-        
         super.willActivate()
                 
         if itemsShown >= subscriptions.getSubscriptions().count {

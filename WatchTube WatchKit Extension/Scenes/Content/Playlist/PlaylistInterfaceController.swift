@@ -26,10 +26,7 @@ class PlaylistInterfaceController: WKInterfaceController {
     var list: Array<Dictionary<String,Any>> = []
     var udid = ""
     
-    override func awake(withContext context: Any?) {
-        playlistTableRow.curvesAtBottom = true
-        playlistTableRow.curvesAtTop = true
-        
+    override func awake(withContext context: Any?) {        
         super.awake(withContext: context)
         let plData = context as! Dictionary<String,Any>
         let channelName = plData["channelName"] as! String

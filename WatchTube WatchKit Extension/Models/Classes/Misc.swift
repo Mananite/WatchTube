@@ -238,7 +238,7 @@ class history {
         }
         if let array = NSArray(contentsOf: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/history.json")) {
             var mutable = array as! Array<String>
-            if mutable[mutable.count - 1].contains(id) {return}
+            if mutable.count != 0 {if mutable.last!.contains(id) {return}}
             mutable.append(id)
             NSArray(array: mutable).write(to: URL(fileURLWithPath: NSHomeDirectory()+"/Documents/history.json"), atomically: true)
         }

@@ -18,8 +18,6 @@ class SubPlaylistInterfaceController: WKInterfaceController {
     var page = 0
     
     override func awake(withContext context: Any?) {
-        subPlaylistTableRow.curvesAtBottom = true
-        subPlaylistTableRow.curvesAtTop = true
         
         super.awake(withContext: context)
         setTitle("Back")

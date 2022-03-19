@@ -631,7 +631,7 @@ Go watch something!</string>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-168" y="455"/>
+            <point key="canvasLocation" x="-178" y="657"/>
         </scene>
         <!--Liked Videos-->
         <scene sceneID="3a3-oh-jQH">
@@ -692,14 +692,14 @@ Go watch something!</string>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="14" y="455"/>
+            <point key="canvasLocation" x="4" y="657"/>
         </scene>
         <!--Collections-->
         <scene sceneID="JYk-sp-tFa">
             <objects>
                 <controller identifier="CollectionsInterfaceController" title="Collections" id="bEr-Un-O7R"/>
             </objects>
-            <point key="canvasLocation" x="196" y="455"/>
+            <point key="canvasLocation" x="186" y="657"/>
         </scene>
         <!--Subscriptions-->
         <scene sceneID="yCJ-F0-2vn">
@@ -766,7 +766,7 @@ Go watch something!</string>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="376" y="455"/>
+            <point key="canvasLocation" x="366" y="657"/>
         </scene>
         <!--About-->
         <scene sceneID="Gcs-lM-aa6">
@@ -1818,7 +1818,7 @@ Go watch something!</string>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-67" y="6"/>
+            <point key="canvasLocation" x="-282" y="318"/>
         </scene>
         <!--Close-->
         <scene sceneID="dy8-Z2-59O">
@@ -1827,6 +1827,38 @@ Go watch something!</string>
                     <items>
                         <label alignment="left" numberOfLines="0" id="gxa-56-6A0">
                             <string key="text">WatchTube tries to present itself as close to the official YouTube app it can, though changes have to be made to fit it on a watch! Don't worry though, it's simple! </string>
+                        </label>
+                        <label alignment="left" text="Here's the current list of features available!" numberOfLines="0" id="B5b-Rf-uSo"/>
+                        <separator width="0.80000000000000004" alignment="center" id="Mv8-ei-1Fc">
+                            <color key="color" red="0.1333208978" green="0.1332592964" blue="0.13741382960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </separator>
+                        <label alignment="left" text="• Home screen of top videos" numberOfLines="0" id="eUz-9I-cy0">
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <label alignment="left" text="• Streams videos" numberOfLines="0" id="BZ9-r3-ajT">
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <label alignment="left" text="• Subscriptions, likes and more" numberOfLines="0" id="Mco-TL-hOX">
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <label alignment="left" text="• Completely standalone" numberOfLines="0" id="8o5-80-jnU">
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <label alignment="left" text="• Audio only mode with background play" numberOfLines="0" id="AzH-po-fAZ">
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <label alignment="left" text="• Shows channels and playlists in addition to videos" numberOfLines="0" id="IZv-rZ-Ys4">
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <label alignment="left" text="• Fast bug fixes from us!" numberOfLines="0" id="wcd-GZ-0iU">
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <separator width="0.80000000000000004" alignment="center" id="1uD-p0-IzB">
+                            <color key="color" red="0.1333208978" green="0.1332592964" blue="0.13741382960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </separator>
+                        <label alignment="left" numberOfLines="0" id="uoS-A2-3y0">
+                            <string key="text">And thats pretty much all you need to know! You can either continue reading on or find your way around the app! The rest of this guide will show you all the features in detail if you can't find something. We suggest joining our discord server to help make the app better!</string>
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
                         </label>
                         <imageView alignment="left" image="trendingfeed" contentMode="scaleAspectFit" id="rcI-CR-3OB"/>
                         <label alignment="left" numberOfLines="0" id="2Xd-Dt-6Qf">

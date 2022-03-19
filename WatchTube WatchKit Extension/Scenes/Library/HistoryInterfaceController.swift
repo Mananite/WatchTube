@@ -17,9 +17,6 @@ class HistoryInterfaceController: WKInterfaceController {
     @IBOutlet var moreButton: WKInterfaceButton!
 
     override func willActivate() {
-        historyTable.curvesAtBottom = true
-        historyTable.curvesAtTop = true
-        
         super.willActivate()
                 
         if itemsShown >= history.getHistory().count {
