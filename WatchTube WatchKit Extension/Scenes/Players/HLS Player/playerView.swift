@@ -141,7 +141,7 @@ struct playerView: View {
                                 .font(.system(size: CGFloat(UserDefaults.standard.integer(forKey: settingsKeys.captionsSize))))
                                 .lineLimit(5)
                                 .multilineTextAlignment(.center)
-                                .background(Color(.displayP3, red: 0, green: 0, blue: 0, opacity: 0.4))
+                                .background(Color(.displayP3, red: 0, green: 0, blue: 0, opacity: 0.5))
                                 .cornerRadius(5)
                                 .allowsHitTesting(false)
                         }
