@@ -10,6 +10,8 @@ import Alamofire
 
 class meta {
     class func cacheVideoInfo(id: String) {
+        if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/videoCache/\(id)") {return}
+        
         let path = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/videos/\(id)"
         AF.request(path).responseJSON { response in
             switch response.result {
@@ -43,12 +45,13 @@ class meta {
                         //writing
                         NSDictionary(dictionary: data).write(to: fileURL, atomically: true)
                     }
-                } catch {print(error)}
+                } catch {debugPrint(error)}
                 
                 let array = videoDetails["recommendedVideos"] as? [Any] ?? []
                 for vid in array {
-                    print(vid as! Dictionary<String,Any>)
-                    let relatedpath = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/videos/\(id)"
+                    let videoData = vid as! Dictionary<String,Any>
+                    let vidId = videoData["videoId"] as! String
+                    let relatedpath = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/videos/\(vidId)"
                     AF.request(relatedpath).responseJSON { response in
                         switch response.result {
                         case .success(let json):
@@ -76,19 +79,63 @@ class meta {
                             
                             do {
                                 if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                                    let fileURL = dir.appendingPathComponent("videoCache/"+id)
+                                    let relatedFileURL = dir.appendingPathComponent("videoCache/"+vidId)
                                     try FileManager.default.createDirectory(at: dir.appendingPathComponent("videoCache"), withIntermediateDirectories: true)
                                     //writing
-                                    NSDictionary(dictionary: data).write(to: fileURL, atomically: true)
+                                    NSDictionary(dictionary: data).write(to: relatedFileURL, atomically: true)
                                 }
-                            } catch {print(error)}
+                            } catch {debugPrint(error)}
                         case .failure(let error):
-                            print(error)
+                            debugPrint(error)
                         }
                     }
                 }
             case .failure(let error):
-                print(error)
+                debugPrint(error)
+            }
+        }
+    }
+    
+    class func cacheSingleVideo(id: String) {
+        if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/videoCache/\(id)") {return}
+        
+        let path = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/videos/\(id)"
+        AF.request(path).responseJSON { response in
+            switch response.result {
+            case .success(let json):
+                let videoDetails = json as! Dictionary<String, Any>
+                var data = [String: Any]()
+                
+                if (videoDetails["error"] != nil) {return}
+                
+                data["title"] = videoDetails["title"] as? String
+                data["channelId"] = videoDetails["authorId"] as? String
+                data["channelName"] = videoDetails["author"] as? String
+                data["thumbnail"] = (videoDetails["videoThumbnails"] as! Array<Dictionary<String, Any>>)[0]["url"] as! String
+                data["likes"] = videoDetails["likeCount"] as? Double
+                data["description"] = videoDetails["description"] as? String
+                data["views"] = videoDetails["viewCount"] as? Double
+                data["category"] = videoDetails["genre"] as? String
+                data["lengthSeconds"] = videoDetails["lengthSeconds"] as? String
+                data["related_videos"] = videoDetails["recommendedVideos"] ?? []
+//                data["related_videos"] = videoDetails["recommendedVideos"] this causes meta to not save, causes nilErrors
+                let date = Date(timeIntervalSince1970: (videoDetails["published"] as? Double)!)
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = DateFormatter.Style.short //Set date style
+                dateFormatter.timeZone = .current
+                data["publishedDate"] = dateFormatter.string(from: date)
+                data["publishedTimestamp"] = videoDetails["published"] as? Double
+                
+                do {
+                    if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                        let fileURL = dir.appendingPathComponent("videoCache/"+id)
+                        try FileManager.default.createDirectory(at: dir.appendingPathComponent("videoCache"), withIntermediateDirectories: true)
+                        //writing
+                        NSDictionary(dictionary: data).write(to: fileURL, atomically: true)
+                    }
+                } catch {debugPrint(error)}
+            case .failure(let error):
+                debugPrint(error)
             }
         }
     }
@@ -187,7 +234,7 @@ class meta {
                         //writing
                         NSDictionary(dictionary: data).write(to: fileURL, atomically: true)
                     }
-                } catch {print(error)}
+                } catch {debugPrint(error)}
                 
                 //for channel in channelDetails["relatedChannels"] as! Array<Dictionary<String, Any>> {
                 //    meta.cacheChannelInfo(udid: channel["authorId"] as! String)
@@ -195,7 +242,7 @@ class meta {
                 // this could go on forever lmao why did i do this
                 
             case .failure(let error):
-                print(error)
+                debugPrint(error)
             }
         }
     }

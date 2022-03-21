@@ -102,7 +102,7 @@ class Video {
                     }
                 }
             case .failure(let error):
-                print(error)
+                debugPrint(error)
             }
             completion(videos)
         }
@@ -110,7 +110,12 @@ class Video {
     
     class func getTrending(completion: @escaping ([Video]) -> Void) {
         var videos = [Video]()
+        
+        
+        // check to use algorithm or trending
         if UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) != "curated" {
+            
+            // using trending only
             let trendingpath = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/trending?type=\(UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) ?? "default")&fields=title,videoId,author,videoThumbnails"
             AF.request(trendingpath) {$0.timeoutInterval = 10}.validate().responseJSON { response in
                 switch response.result {
@@ -130,15 +135,29 @@ class Video {
                         }
                     }
                 case .failure(_):
-                    print("man no internet")
+                    debugPrint("man no internet")
                 }
                 completion(videos)
             }
+            
+            
         } else {
+            
+            
+            // the almighty youtube algorithm
             // scrape whatever for curated data
             var videosSelected: [String] = []
-            meta.cacheVideoInfo(id: "bYCUt4sPlKc")
-            for i in 0..<10 {
+//            meta.cacheVideoInfo(id: "bYCUt4sPlKc")
+            
+            if liked.getLikes().count == 0 || subscriptions.getSubscriptions().count == 0 { // there is no data to use
+                UserDefaults.standard.set("default", forKey: settingsKeys.homePageVideoType)
+                self.getTrending { data in
+                    completion(data)
+                }
+                UserDefaults.standard.set("curated", forKey: settingsKeys.homePageVideoType)
+                return
+            }
+            for i in 0..<algorithmConfig.latestLikedVideosToSample {
                 // get last 10 liked videos
                 let likedVideos = liked.getLikes()
                 if i >= likedVideos.count {
@@ -146,7 +165,7 @@ class Video {
                 }
                 let likedVideo = likedVideos[i]
                 var selectedVideosToAdd: [String] = []
-                for i in 0..<2 {
+                for i in 0..<algorithmConfig.quantityOfVideosToGetFromRelatedVideos {
                     while selectedVideosToAdd.count != i + 1 {
                         let related = meta.getVideoInfo(id: likedVideo, key: "related_videos") as? Array<Any> ?? []
                         if related.count == 0 {break}
@@ -162,11 +181,35 @@ class Video {
                     videosSelected.append(id)
                 }
             }
+            
+            var manipulatableChannelList = subscriptions.getSubscriptions()
+            var selectedChannels: [String] = []
+            
+            manipulatableChannelList.shuffle()
+            for channel in manipulatableChannelList {
+                // makes sure channels have at least x videos and stuff
+                if selectedChannels.count != algorithmConfig.channelsToSample && (meta.getChannelInfo(udid: channel, key: "videos") as? Array<Any> ?? []).count >= algorithmConfig.quantityOfVideosToGetFromChannels {
+                    selectedChannels.append(channel)
+                }
+            }
+            
+            for channel in selectedChannels {
+                var vidsarray = meta.getChannelInfo(udid: channel, key: "videos") as! [[String: Any]]
+                vidsarray.shuffle()
+                vidsarray = Array(vidsarray.prefix(algorithmConfig.quantityOfVideosToGetFromChannels))
+                for vid in vidsarray {
+                    let videosid = vid["videoId"] as! String
+                    videosSelected.append(videosid)
+                }
+            }
+            videosSelected = Array(Set(videosSelected))
             videosSelected.shuffle()
             for id in videosSelected {
+                meta.cacheSingleVideo(id: id)
                 let title = meta.getVideoInfo(id: id, key: "title") as! String
                 let thumb = meta.getVideoInfo(id: id, key: "thumbnail") as! String
                 let channel = meta.getVideoInfo(id: id, key: "channelName") as! String
+                if title == "???" || thumb == "???" || channel == "???" {continue}
                 let video = Video(id: id, title: title, img: thumb, channel: channel, subs: "", type: "")
                 videos.append(video)
             }

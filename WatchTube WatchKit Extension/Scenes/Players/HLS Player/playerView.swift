@@ -95,7 +95,7 @@ class ViewModel: ObservableObject {
                 case .failure(_):
                     attempts = attempts + 1
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        print("Error, need to request again")
+                        debugPrint("Error, need to request again")
                         makeRequest()
                     }
                 }

@@ -112,10 +112,10 @@ class SearchInterfaceController: WKInterfaceController {
                             }
                         }
                     } catch {
-                        print(error)
+                        debugPrint(error)
                     }
                 case .failure(let error):
-                    print(error)
+                    debugPrint(error)
                 }
             }
         }

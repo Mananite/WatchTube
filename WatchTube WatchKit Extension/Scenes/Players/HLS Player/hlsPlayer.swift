@@ -18,6 +18,6 @@ class hlsPlayer: WKHostingController<playerView> {
     }
     
     override func willDisappear() {
-        print("egg")
+        pop()
     }
 }

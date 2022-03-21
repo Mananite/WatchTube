@@ -30,7 +30,7 @@ class misc {
             UserDefaults.standard.set(Constants.defaultInstance, forKey: settingsKeys.instanceUrl)
         }
         if UserDefaults.standard.value(forKey: settingsKeys.qualityToggle) == nil {
-            UserDefaults.standard.set(true, forKey: settingsKeys.qualityToggle)
+            UserDefaults.standard.set(false, forKey: settingsKeys.qualityToggle)
         }
         if UserDefaults.standard.value(forKey: settingsKeys.firstTimeGuide) == nil {
             UserDefaults.standard.set(false, forKey: settingsKeys.firstTimeGuide)
