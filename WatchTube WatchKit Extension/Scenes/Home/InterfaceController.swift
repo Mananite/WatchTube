@@ -50,7 +50,7 @@ class InterfaceController: WKInterfaceController {
             loader.setHeight(50)
             loader.startAnimatingWithImages(in: NSRange(location: 0, length: 6), duration: 0.75, repeatCount: 0)
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + ((UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) == "curated") ? 1.7 : 0.5)) {
             Video.getTrending() { videos in // get trending videos
                 if videos.count == 0 { // show that there are no videos on trending, also means no internet
                     // wait for the day when youtube gets rid of trending, then you can change this :)
