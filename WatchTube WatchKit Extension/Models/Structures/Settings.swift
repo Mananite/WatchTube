@@ -39,3 +39,9 @@ struct algorithmConfig {
     static let channelsToSample = 10
     static let quantityOfVideosToGetFromChannels = 5
 }
+
+struct firstTime {
+    static let launch = "firstTime.launch"
+    static let like = "firstTime.like"
+    static let subscribe = "firstTime.subscribe"
+}

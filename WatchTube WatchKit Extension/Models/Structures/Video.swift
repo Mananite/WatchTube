@@ -195,8 +195,9 @@ class Video {
             
             for channel in selectedChannels {
                 var vidsarray = meta.getChannelInfo(udid: channel, key: "videos") as! [[String: Any]]
-                vidsarray.shuffle()
+                vidsarray.sort(by: {($0["published"] as! Double) < ($1["published"] as! Double)})
                 vidsarray = Array(vidsarray.prefix(algorithmConfig.quantityOfVideosToGetFromChannels))
+                vidsarray.shuffle()
                 for vid in vidsarray {
                     let videosid = vid["videoId"] as! String
                     videosSelected.append(videosid)
