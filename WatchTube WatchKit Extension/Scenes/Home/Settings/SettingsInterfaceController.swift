@@ -30,7 +30,7 @@ class SettingsInterfaceController: WKInterfaceController {
         "music",
         "gaming",
         "news",
-//        "curated"
+        "curated"
     ]
     
     var instances: Array<String> = []

@@ -28,6 +28,7 @@ class meta {
                 data["views"] = videoDetails["viewCount"] as? Double
                 data["category"] = videoDetails["genre"] as? String
                 data["lengthSeconds"] = videoDetails["lengthSeconds"] as? String
+                data["related_videos"] = videoDetails["recommendedVideos"] ?? []
 //                data["related_videos"] = videoDetails["recommendedVideos"] this causes meta to not save, causes nilErrors
                 let date = Date(timeIntervalSince1970: (videoDetails["published"] as? Double)!)
                 let dateFormatter = DateFormatter()
@@ -43,6 +44,49 @@ class meta {
                         NSDictionary(dictionary: data).write(to: fileURL, atomically: true)
                     }
                 } catch {print(error)}
+                
+                let array = videoDetails["recommendedVideos"] as? [Any] ?? []
+                for vid in array {
+                    print(vid as! Dictionary<String,Any>)
+                    let relatedpath = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/videos/\(id)"
+                    AF.request(relatedpath).responseJSON { response in
+                        switch response.result {
+                        case .success(let json):
+                            let videoDetails = json as! Dictionary<String, Any>
+                            var data = [String: Any]()
+                            
+                            if (videoDetails["error"] != nil) {return}
+                            
+                            data["title"] = videoDetails["title"] as? String
+                            data["channelId"] = videoDetails["authorId"] as? String
+                            data["channelName"] = videoDetails["author"] as? String
+                            data["thumbnail"] = (videoDetails["videoThumbnails"] as! Array<Dictionary<String, Any>>)[0]["url"] as! String
+                            data["likes"] = videoDetails["likeCount"] as? Double
+                            data["description"] = videoDetails["description"] as? String
+                            data["views"] = videoDetails["viewCount"] as? Double
+                            data["category"] = videoDetails["genre"] as? String
+                            data["lengthSeconds"] = videoDetails["lengthSeconds"] as? String
+                            data["related_videos"] = videoDetails["recommendedVideos"] ?? []
+            //                data["related_videos"] = videoDetails["recommendedVideos"] this causes meta to not save, causes nilErrors
+                            let date = Date(timeIntervalSince1970: (videoDetails["published"] as? Double)!)
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateStyle = DateFormatter.Style.short //Set date style
+                            dateFormatter.timeZone = .current
+                            data["publishedDate"] = dateFormatter.string(from: date)
+                            
+                            do {
+                                if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                                    let fileURL = dir.appendingPathComponent("videoCache/"+id)
+                                    try FileManager.default.createDirectory(at: dir.appendingPathComponent("videoCache"), withIntermediateDirectories: true)
+                                    //writing
+                                    NSDictionary(dictionary: data).write(to: fileURL, atomically: true)
+                                }
+                            } catch {print(error)}
+                        case .failure(let error):
+                            print(error)
+                        }
+                    }
+                }
             case .failure(let error):
                 print(error)
             }

@@ -7,32 +7,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "ECF6F35F-FB3D-47B3-A9E1-E0DB13B75433"
+            uuid = "1A072CC7-40F3-41C2-AADA-0C4718E5B013"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WatchTube WatchKit Extension/Scenes/Library/LikedVideosInterfaceController.swift"
+            filePath = "WatchTube WatchKit Extension/Models/Classes/MetadataCache.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "willActivate()"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "cacheVideoInfo(id:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "74FDEB25-02EF-497A-8E8D-59C30B6F273E"
+            uuid = "16D0805F-0DC1-40EC-A7E2-08433F87DE51"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WatchTube WatchKit Extension/Scenes/Library/LikedVideosInterfaceController.swift"
+            filePath = "WatchTube WatchKit Extension/Models/Classes/MetadataCache.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "setupTable(first:last:)"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "cacheVideoInfo(id:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "26743864-511C-4261-A8C9-5A67521095A7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WatchTube WatchKit Extension/Models/Classes/MetadataCache.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "cacheVideoInfo(id:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
