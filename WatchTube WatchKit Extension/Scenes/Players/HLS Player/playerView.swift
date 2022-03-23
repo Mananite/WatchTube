@@ -27,14 +27,14 @@ class ViewModel: ObservableObject {
     var subtitlesEnabled = UserDefaults.standard.string(forKey: hls.captionsLangCode) != "off"
     var player = AVPlayer(url: URL(string: UserDefaults.standard.string(forKey: hls.url)!)!)
     var timeObserverToken: Any?
-    var subtitleText = Subtitle.init(text: "WatchTube", beginning: 0, end: 10)
+    var subtitleText = Subtitle(text: "WatchTube", beginning: 0, end: 10)
     
     init() {
         if subtitlesEnabled == false {
             return
         }
         var attempts = 0
-        
+        subs = SubtitleSet(lang: "English", subtitles: [Subtitle(text: "WatchTube", beginning: 0, end: 10), Subtitle(text: "Captions haven't loaded yet.", beginning: 10, end: 5)])
         let errorSub = SubtitleSet.init(lang: UserDefaults.standard.string(forKey: hls.captionsLangCode) ?? "english", subtitles: [Subtitle.init(text: "Captions not available,\nan error occurred.", beginning: 0, end: 10)])
         //take data from url and parse it into subtitles
         let url = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/captions/\(UserDefaults.standard.string(forKey: hls.videoId) ?? "idk")?label=\(UserDefaults.standard.string(forKey: hls.captionsLangCode)?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "english")"

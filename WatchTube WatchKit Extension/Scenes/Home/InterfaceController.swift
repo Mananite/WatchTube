@@ -29,6 +29,7 @@ class InterfaceController: WKInterfaceController {
         
         if isFirstLaunch == true { // is initial launch
             self.setTitle("")
+            
             loader.setImageNamed("WatchTubeCircle") // animate logo
             animate(withDuration: 0.9) {
                 // from 0 to screen size
@@ -81,6 +82,28 @@ class InterfaceController: WKInterfaceController {
                 self.loader.setHidden(true) // hide the spinner
                 self.tooltipLabel.setHidden(false) // show the tiny text at the bottom
                 self.loader.stopAnimating() // save resources idk
+                
+                if UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) == "curated" {
+                    if UserDefaults.standard.integer(forKey: settingsKeys.itemsCount) == 80 {
+                        if videos.count <= UserDefaults.standard.integer(forKey: settingsKeys.itemsCount) - 1 {
+                            self.tooltipLabel.setText("The algorithm could only generate \(videos.count)/\(UserDefaults.standard.integer(forKey: settingsKeys.itemsCount)) recommendations, you should like more videos and subscribe more!")
+                        } else {
+                            self.tooltipLabel.setText("")
+                        }
+                    } else {
+                        if videos.count <= UserDefaults.standard.integer(forKey: settingsKeys.itemsCount) - 1 {
+                            self.tooltipLabel.setText("The algorithm could only generate \(videos.count)/\(UserDefaults.standard.integer(forKey: settingsKeys.itemsCount)) recommendations, you should like more videos and subscribe more!")
+                        } else {
+                            self.tooltipLabel.setText("You can load more videos on startup by changing it in settings")
+                        }
+                    }
+                } else {
+                    if UserDefaults.standard.integer(forKey: settingsKeys.itemsCount) == 80 {
+                        self.tooltipLabel.setText("")
+                    } else {
+                        self.tooltipLabel.setText("You can load more videos on startup by changing it in settings")
+                    }
+                }
             }
         }
     }

@@ -149,7 +149,7 @@ class Video {
             var videosSelected: [String] = []
 //            meta.cacheVideoInfo(id: "bYCUt4sPlKc")
             
-            if liked.getLikes().count == 0 || subscriptions.getSubscriptions().count == 0 { // there is no data to use
+            if liked.getLikes().count == 0 || subscriptions.getSubscriptions().count == 0 || history.getHistory().count == 0 { // there is no data to use
                 UserDefaults.standard.set("default", forKey: settingsKeys.homePageVideoType)
                 self.getTrending { data in
                     completion(data)
@@ -168,6 +168,31 @@ class Video {
                 for i in 0..<algorithmConfig.quantityOfVideosToGetFromRelatedVideos {
                     while selectedVideosToAdd.count != i + 1 {
                         let related = meta.getVideoInfo(id: likedVideo, key: "related_videos") as? Array<Any> ?? []
+                        if related.count == 0 {break}
+                        let selected = related.randomElement() as! Dictionary<String, Any>
+                        let selectedId = selected["videoId"] as! String
+                        meta.cacheVideoInfo(id: selectedId)
+                        if selectedVideosToAdd.contains(selectedId) {continue} else {
+                            selectedVideosToAdd.append(selectedId)
+                        }
+                    }
+                }
+                for id in selectedVideosToAdd {
+                    videosSelected.append(id)
+                }
+            }
+            
+            for i in 0..<algorithmConfig.historyToSample {
+                // get last 10 history videos
+                let historyvideos = history.getHistory()
+                if i >= historyvideos.count {
+                    break
+                }
+                let historyVideo = historyvideos[i]
+                var selectedVideosToAdd: [String] = []
+                for i in 0..<algorithmConfig.quantityOfVideosToGetFromHistory {
+                    while selectedVideosToAdd.count != i + 1 {
+                        let related = meta.getVideoInfo(id: historyVideo, key: "related_videos") as? Array<Any> ?? []
                         if related.count == 0 {break}
                         let selected = related.randomElement() as! Dictionary<String, Any>
                         let selectedId = selected["videoId"] as! String

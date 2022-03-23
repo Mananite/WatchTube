@@ -41,7 +41,7 @@ class NowPlayingInterfaceController: WKInterfaceController {
     }
     
     @IBAction func infoScreenButton() {
-        self.pushController(withName: "InfoInterfaceController", context: ["from":"NowPlaying", "id": video.id, "quality": quality])
+        self.presentController(withName: "OptionsInterfaceController", context: ["from":"NowPlaying", "id": video.id, "quality": quality])
     }
     
     @IBAction func openChannel(_ sender: Any) {

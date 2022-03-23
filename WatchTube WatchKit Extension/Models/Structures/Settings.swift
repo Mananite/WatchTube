@@ -35,9 +35,11 @@ struct hls {
 struct algorithmConfig {
     // this part gets recommendations from liked videos
     static let latestLikedVideosToSample = 10
-    static let quantityOfVideosToGetFromRelatedVideos = 5
+    static let quantityOfVideosToGetFromRelatedVideos = 6
     static let channelsToSample = 10
-    static let quantityOfVideosToGetFromChannels = 5
+    static let quantityOfVideosToGetFromChannels = 6
+    static let historyToSample = 15
+    static let quantityOfVideosToGetFromHistory = 6
 }
 
 struct firstTime {

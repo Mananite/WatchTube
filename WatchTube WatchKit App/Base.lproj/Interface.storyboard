@@ -182,7 +182,7 @@
                                 <action selector="likes" destination="YgX-XY-IDf" id="m1U-nY-gbK"/>
                             </connections>
                         </button>
-                        <button alignment="left" enabled="NO" id="mHg-es-pn2" userLabel="collections">
+                        <button alignment="left" hidden="YES" enabled="NO" id="mHg-es-pn2" userLabel="collections">
                             <group key="contentGroup" width="1" height="40" alignment="left" id="LTd-Pk-iRp">
                                 <items>
                                     <imageView alignment="left" verticalAlignment="center" image="rectangle.stack" catalog="system" id="XCQ-o2-pgz"/>
@@ -570,6 +570,250 @@
             </objects>
             <point key="canvasLocation" x="-490" y="318"/>
         </scene>
+        <!--QR Code-->
+        <scene sceneID="EWV-mL-Z5M">
+            <objects>
+                <controller identifier="QrCodeInterfaceController" title="QR Code" id="kcK-fO-och" customClass="QrCodeInterfaceController" customModule="WatchTube_WatchKit_Extension">
+                    <items>
+                        <group width="0.90000000000000002" alignment="center" verticalAlignment="center" layout="vertical" spacing="0.0" id="Zml-UL-a3q">
+                            <items>
+                                <imageView width="1" alignment="center" verticalAlignment="center" alpha="0.0" image="watchtube" contentMode="scaleAspectFit" id="DSv-Ua-MeX"/>
+                            </items>
+                        </group>
+                        <label alignment="center" verticalAlignment="bottom" text="video id" id="RI9-C3-sAK">
+                            <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </label>
+                    </items>
+                    <connections>
+                        <outlet property="img" destination="DSv-Ua-MeX" id="tWS-wr-ece"/>
+                        <outlet property="label" destination="RI9-C3-sAK" id="1Yd-1G-vfn"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="14" y="388"/>
+        </scene>
+        <!--Comments-->
+        <scene sceneID="j2e-Js-n4s">
+            <objects>
+                <controller identifier="CommentsInterfaceController" title="Comments" id="Ewo-Hf-3t7" customClass="CommentsInterfaceController" customModule="WatchTube_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Comments" id="3je-CO-rKm">
+                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <table alignment="left" id="we1-ey-5Ft">
+                            <items>
+                                <tableRow identifier="CommentsRow" id="doF-fc-ncx" customClass="CommentsRow" customModule="WatchTube_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="2xo-SJ-5u6">
+                                        <items>
+                                            <label alignment="left" text="author | n months ago" numberOfLines="2" id="4La-Bq-vxn">
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="font" type="system" pointSize="10"/>
+                                            </label>
+                                            <label alignment="left" text="content body" numberOfLines="6" id="hnF-2l-ibI">
+                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                            </label>
+                                            <group width="1" alignment="left" id="5zH-xM-g9I">
+                                                <items>
+                                                    <imageView width="10" height="10" alignment="left" verticalAlignment="center" image="hand.thumbsup" catalog="system" contentMode="scaleAspectFit" id="HXb-Us-jev">
+                                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </imageView>
+                                                    <label alignment="left" verticalAlignment="center" text="20" numberOfLines="2" id="iuJ-xj-1HH">
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="font" type="system" pointSize="10"/>
+                                                    </label>
+                                                    <label alignment="left" verticalAlignment="center" text="|" numberOfLines="2" id="UQu-7Z-emp">
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="font" type="system" pointSize="10"/>
+                                                    </label>
+                                                    <imageView width="10" height="10" alignment="left" verticalAlignment="center" image="arrowshape.turn.up.left" catalog="system" contentMode="scaleAspectFit" id="6dP-V1-wfw">
+                                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </imageView>
+                                                    <label alignment="left" verticalAlignment="center" text="2 Replies" numberOfLines="2" id="V08-JI-ehp">
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="font" type="system" pointSize="10"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                        </items>
+                                        <edgeInsets key="margins" left="5" right="2" top="2" bottom="2"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="authorLabel" destination="4La-Bq-vxn" id="Qss-ne-h9k"/>
+                                        <outlet property="contentBody" destination="hnF-2l-ibI" id="kgs-cY-qvf"/>
+                                        <outlet property="likesCountLabel" destination="iuJ-xj-1HH" id="zPt-yQ-j2E"/>
+                                        <outlet property="replyCountLabel" destination="V08-JI-ehp" id="w1c-BY-bTO"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="commentsTable" destination="we1-ey-5Ft" id="VF3-Lg-0Hj"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="14" y="898"/>
+        </scene>
+        <!--Comment-->
+        <scene sceneID="bq7-6M-e1P">
+            <objects>
+                <controller identifier="SubCommentsInterfaceController" title="Comment" id="dXz-KH-SEs" customClass="SubCommentsInterfaceController" customModule="WatchTube_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" id="6Qy-9p-Jun">
+                            <items>
+                                <label alignment="left" text="auth | n months ago" id="dMF-Fd-ULQ">
+                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                </label>
+                                <label alignment="left" text="body" numberOfLines="0" id="Wan-GK-DIe">
+                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                </label>
+                                <group width="1" alignment="left" id="eUV-9n-5P2">
+                                    <items>
+                                        <imageView width="10" height="10" alignment="left" verticalAlignment="center" image="hand.thumbsup" catalog="system" contentMode="scaleAspectFit" id="6jJ-I8-fpW">
+                                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </imageView>
+                                        <label alignment="left" verticalAlignment="center" text="10 likes" id="NZQ-x7-Pqs">
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="font" type="system" pointSize="10"/>
+                                        </label>
+                                        <label alignment="left" verticalAlignment="center" text="|" id="coj-6f-4zH">
+                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="font" type="system" pointSize="10"/>
+                                        </label>
+                                        <imageView width="10" height="10" alignment="left" verticalAlignment="center" image="arrowshape.turn.up.left" catalog="system" contentMode="scaleAspectFit" id="DGg-T1-RPe">
+                                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </imageView>
+                                        <label alignment="left" verticalAlignment="center" text="0 replies" id="H1S-tS-BdW">
+                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="font" type="system" pointSize="10"/>
+                                        </label>
+                                    </items>
+                                </group>
+                            </items>
+                            <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <edgeInsets key="margins" left="5" right="2" top="2" bottom="2"/>
+                        </group>
+                        <separator width="0.80000000000000004" alignment="center" id="HOT-gT-Q7d">
+                            <color key="color" red="0.1333333333" green="0.1333333333" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </separator>
+                        <table alignment="left" id="EJ8-fw-JDe">
+                            <items>
+                                <tableRow identifier="SubCommentsRow" id="MuO-42-gwE" customClass="SubCommentsRow" customModule="WatchTube_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="hYN-dp-APD">
+                                        <items>
+                                            <label alignment="left" text="auth | n months ago" id="fyB-sl-yQi">
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="font" type="system" pointSize="10"/>
+                                            </label>
+                                            <label alignment="left" text="body" numberOfLines="6" id="ST1-b4-gSO">
+                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                            </label>
+                                            <group width="1" alignment="left" id="jsL-C1-DLz">
+                                                <items>
+                                                    <imageView width="10" height="10" alignment="left" verticalAlignment="center" image="hand.thumbsup" catalog="system" contentMode="scaleAspectFit" id="xdg-re-mSJ">
+                                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </imageView>
+                                                    <label alignment="left" verticalAlignment="center" text="10 likes" id="uMn-h0-hcP">
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="font" type="system" pointSize="10"/>
+                                                    </label>
+                                                    <label alignment="left" verticalAlignment="center" text="|" id="ltm-5J-M3e">
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="font" type="system" pointSize="10"/>
+                                                    </label>
+                                                    <imageView width="10" height="10" alignment="left" verticalAlignment="center" image="arrowshape.turn.up.left" catalog="system" contentMode="scaleAspectFit" id="Dmk-cn-R65">
+                                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </imageView>
+                                                    <label alignment="left" verticalAlignment="center" text="0 replies" id="oBq-Hf-MnU">
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="font" type="system" pointSize="10"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                        </items>
+                                        <edgeInsets key="margins" left="5" right="2" top="2" bottom="2"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="authLabel" destination="fyB-sl-yQi" id="J7D-D8-zZa"/>
+                                        <outlet property="likesCount" destination="uMn-h0-hcP" id="wZn-Ea-u2y"/>
+                                        <outlet property="replyCount" destination="oBq-Hf-MnU" id="oPa-fH-0f1"/>
+                                        <outlet property="subBody" destination="ST1-b4-gSO" id="gHL-UP-Qn0"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="originalAuth" destination="dMF-Fd-ULQ" id="uso-o7-IC4"/>
+                        <outlet property="originalBody" destination="Wan-GK-DIe" id="Pex-vt-p8V"/>
+                        <outlet property="originalLikes" destination="NZQ-x7-Pqs" id="CNB-A0-H15"/>
+                        <outlet property="originalReplies" destination="H1S-tS-BdW" id="xxR-35-KRd"/>
+                        <outlet property="subCommentsTable" destination="EJ8-fw-JDe" id="6sI-TK-yx0"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="226.66666666666669" y="897.76859504132233"/>
+        </scene>
+        <!--Captions-->
+        <scene sceneID="7Ic-zb-Va5">
+            <objects>
+                <controller identifier="CaptionsInterfaceController" title="Captions" id="LxY-C9-8SA" customClass="CaptionsInterfaceController" customModule="WatchTube_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="left" radius="0.0" id="agz-fj-wce">
+                            <items>
+                                <label alignment="left" text="Captions" id="enC-cd-1EA">
+                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                </label>
+                                <imageView width="13" height="0.80000000000000004" alignment="left" verticalAlignment="center" image="loading" contentMode="scaleAspectFit" animationDuration="0.75" id="iv0-o3-eKj"/>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="Aza-dS-Mwx" userLabel="rounding">
+                            <items>
+                                <table alignment="left" spacing="0.0" id="fZd-5f-luT">
+                                    <items>
+                                        <tableRow identifier="SubtitleRow" id="CgL-wL-x7e" customClass="SubtitleRow" customModule="WatchTube_WatchKit_Extension">
+                                            <group key="rootItem" width="1" height="48" alignment="left" layout="overlap" radius="0.0" id="2Ro-NJ-wPj">
+                                                <items>
+                                                    <group width="1" alignment="left" verticalAlignment="center" id="AD2-N2-jrg">
+                                                        <items>
+                                                            <label width="0.84999999999999998" alignment="left" verticalAlignment="center" text="English" minimumScaleFactor="0.0" id="szO-qr-jEq"/>
+                                                            <imageView width="20" height="20" alignment="right" verticalAlignment="center" image="checkmark" catalog="system" contentMode="scaleAspectFit" id="U2i-9E-0qi">
+                                                                <color key="tintColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </imageView>
+                                                        </items>
+                                                        <edgeInsets key="margins" left="10" right="10" top="0.0" bottom="0.0"/>
+                                                    </group>
+                                                    <separator width="1" alignment="left" verticalAlignment="bottom" id="dhv-rb-fDc">
+                                                        <color key="color" red="0.066654123369999999" green="0.066592022779999996" blue="0.070745907720000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </separator>
+                                                </items>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                            </group>
+                                            <connections>
+                                                <outlet property="label" destination="szO-qr-jEq" id="t5r-g9-5W4"/>
+                                                <outlet property="sep" destination="dhv-rb-fDc" id="fgt-g1-8ev"/>
+                                                <outlet property="tick" destination="U2i-9E-0qi" id="PNy-un-XaP"/>
+                                            </connections>
+                                        </tableRow>
+                                    </items>
+                                    <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </table>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="img" destination="iv0-o3-eKj" id="M90-hB-PgT"/>
+                        <outlet property="subsLabel" destination="enC-cd-1EA" id="HwN-CM-ila"/>
+                        <outlet property="subsTable" destination="fZd-5f-luT" id="ejZ-yw-Izt"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="14" y="643"/>
+        </scene>
         <!--History-->
         <scene sceneID="JwL-VH-gCO">
             <objects>
@@ -631,7 +875,7 @@ Go watch something!</string>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-178" y="657"/>
+            <point key="canvasLocation" x="-1047" y="1104"/>
         </scene>
         <!--Liked Videos-->
         <scene sceneID="3a3-oh-jQH">
@@ -692,14 +936,7 @@ Go watch something!</string>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="4" y="657"/>
-        </scene>
-        <!--Collections-->
-        <scene sceneID="JYk-sp-tFa">
-            <objects>
-                <controller identifier="CollectionsInterfaceController" title="Collections" id="bEr-Un-O7R"/>
-            </objects>
-            <point key="canvasLocation" x="186" y="657"/>
+            <point key="canvasLocation" x="-834" y="1104"/>
         </scene>
         <!--Subscriptions-->
         <scene sceneID="yCJ-F0-2vn">
@@ -766,7 +1003,7 @@ Go watch something!</string>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="366" y="657"/>
+            <point key="canvasLocation" x="-626" y="1102"/>
         </scene>
         <!--About-->
         <scene sceneID="Gcs-lM-aa6">
@@ -900,7 +1137,7 @@ Go watch something!</string>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="357" y="-799"/>
+            <point key="canvasLocation" x="404" y="-1443"/>
         </scene>
         <!--Done-->
         <scene sceneID="pcw-hH-83A">
@@ -911,7 +1148,7 @@ Go watch something!</string>
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="592" y="-910"/>
+            <point key="canvasLocation" x="639" y="-1554"/>
         </scene>
         <!--Done-->
         <scene sceneID="Lfh-Li-BDP">
@@ -922,22 +1159,28 @@ Go watch something!</string>
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="783" y="-910"/>
+            <point key="canvasLocation" x="830" y="-1554"/>
         </scene>
         <!--Settings-->
         <scene sceneID="5UF-dP-8ee">
             <objects>
                 <controller identifier="SettingsInterfaceController" title="Settings" id="BVh-TY-jCX" customClass="SettingsInterfaceController" customModule="WatchTube_WatchKit_Extension">
                     <items>
-                        <picker height="50" alignment="center" focusStyle="sequence" id="fWi-CR-JX3">
+                        <button alignment="left" id="8bG-WB-jDa">
+                            <group key="contentGroup" width="1" height="40" alignment="left" id="Rpb-g1-Oeg">
+                                <items>
+                                    <label width="0.90000000000000002" alignment="left" verticalAlignment="center" text="instance" minimumScaleFactor="0.69999999999999996" id="xnu-8b-mbJ"/>
+                                    <imageView alignment="right" verticalAlignment="center" image="chevron.right" catalog="system" id="580-ck-NXJ">
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                </items>
+                                <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <edgeInsets key="margins" left="10" right="10" top="0.0" bottom="0.0"/>
+                            </group>
                             <connections>
-                                <action selector="selectInstance:" destination="BVh-TY-jCX" id="xgj-rV-Mli"/>
+                                <segue destination="i1T-au-0M4" kind="push" id="QNf-0t-yPL"/>
                             </connections>
-                        </picker>
-                        <label alignment="left" text="Waiting..." numberOfLines="0" id="n0U-Lp-gJM">
-                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                        </label>
+                        </button>
                         <label alignment="left" text="Choose the Invidious instance to use." numberOfLines="0" id="C3f-WG-NNX">
                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
@@ -1002,6 +1245,52 @@ Go watch something!</string>
                         </button>
                         <separator alignment="left" id="CK0-fS-oOm">
                             <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
+                        <group width="1" height="40" alignment="left" id="e3d-7S-faP" userLabel="captions stepper">
+                            <items>
+                                <button width="45" height="45" alignment="left" verticalAlignment="center" title="-" id="Ixj-FK-BLy">
+                                    <fontDescription key="font" type="system" pointSize="45"/>
+                                    <variation key="device=watch38mm" height="30" width="30">
+                                        <fontDescription key="font" type="system" pointSize="35"/>
+                                    </variation>
+                                    <connections>
+                                        <action selector="sizeLower" destination="BVh-TY-jCX" id="dnu-vP-esH"/>
+                                    </connections>
+                                </button>
+                                <label alignment="center" verticalAlignment="center" text="Size 10" id="b48-Yh-Dyh">
+                                    <fontDescription key="font" type="system" pointSize="18"/>
+                                    <variation key="device=watch38mm">
+                                        <fontDescription key="font" type="system" pointSize="11"/>
+                                    </variation>
+                                    <variation key="device=watch40mm">
+                                        <fontDescription key="font" type="system" pointSize="13"/>
+                                    </variation>
+                                    <variation key="device=watch41mm">
+                                        <fontDescription key="font" type="system" pointSize="16"/>
+                                    </variation>
+                                    <variation key="device=watch42mm">
+                                        <fontDescription key="font" type="system" pointSize="11"/>
+                                    </variation>
+                                </label>
+                                <button width="45" height="45" alignment="right" verticalAlignment="center" title="+" id="7gV-yc-zlX">
+                                    <fontDescription key="font" type="system" pointSize="45"/>
+                                    <variation key="device=watch38mm" height="30" width="30">
+                                        <fontDescription key="font" type="system" pointSize="35"/>
+                                    </variation>
+                                    <connections>
+                                        <action selector="sizeHigher" destination="BVh-TY-jCX" id="vxw-Nx-Gmo"/>
+                                    </connections>
+                                </button>
+                            </items>
+                            <color key="backgroundColor" red="0.1333208978" green="0.1332592964" blue="0.13741382960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <variation key="device=watch38mm" height="30"/>
+                        </group>
+                        <label alignment="center" text="Hi I'm a test caption" numberOfLines="0" id="tRA-Cn-CBz">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <separator alignment="left" id="fE5-Ge-v0Z">
+                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </separator>
                         <group width="1" height="40" alignment="left" id="WBM-cw-F2V" userLabel="results stepper">
                             <items>
@@ -1102,52 +1391,6 @@ Go watch something!</string>
                         <separator alignment="left" id="33K-vZ-k97">
                             <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </separator>
-                        <group width="1" height="40" alignment="left" id="e3d-7S-faP" userLabel="captions stepper">
-                            <items>
-                                <button width="45" height="45" alignment="left" verticalAlignment="center" title="-" id="Ixj-FK-BLy">
-                                    <fontDescription key="font" type="system" pointSize="45"/>
-                                    <variation key="device=watch38mm" height="30" width="30">
-                                        <fontDescription key="font" type="system" pointSize="35"/>
-                                    </variation>
-                                    <connections>
-                                        <action selector="sizeLower" destination="BVh-TY-jCX" id="dnu-vP-esH"/>
-                                    </connections>
-                                </button>
-                                <label alignment="center" verticalAlignment="center" text="Size 10" id="b48-Yh-Dyh">
-                                    <fontDescription key="font" type="system" pointSize="18"/>
-                                    <variation key="device=watch38mm">
-                                        <fontDescription key="font" type="system" pointSize="11"/>
-                                    </variation>
-                                    <variation key="device=watch40mm">
-                                        <fontDescription key="font" type="system" pointSize="13"/>
-                                    </variation>
-                                    <variation key="device=watch41mm">
-                                        <fontDescription key="font" type="system" pointSize="16"/>
-                                    </variation>
-                                    <variation key="device=watch42mm">
-                                        <fontDescription key="font" type="system" pointSize="11"/>
-                                    </variation>
-                                </label>
-                                <button width="45" height="45" alignment="right" verticalAlignment="center" title="+" id="7gV-yc-zlX">
-                                    <fontDescription key="font" type="system" pointSize="45"/>
-                                    <variation key="device=watch38mm" height="30" width="30">
-                                        <fontDescription key="font" type="system" pointSize="35"/>
-                                    </variation>
-                                    <connections>
-                                        <action selector="sizeHigher" destination="BVh-TY-jCX" id="vxw-Nx-Gmo"/>
-                                    </connections>
-                                </button>
-                            </items>
-                            <color key="backgroundColor" red="0.1333208978" green="0.1332592964" blue="0.13741382960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <variation key="device=watch38mm" height="30"/>
-                        </group>
-                        <label alignment="center" text="Hi I'm a test caption" numberOfLines="0" id="tRA-Cn-CBz">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                        </label>
-                        <separator alignment="left" id="fE5-Ge-v0Z">
-                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </separator>
                         <button alignment="left" title="About WatchTube" id="4tg-ZH-j2u">
                             <group key="contentGroup" width="1" height="40" alignment="left" id="KH7-HE-53b">
                                 <items>
@@ -1198,8 +1441,7 @@ Go watch something!</string>
                     <connections>
                         <outlet property="audioOnlyToggle" destination="5qL-2L-XaO" id="bgK-9O-RSr"/>
                         <outlet property="homeVideosPicker" destination="zLD-cy-jC8" id="y2H-Hm-jJ4"/>
-                        <outlet property="instancePicker" destination="fWi-CR-JX3" id="Mb0-TR-9jp"/>
-                        <outlet property="instanceStatus" destination="n0U-Lp-gJM" id="eJd-Jg-Zte"/>
+                        <outlet property="instanceButton" destination="xnu-8b-mbJ" id="WNc-Lx-SO7"/>
                         <outlet property="itemsLabel" destination="3ka-Xy-l0s" id="Djw-7B-rXg"/>
                         <outlet property="qualityToggle" destination="qd4-zA-bGk" id="aKw-rx-bCB"/>
                         <outlet property="resultsLabel" destination="bkB-nj-7Sf" id="VHz-wM-BvW"/>
@@ -1211,11 +1453,73 @@ Go watch something!</string>
             </objects>
             <point key="canvasLocation" x="14" y="-453"/>
         </scene>
+        <!--Instances-->
+        <scene sceneID="f9D-jc-lmn">
+            <objects>
+                <controller identifier="InstancePickerInterfaceController" title="Instances" id="i1T-au-0M4" customClass="InstancePickerInterfaceController" customModule="WatchTube_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="left" radius="0.0" id="qpd-HN-Kvd">
+                            <items>
+                                <label alignment="left" text="Instances" id="UZv-6j-wZj">
+                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                </label>
+                                <imageView width="13" height="0.80000000000000004" alignment="left" verticalAlignment="center" image="loading" contentMode="scaleAspectFit" animationDuration="0.75" id="TX2-PZ-qcY"/>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="ujL-9J-iJB" userLabel="rounding">
+                            <items>
+                                <table alignment="left" spacing="0.0" id="RCL-9i-3LD">
+                                    <items>
+                                        <tableRow identifier="InstanceRow" id="5Fx-Ms-mhR" customClass="InstanceRow" customModule="WatchTube_WatchKit_Extension">
+                                            <group key="rootItem" width="1" height="48" alignment="left" layout="overlap" radius="0.0" id="TC6-bo-6TR">
+                                                <items>
+                                                    <group width="1" alignment="left" verticalAlignment="center" id="6hG-05-K74">
+                                                        <items>
+                                                            <label width="0.84999999999999998" alignment="left" verticalAlignment="center" text="invidious.osi.kr" minimumScaleFactor="0.0" id="17E-dB-RjN"/>
+                                                            <imageView width="20" height="20" alignment="right" verticalAlignment="center" image="checkmark" catalog="system" contentMode="scaleAspectFit" id="2ax-BK-Onh">
+                                                                <color key="tintColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </imageView>
+                                                        </items>
+                                                        <edgeInsets key="margins" left="10" right="10" top="0.0" bottom="0.0"/>
+                                                    </group>
+                                                    <separator width="1" alignment="left" verticalAlignment="bottom" id="lSF-Y3-ACx">
+                                                        <color key="color" red="0.066654123369999999" green="0.066592022779999996" blue="0.070745907720000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </separator>
+                                                </items>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                            </group>
+                                            <connections>
+                                                <outlet property="label" destination="17E-dB-RjN" id="xzO-Db-zSF"/>
+                                                <outlet property="sep" destination="lSF-Y3-ACx" id="NhC-Qg-8Ip"/>
+                                                <outlet property="tick" destination="2ax-BK-Onh" id="WdO-q1-Cf6"/>
+                                            </connections>
+                                        </tableRow>
+                                    </items>
+                                    <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </table>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="img" destination="TX2-PZ-qcY" id="KoL-Y3-aFK"/>
+                        <outlet property="instanceTable" destination="RCL-9i-3LD" id="Clc-2C-qun"/>
+                        <outlet property="label" destination="UZv-6j-wZj" id="lrU-Na-2jH"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="252.76767676767679" y="-714.42148760330576"/>
+        </scene>
         <!--Information-->
         <scene sceneID="aTa-mC-Wbf">
             <objects>
                 <controller identifier="InfoInterfaceController" title="Information" id="xFy-2C-kW2" customClass="InfoInterfaceController" customModule="WatchTube_WatchKit_Extension">
                     <items>
+                        <label alignment="left" text="Title" numberOfLines="0" id="Mdd-Rb-m8M"/>
+                        <separator alignment="left" id="w2c-pf-owx">
+                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
                         <group width="1" alignment="left" id="FuA-Vd-NCt">
                             <items>
                                 <imageView width="25" height="25" alignment="left" verticalAlignment="center" image="eye.circle.fill" catalog="system" contentMode="scaleAspectFit" id="Oqe-lG-sut">
@@ -1308,60 +1612,33 @@ Go watch something!</string>
                                 </label>
                             </items>
                         </group>
-                        <button width="1" widthAdjustment="1" height="35" alignment="right" title="Description" id="8Kc-tu-iLL">
-                            <gestureRecognizers>
-                                <longPressGestureRecognizer delaysTouchesEnded="NO" allowableMovement="0.0" id="mHA-ge-0If">
-                                    <connections>
-                                        <action selector="randomise:" destination="xFy-2C-kW2" id="plc-ee-I68"/>
-                                    </connections>
-                                </longPressGestureRecognizer>
-                            </gestureRecognizers>
-                            <fontDescription key="font" type="system" pointSize="20"/>
-                            <variation key="device=watch38mm" height="30">
-                                <fontDescription key="font" type="system" pointSize="15"/>
-                            </variation>
-                            <variation key="device=watch40mm" height="34">
-                                <fontDescription key="font" type="system" pointSize="20"/>
-                            </variation>
-                            <variation key="device=watch42mm" height="33">
-                                <fontDescription key="font" type="system" pointSize="17"/>
-                            </variation>
-                            <connections>
-                                <action selector="showDescription" destination="xFy-2C-kW2" id="TPX-bs-ssG"/>
-                            </connections>
-                        </button>
-                        <separator alignment="left" id="8mi-NI-qlu">
-                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </separator>
-                        <separator alignment="left" id="sXO-Yr-dfh">
-                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </separator>
-                        <label alignment="left" text="Captions" id="0Iw-5k-UkY">
+                        <label alignment="left" text="Description" id="LDi-s3-E8F">
                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
-                        <picker height="50" alignment="left" focusStyle="stack" indicatorMode="shownWhileFocused" id="pHI-YD-lbW">
-                            <connections>
-                                <action selector="pickerChanged:" destination="xFy-2C-kW2" id="NPg-zC-nnb"/>
-                            </connections>
-                        </picker>
+                        <label alignment="left" text="Description" numberOfLines="0" id="VIF-6y-gf5">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                            <variation key="device=watch38mm">
+                                <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                            </variation>
+                        </label>
                     </items>
                     <connections>
                         <outlet property="authorIcon" destination="Cqd-XW-KTC" id="6xK-Aw-uiI"/>
                         <outlet property="authorLabel" destination="Z5G-Di-wrf" id="iYI-TY-2Oi"/>
                         <outlet property="dateLabel" destination="ys0-Yn-yYo" id="u6E-NN-Qhh"/>
+                        <outlet property="descriptionLabel" destination="VIF-6y-gf5" id="FFB-k1-NME"/>
                         <outlet property="likesIcon" destination="EfO-DB-i1K" id="GEN-bw-Rxa"/>
                         <outlet property="likesLabel" destination="hOb-jj-96W" id="yaR-BC-VLt"/>
-                        <outlet property="showDescriptionButton" destination="8Kc-tu-iLL" id="PNq-Y0-drO"/>
-                        <outlet property="subsLabel" destination="0Iw-5k-UkY" id="M3X-EP-GSo"/>
-                        <outlet property="subtitlePicker" destination="pHI-YD-lbW" id="47d-gl-o5G"/>
+                        <outlet property="titleLabel" destination="Mdd-Rb-m8M" id="ICF-jq-2ob"/>
                         <outlet property="uploadIcon" destination="vq9-Xl-mvV" id="Gf3-BI-mPX"/>
                         <outlet property="viewsIcon" destination="Oqe-lG-sut" id="e8X-eT-qJr"/>
                         <outlet property="viewsLabel" destination="cNV-ZP-pwb" id="P88-Zf-mlZ"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-281.61616161616161" y="-3.5123966942148761"/>
+            <point key="canvasLocation" x="14" y="128"/>
         </scene>
         <!--HlsPlayer-->
         <scene sceneID="Kmj-Tq-jQ3">
@@ -1369,6 +1646,147 @@ Go watch something!</string>
                 <hostingController identifier="HlsPlayer" id="5nk-Sf-ssK" customClass="hlsPlayer" customModule="WatchTube_WatchKit_Extension"/>
             </objects>
             <point key="canvasLocation" x="-281" y="-283"/>
+        </scene>
+        <!--Video Options-->
+        <scene sceneID="N7y-Q1-4DO">
+            <objects>
+                <controller identifier="OptionsInterfaceController" title="Video Options" id="iOA-HU-WYx" customClass="OptionsInterfaceController" customModule="WatchTube_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Options" id="CF3-Js-dIh">
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <group width="1" alignment="left" layout="vertical" spacing="3" id="Y5Y-mg-9Lf">
+                            <items>
+                                <button alignment="left" id="G2C-NT-z8j" userLabel="info">
+                                    <group key="contentGroup" width="1" height="40" alignment="left" spacing="10" id="wiu-o7-T9C">
+                                        <items>
+                                            <imageView width="25" height="25" alignment="left" verticalAlignment="center" image="info.circle" catalog="system" contentMode="scaleAspectFit" id="HQH-ok-7mn">
+                                                <color key="tintColor" name="AccentColor"/>
+                                                <variation key="device=watch38mm" height="20" width="20"/>
+                                            </imageView>
+                                            <label alignment="left" verticalAlignment="center" text="Information" id="r2j-sC-q5q">
+                                                <variation key="device=watch38mm">
+                                                    <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                                </variation>
+                                            </label>
+                                        </items>
+                                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <edgeInsets key="margins" left="10" right="0.0" top="0.0" bottom="0.0"/>
+                                    </group>
+                                    <connections>
+                                        <action selector="info" destination="iOA-HU-WYx" id="k4K-Ln-1rC"/>
+                                    </connections>
+                                </button>
+                                <separator alignment="left" id="g2I-1a-k5K">
+                                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </separator>
+                                <button alignment="left" id="hNO-Vq-xH6" userLabel="captions">
+                                    <group key="contentGroup" width="1" height="40" alignment="left" spacing="10" id="cKa-yi-NTd">
+                                        <items>
+                                            <imageView width="25" height="25" alignment="left" verticalAlignment="center" image="captions.bubble" catalog="system" contentMode="scaleAspectFit" id="Pyo-gG-cBS">
+                                                <color key="tintColor" name="AccentColor"/>
+                                                <variation key="device=watch38mm" height="20" width="20"/>
+                                            </imageView>
+                                            <group alignment="left" verticalAlignment="center" layout="vertical" spacing="0.0" id="cbJ-yV-dXu">
+                                                <items>
+                                                    <label alignment="left" verticalAlignment="center" text="Captions" id="bW5-1U-Ai5">
+                                                        <variation key="device=watch38mm">
+                                                            <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                                        </variation>
+                                                    </label>
+                                                    <label alignment="left" verticalAlignment="center" text="Off" minimumScaleFactor="0.0" id="Tg8-yl-Y4J">
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                        <variation key="device=watch38mm">
+                                                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                        </variation>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                        </items>
+                                        <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <edgeInsets key="margins" left="10" right="0.0" top="0.0" bottom="0.0"/>
+                                    </group>
+                                    <connections>
+                                        <action selector="captions" destination="iOA-HU-WYx" id="HSA-nJ-YzU"/>
+                                    </connections>
+                                </button>
+                                <separator alignment="left" id="RsW-e7-FC3">
+                                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </separator>
+                                <button alignment="left" enabled="NO" id="w9v-cu-y6f" userLabel="comments">
+                                    <group key="contentGroup" width="1" height="40" alignment="left" spacing="10" id="Aei-4n-ooY">
+                                        <items>
+                                            <imageView width="25" height="25" alignment="left" verticalAlignment="center" image="message" catalog="system" contentMode="scaleAspectFit" id="NDd-J9-z0c">
+                                                <color key="tintColor" name="AccentColor"/>
+                                                <variation key="device=watch38mm" height="20" width="20"/>
+                                            </imageView>
+                                            <group alignment="left" verticalAlignment="center" layout="vertical" spacing="0.0" id="dlc-rg-WxG">
+                                                <items>
+                                                    <label alignment="left" verticalAlignment="center" text="Comments" id="Wga-jB-m9v">
+                                                        <variation key="device=watch38mm">
+                                                            <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                                        </variation>
+                                                    </label>
+                                                    <group alignment="left" verticalAlignment="center" id="8HJ-OM-h8F">
+                                                        <items>
+                                                            <imageView width="18" height="1" alignment="left" image="loading" contentMode="scaleAspectFit" animationDuration="0.75" id="4so-P9-glB"/>
+                                                            <label alignment="left" verticalAlignment="center" text="1024 Comments" id="Szv-6E-fYN">
+                                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                                <variation key="device=watch38mm">
+                                                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                                </variation>
+                                                            </label>
+                                                        </items>
+                                                    </group>
+                                                </items>
+                                            </group>
+                                        </items>
+                                        <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <edgeInsets key="margins" left="10" right="0.0" top="0.0" bottom="0.0"/>
+                                    </group>
+                                    <connections>
+                                        <action selector="comments" destination="iOA-HU-WYx" id="gHl-AD-wFl"/>
+                                    </connections>
+                                </button>
+                                <separator alignment="left" id="zkp-e5-AjZ">
+                                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </separator>
+                                <button alignment="left" id="SRv-W4-ga1" userLabel="qrcode">
+                                    <group key="contentGroup" width="1" height="40" alignment="left" spacing="10" id="egk-ws-Ieb">
+                                        <items>
+                                            <imageView width="25" height="25" alignment="left" verticalAlignment="center" image="qrcode" catalog="system" contentMode="scaleAspectFit" id="d5S-eF-Rx3">
+                                                <color key="tintColor" name="AccentColor"/>
+                                                <variation key="device=watch38mm" height="20" width="20"/>
+                                            </imageView>
+                                            <label alignment="left" verticalAlignment="center" text="Share QR" id="lGN-gK-yWt">
+                                                <variation key="device=watch38mm">
+                                                    <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                                </variation>
+                                            </label>
+                                        </items>
+                                        <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <edgeInsets key="margins" left="10" right="0.0" top="0.0" bottom="0.0"/>
+                                    </group>
+                                    <connections>
+                                        <action selector="qrcode" destination="iOA-HU-WYx" id="cnf-Un-9kM"/>
+                                    </connections>
+                                </button>
+                            </items>
+                            <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="captionsLabel" destination="Tg8-yl-Y4J" id="WLV-HQ-wvh"/>
+                        <outlet property="commentsButton" destination="w9v-cu-y6f" id="PJQ-qn-jb0"/>
+                        <outlet property="commentsLabel" destination="Szv-6E-fYN" id="mlV-RI-YCN"/>
+                        <outlet property="commentsSpinner" destination="4so-P9-glB" id="xGT-t4-56j"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-214" y="416"/>
         </scene>
         <!--Search-->
         <scene sceneID="6CP-fK-CVF">
@@ -1745,7 +2163,7 @@ Go watch something!</string>
                         </group>
                         <group width="1" alignment="center" verticalAlignment="bottom" radius="0.0" id="0NX-sl-Gby" userLabel="details footer">
                             <items>
-                                <label width="0.69999999999999996" alignment="left" verticalAlignment="center" text="channel name" minimumScaleFactor="0.5" id="PFw-sC-vaL">
+                                <label width="0.69999999999999996" alignment="left" verticalAlignment="center" text="channel name" minimumScaleFactor="0.59999999999999998" id="PFw-sC-vaL">
                                     <gestureRecognizers>
                                         <tapGestureRecognizer id="tNw-qO-m7M">
                                             <connections>
@@ -1776,7 +2194,7 @@ Go watch something!</string>
                                 <button alignment="left" verticalAlignment="center" id="0xD-Od-Yql" userLabel="info">
                                     <group key="contentGroup" width="0.5" height="25" alignment="left" radius="0.0" id="0xu-S7-bpd">
                                         <items>
-                                            <imageView width="1" height="1" alignment="left" image="info.circle" catalog="system" contentMode="scaleAspectFit" id="oJr-2m-D6x">
+                                            <imageView width="1" height="1" alignment="left" image="gearshape.circle" catalog="system" contentMode="scaleAspectFit" id="oJr-2m-D6x">
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
                                         </items>
@@ -1804,22 +2222,6 @@ Go watch something!</string>
                 </controller>
             </objects>
             <point key="canvasLocation" x="-490" y="-283"/>
-        </scene>
-        <!--SubInfoInterfaceController-->
-        <scene sceneID="X0g-ra-rul">
-            <objects>
-                <controller identifier="SubInfoInterfaceController" id="lf9-W1-Yzb" customClass="SubInfoInterfaceController" customModule="WatchTube_WatchKit_Extension">
-                    <items>
-                        <label alignment="left" text="description body" numberOfLines="0" id="ExP-9i-K8r">
-                            <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
-                        </label>
-                    </items>
-                    <connections>
-                        <outlet property="bodyLabel" destination="ExP-9i-K8r" id="GaH-3F-9FJ"/>
-                    </connections>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="-282" y="318"/>
         </scene>
         <!--Close-->
         <scene sceneID="dy8-Z2-59O">
@@ -1929,7 +2331,7 @@ Go watch something!</string>
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="592" y="-662"/>
+            <point key="canvasLocation" x="639" y="-1306"/>
         </scene>
         <!--Done-->
         <scene sceneID="5lP-if-Mfh">
@@ -1940,7 +2342,7 @@ Go watch something!</string>
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="783" y="-662"/>
+            <point key="canvasLocation" x="830" y="-1306"/>
         </scene>
     </scenes>
     <color key="tintColor" name="AccentColor"/>
@@ -1950,26 +2352,34 @@ Go watch something!</string>
         <image name="WatchTubeDark" width="2048" height="2048"/>
         <image name="arrow.triangle.2.circlepath.circle" catalog="system" width="128" height="121"/>
         <image name="arrow.up.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="arrowshape.turn.up.left" catalog="system" width="128" height="105"/>
+        <image name="captions.bubble" catalog="system" width="128" height="110"/>
         <image name="channelbanner" width="2176" height="360"/>
         <image name="channelview" width="396" height="484"/>
+        <image name="checkmark" catalog="system" width="128" height="110"/>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="clock.arrow.circlepath" catalog="system" width="128" height="112"/>
         <image name="clock.circle.fill" catalog="system" width="128" height="121"/>
         <image name="discord" width="556" height="556"/>
         <image name="eye.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="gearshape.circle" catalog="system" width="128" height="121"/>
         <image name="github" width="556" height="556"/>
         <image name="gradient" width="259" height="58"/>
         <image name="hand.thumbsup" catalog="system" width="128" height="128"/>
         <image name="hand.thumbsup.circle.fill" catalog="system" width="128" height="121"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="infoscreencaptions" width="396" height="484"/>
+        <image name="loading" width="128" height="128"/>
         <image name="loading0" width="164" height="181"/>
         <image name="maxresdefault" width="1280" height="720"/>
+        <image name="message" catalog="system" width="128" height="112"/>
         <image name="nowplaying" width="396" height="484"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <image name="pfp" width="512" height="512"/>
         <image name="play.circle" catalog="system" width="128" height="121"/>
         <image name="playlistview" width="396" height="484"/>
+        <image name="qrcode" catalog="system" width="128" height="114"/>
         <image name="rectangle.stack" catalog="system" width="128" height="121"/>
         <image name="rectangle.stack.badge.play.fill" catalog="system" width="128" height="116"/>
         <image name="searchrecents" width="396" height="484"/>
