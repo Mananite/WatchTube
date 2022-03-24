@@ -17,11 +17,15 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var reloadButton: WKInterfaceButton!
     
     var homevideotype = ""
+    var itemcount = 0
+
     var videos: [Video]!
     override func awake(withContext context: Any?) {
         TrendingTableRow.setHidden(true)
+        tooltipLabel.setHidden(true)
         homevideotype = UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) ?? "default"
-        
+        itemcount = UserDefaults.standard.string(forKey: settingsKeys.itemsCount) ?? 12
+
         let isFirstLaunch = context as? Bool ?? true
         self.loader.setWidth(0)
         self.loader.setHeight(0)
@@ -175,8 +179,9 @@ class InterfaceController: WKInterfaceController {
         // only activates when the home video type was changed
         // indeed
         
-        if homevideotype != UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) ?? "default" {
+        if homevideotype != UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) ?? "default" || itemcount != UserDefaults.standard.integer(forKey: settingsKeys.itemsCount) {
             homevideotype = UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) ?? "default"
+            itemcount = UserDefaults.standard.integer(forKey: settingsKeys.itemsCount) 
             awake(withContext: false)
         }
     }
