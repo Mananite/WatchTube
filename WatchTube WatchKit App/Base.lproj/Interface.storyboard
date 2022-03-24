@@ -647,13 +647,15 @@
                                 </tableRow>
                             </items>
                         </table>
+                        <imageView height="22" alignment="center" image="loading" contentMode="scaleAspectFit" animationDuration="0.75" id="S4z-mk-Jbe"/>
                     </items>
                     <connections>
                         <outlet property="commentsTable" destination="we1-ey-5Ft" id="VF3-Lg-0Hj"/>
+                        <outlet property="img" destination="S4z-mk-Jbe" id="nzW-WP-aiO"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="14" y="898"/>
+            <point key="canvasLocation" x="13.737373737373739" y="880.2066115702479"/>
         </scene>
         <!--Comment-->
         <scene sceneID="bq7-6M-e1P">
@@ -744,8 +746,10 @@
                                 </tableRow>
                             </items>
                         </table>
+                        <imageView height="22" alignment="center" image="loading" contentMode="scaleAspectFit" animationDuration="0.75" id="8ys-Kv-DWY"/>
                     </items>
                     <connections>
+                        <outlet property="img" destination="8ys-Kv-DWY" id="c8I-6g-DbZ"/>
                         <outlet property="originalAuth" destination="dMF-Fd-ULQ" id="uso-o7-IC4"/>
                         <outlet property="originalBody" destination="Wan-GK-DIe" id="Pex-vt-p8V"/>
                         <outlet property="originalLikes" destination="NZQ-x7-Pqs" id="CNB-A0-H15"/>
@@ -1732,7 +1736,7 @@ Go watch something!</string>
                                                     <group alignment="left" verticalAlignment="center" id="8HJ-OM-h8F">
                                                         <items>
                                                             <imageView width="18" height="1" alignment="left" image="loading" contentMode="scaleAspectFit" animationDuration="0.75" id="4so-P9-glB"/>
-                                                            <label alignment="left" verticalAlignment="center" text="1024 Comments" id="Szv-6E-fYN">
+                                                            <label alignment="left" verticalAlignment="center" text="1024 Comments" minimumScaleFactor="0.0" id="Szv-6E-fYN">
                                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                                                                 <variation key="device=watch38mm">

@@ -7,48 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B967DB8C-649F-4CB1-85FD-8ED22D5D8D8B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WatchTube WatchKit Extension/Scenes/Content/Info/Comments/SubCommentsInterfaceController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "awake(withContext:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "53874B4E-6899-4BEB-BCE1-FBF90AC4FBA6"
+            uuid = "45ABA7C0-33AC-4A05-9075-BF48D1106199"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WatchTube WatchKit Extension/Scenes/Content/Info/Comments/SubCommentsInterfaceController.swift"
+            filePath = "WatchTube WatchKit Extension/Scenes/Content/Info/Comments/CommentsInterfaceController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "table(_:didSelectRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "69D42368-46B2-4B47-845C-82FF19240AB3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WatchTube WatchKit Extension/Scenes/Content/Info/Comments/SubCommentsInterfaceController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "setupTable()"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "egg(context:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

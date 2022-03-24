@@ -10,10 +10,15 @@ import Foundation
 import Alamofire
 
 class SubCommentsInterfaceController: WKInterfaceController {
+    @IBOutlet weak var img: WKInterfaceImage!
     @IBOutlet weak var subCommentsTable: WKInterfaceTable!
+    
+    var isBusy = false
     
     var comments: [comment] = []
     var videoId = ""
+    var continuation = "fresh"
+    var source: comment = comment(authorName: "", authorId: "", authorImg: "", replyCount: 0, likesCount: 0, replyContinuation: "", content: "", publishedCode: 0, publishedText: "", commentId: "", videoId: "")
     
     @IBOutlet weak var originalAuth: WKInterfaceLabel!
     @IBOutlet weak var originalBody: WKInterfaceLabel!
@@ -22,21 +27,28 @@ class SubCommentsInterfaceController: WKInterfaceController {
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        let source = context as! comment
+        source = context as! comment
         videoId = source.videoId
         
         originalAuth.setText("\(source.authorName) | \(source.publishedText)")
         originalBody.setText(source.content)
         originalLikes.setText(String(source.likesCount))
         originalReplies.setText(String(source.replyCount))
+        
+        if continuation == "fresh" {
+            continuation = source.replyContinuation
+        }
+        
+        isBusy = true
+        self.img.setHidden(false)
 
-        let commentspath = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/comments/\(videoId)?continuation=\(source.replyContinuation)"
+        let commentspath = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/comments/\(videoId)?continuation=\(continuation)"
         AF.request(commentspath) {$0.timeoutInterval = 5}.validate().responseJSON { res in
             switch res.result {
             case .success(let data):
                 let json = data as! [String:Any]
                 let cmnts = json["comments"] as! [[String:Any]]
-                
+                self.continuation = json["continuation"] as? String ?? ""
                 for cmnt in cmnts {
                     let auth = cmnt["author"] as! String
                     let authId = cmnt["authorId"] as! String
@@ -52,13 +64,17 @@ class SubCommentsInterfaceController: WKInterfaceController {
                         continuation = (cmnt["replies"] as! [String:Any])["continuation"] as! String
                     }
                     let likes = cmnt["likeCount"] as! Int
-                    let final = comment(authorName: auth, authorId: authId, authorImg: authImg, replyCount: replies, likesCount: likes, replyContinuation: continuation, content: content, publishedCode: pubCode, publishedText: pubText, commentId: commentId, videoId: source.videoId)
+                    let final = comment(authorName: auth, authorId: authId, authorImg: authImg, replyCount: replies, likesCount: likes, replyContinuation: continuation, content: content, publishedCode: pubCode, publishedText: pubText, commentId: commentId, videoId: self.source.videoId)
                     self.comments.append(final)
                 }
                 
                 self.subCommentsTable.setNumberOfRows(self.comments.count, withRowType: "SubCommentsRow")
                 self.setupTable()
+                self.isBusy = false
+                self.img.setHidden(true)
             case .failure(let error):
+                self.isBusy = false
+                self.img.setHidden(true)
                 print(error)
             }
         }
@@ -90,5 +106,10 @@ class SubCommentsInterfaceController: WKInterfaceController {
             return
         }
         pushController(withName: "SubCommentsInterfaceController", context: selected.contextData)
+    }
+    
+    override func interfaceOffsetDidScrollToBottom() {
+        if isBusy == true || continuation == "" {return}
+        self.awake(withContext: source)
     }
 }
