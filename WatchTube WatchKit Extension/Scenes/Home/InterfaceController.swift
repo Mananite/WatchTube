@@ -24,7 +24,7 @@ class InterfaceController: WKInterfaceController {
         TrendingTableRow.setHidden(true)
         tooltipLabel.setHidden(true)
         homevideotype = UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) ?? "default"
-        itemcount = UserDefaults.standard.string(forKey: settingsKeys.itemsCount) ?? 12
+        itemcount = UserDefaults.standard.integer(forKey: settingsKeys.itemsCount)
 
         let isFirstLaunch = context as? Bool ?? true
         self.loader.setWidth(0)
@@ -181,7 +181,7 @@ class InterfaceController: WKInterfaceController {
         
         if homevideotype != UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) ?? "default" || itemcount != UserDefaults.standard.integer(forKey: settingsKeys.itemsCount) {
             homevideotype = UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) ?? "default"
-            itemcount = UserDefaults.standard.integer(forKey: settingsKeys.itemsCount) 
+            itemcount = UserDefaults.standard.integer(forKey: settingsKeys.itemsCount)
             awake(withContext: false)
         }
     }
