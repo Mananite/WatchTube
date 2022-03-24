@@ -42,7 +42,11 @@ class SubCommentsInterfaceController: WKInterfaceController {
         isBusy = true
         self.img.setHidden(false)
         
-        if continuation == "" {return}
+        if continuation == "" {
+            self.isBusy = false
+            self.img.setHidden(true)
+            return
+        }
 
         let commentspath = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/comments/\(videoId)?continuation=\(continuation)"
         AF.request(commentspath) {$0.timeoutInterval = 5}.validate().responseJSON { res in
