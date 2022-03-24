@@ -647,7 +647,11 @@
                                 </tableRow>
                             </items>
                         </table>
-                        <imageView height="22" alignment="center" image="loading" contentMode="scaleAspectFit" animationDuration="0.75" id="S4z-mk-Jbe"/>
+                        <group width="1" height="22" alignment="left" id="d1Y-8L-YdO">
+                            <items>
+                                <imageView height="22" alignment="center" image="loading" contentMode="scaleAspectFit" animationDuration="0.75" id="S4z-mk-Jbe"/>
+                            </items>
+                        </group>
                     </items>
                     <connections>
                         <outlet property="commentsTable" destination="we1-ey-5Ft" id="VF3-Lg-0Hj"/>
@@ -746,7 +750,11 @@
                                 </tableRow>
                             </items>
                         </table>
-                        <imageView height="22" alignment="center" image="loading" contentMode="scaleAspectFit" animationDuration="0.75" id="8ys-Kv-DWY"/>
+                        <group width="1" height="22" alignment="left" id="nhc-DD-trx">
+                            <items>
+                                <imageView height="22" alignment="center" image="loading" contentMode="scaleAspectFit" animationDuration="0.75" id="8ys-Kv-DWY"/>
+                            </items>
+                        </group>
                     </items>
                     <connections>
                         <outlet property="img" destination="8ys-Kv-DWY" id="c8I-6g-DbZ"/>
@@ -1382,13 +1390,26 @@ Go watch something!</string>
                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
-                        <picker height="50" alignment="center" focusStyle="sequence" id="zLD-cy-jC8">
+                        <separator alignment="left" id="FSQ-P1-C1D">
+                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
+                        <button alignment="left" id="FN8-i8-QWy">
+                            <group key="contentGroup" width="1" height="40" alignment="left" id="FBg-af-beI">
+                                <items>
+                                    <label width="0.90000000000000002" alignment="left" verticalAlignment="center" text="type" minimumScaleFactor="0.69999999999999996" id="Zgn-Zm-AlI"/>
+                                    <imageView alignment="right" verticalAlignment="center" image="chevron.right" catalog="system" id="vuu-1g-ME2">
+                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                </items>
+                                <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <edgeInsets key="margins" left="10" right="10" top="0.0" bottom="0.0"/>
+                            </group>
                             <connections>
-                                <action selector="homeVideosSelection:" destination="BVh-TY-jCX" id="pvG-gb-9LG"/>
+                                <segue destination="0Nq-pD-6AF" kind="push" id="FBX-fX-p6v"/>
                             </connections>
-                        </picker>
+                        </button>
                         <label alignment="left" numberOfLines="0" id="bkf-jy-dB1">
-                            <string key="text">Choose the kind of videos to appear on the home screen. Curated mode requires you to like videos and subscribe to channels to get recommendations else it will fallback to default mode. Requires relaunching WatchTube to take effect.</string>
+                            <string key="text">Choose the kind of videos to appear on the home screen. Curated mode requires you to like videos and subscribe to channels to get recommendations else it will fallback to default mode.</string>
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                         </label>
@@ -1444,7 +1465,6 @@ Go watch something!</string>
                     </items>
                     <connections>
                         <outlet property="audioOnlyToggle" destination="5qL-2L-XaO" id="bgK-9O-RSr"/>
-                        <outlet property="homeVideosPicker" destination="zLD-cy-jC8" id="y2H-Hm-jJ4"/>
                         <outlet property="instanceButton" destination="xnu-8b-mbJ" id="WNc-Lx-SO7"/>
                         <outlet property="itemsLabel" destination="3ka-Xy-l0s" id="Djw-7B-rXg"/>
                         <outlet property="qualityToggle" destination="qd4-zA-bGk" id="aKw-rx-bCB"/>
@@ -1452,10 +1472,63 @@ Go watch something!</string>
                         <outlet property="sizeCaptionTestLabel" destination="tRA-Cn-CBz" id="gy5-0k-Qtk"/>
                         <outlet property="sizeLabel" destination="b48-Yh-Dyh" id="eya-Zl-NBU"/>
                         <outlet property="thumbnailsToggle" destination="HVk-Ub-TRL" id="yF1-8l-uQw"/>
+                        <outlet property="typeButton" destination="Zgn-Zm-AlI" id="51Z-Mx-7zn"/>
                     </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="14" y="-453"/>
+        </scene>
+        <!--Home Videos Interface Controller-->
+        <scene sceneID="Ne3-7O-ieA">
+            <objects>
+                <controller id="0Nq-pD-6AF" customClass="HomeVideosInterfaceController" customModule="WatchTube_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Home Video Types" minimumScaleFactor="0.0" id="ZXz-fk-seY">
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <group width="1" alignment="left" id="vhJ-ax-C4t">
+                            <items>
+                                <table alignment="left" spacing="0.0" id="Ypr-Vk-jO6">
+                                    <items>
+                                        <tableRow identifier="VideoTypesRow" id="e6x-h6-UtK" customClass="VideoTypesRow" customModule="WatchTube_WatchKit_Extension">
+                                            <group key="rootItem" width="1" height="48" alignment="left" layout="vertical" radius="0.0" id="SEr-yH-Lns">
+                                                <items>
+                                                    <group width="1" alignment="left" verticalAlignment="center" id="aKh-GX-O2C">
+                                                        <items>
+                                                            <label alignment="left" text="type" minimumScaleFactor="0.0" id="pv6-DP-4sZ"/>
+                                                            <imageView width="20" height="20" alignment="right" verticalAlignment="center" image="checkmark" catalog="system" contentMode="scaleAspectFit" id="Mol-Da-vkZ">
+                                                                <color key="tintColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </imageView>
+                                                        </items>
+                                                        <edgeInsets key="margins" left="10" right="10" top="0.0" bottom="0.0"/>
+                                                    </group>
+                                                    <separator alignment="left" verticalAlignment="bottom" id="ZRP-H1-Uak">
+                                                        <color key="color" white="0.059999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </separator>
+                                                </items>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                                            </group>
+                                            <connections>
+                                                <outlet property="label" destination="pv6-DP-4sZ" id="3IH-18-Wi7"/>
+                                                <outlet property="sep" destination="ZRP-H1-Uak" id="dJc-Ml-1wC"/>
+                                                <outlet property="tick" destination="Mol-Da-vkZ" id="t2n-M9-Gl0"/>
+                                            </connections>
+                                        </tableRow>
+                                    </items>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </table>
+                            </items>
+                            <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="typesTable" destination="Ypr-Vk-jO6" id="wiB-Hj-5aF"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="253" y="-268"/>
         </scene>
         <!--Instances-->
         <scene sceneID="f9D-jc-lmn">
@@ -1476,7 +1549,7 @@ Go watch something!</string>
                                 <table alignment="left" spacing="0.0" id="RCL-9i-3LD">
                                     <items>
                                         <tableRow identifier="InstanceRow" id="5Fx-Ms-mhR" customClass="InstanceRow" customModule="WatchTube_WatchKit_Extension">
-                                            <group key="rootItem" width="1" height="48" alignment="left" layout="overlap" radius="0.0" id="TC6-bo-6TR">
+                                            <group key="rootItem" width="1" height="48" alignment="left" layout="vertical" radius="0.0" id="TC6-bo-6TR">
                                                 <items>
                                                     <group width="1" alignment="left" verticalAlignment="center" id="6hG-05-K74">
                                                         <items>
@@ -1488,7 +1561,7 @@ Go watch something!</string>
                                                         <edgeInsets key="margins" left="10" right="10" top="0.0" bottom="0.0"/>
                                                     </group>
                                                     <separator width="1" alignment="left" verticalAlignment="bottom" id="lSF-Y3-ACx">
-                                                        <color key="color" red="0.066654123369999999" green="0.066592022779999996" blue="0.070745907720000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="color" white="0.059999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </separator>
                                                 </items>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

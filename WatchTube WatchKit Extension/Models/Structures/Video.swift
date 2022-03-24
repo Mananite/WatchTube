@@ -239,7 +239,8 @@ class Video {
                 let video = Video(id: id, title: title, img: thumb, channel: channel, subs: "", type: "")
                 videos.append(video)
             }
-            completion(videos)
+            let final = videos.prefix(UserDefaults.standard.integer(forKey: settingsKeys.itemsCount))
+            completion(Array(final))
         }
     }
 }

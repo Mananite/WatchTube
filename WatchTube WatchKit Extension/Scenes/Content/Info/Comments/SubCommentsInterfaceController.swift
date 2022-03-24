@@ -41,6 +41,8 @@ class SubCommentsInterfaceController: WKInterfaceController {
         
         isBusy = true
         self.img.setHidden(false)
+        
+        if continuation == "" {return}
 
         let commentspath = "https://\(UserDefaults.standard.string(forKey: settingsKeys.instanceUrl) ?? Constants.defaultInstance)/api/v1/comments/\(videoId)?continuation=\(continuation)"
         AF.request(commentspath) {$0.timeoutInterval = 5}.validate().responseJSON { res in
@@ -101,15 +103,11 @@ class SubCommentsInterfaceController: WKInterfaceController {
         guard let selected = subCommentsTable.rowController(at: rowIndex) as? SubCommentsRow else {
             return
         }
-        let data = selected.contextData
-        if data?.replyContinuation == "" {
-            return
-        }
         pushController(withName: "SubCommentsInterfaceController", context: selected.contextData)
     }
     
     override func interfaceOffsetDidScrollToBottom() {
-        if isBusy == true || continuation == "" {return}
+        if isBusy == true {return}
         self.awake(withContext: source)
     }
 }

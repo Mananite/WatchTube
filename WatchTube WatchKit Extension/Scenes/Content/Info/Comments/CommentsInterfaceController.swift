@@ -85,10 +85,6 @@ class CommentsInterfaceController: WKInterfaceController {
         guard let selected = commentsTable.rowController(at: rowIndex) as? CommentsRow else {
             return
         }
-        let data = selected.contextData
-        if data?.replyContinuation == "" {
-            return
-        }
         pushController(withName: "SubCommentsInterfaceController", context: selected.contextData)
     }
     

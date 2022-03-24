@@ -16,9 +16,12 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var tooltipLabel: WKInterfaceLabel!
     @IBOutlet weak var reloadButton: WKInterfaceButton!
     
+    var homevideotype = ""
     var videos: [Video]!
     override func awake(withContext context: Any?) {
-
+        TrendingTableRow.setHidden(true)
+        homevideotype = UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) ?? "default"
+        
         let isFirstLaunch = context as? Bool ?? true
         self.loader.setWidth(0)
         self.loader.setHeight(0)
@@ -165,6 +168,16 @@ class InterfaceController: WKInterfaceController {
             })
             UserDefaults.standard.setValue(true, forKey: settingsKeys.firstTimeGuide)
             presentAlert(withTitle: "Welcome!", message: "Thanks for downloading WatchTube! Would you like to go through the first time help guide?", preferredStyle: .sideBySideButtonsAlert, actions: [nope, sure])
+        }
+    }
+    
+    override func willActivate() {
+        // only activates when the home video type was changed
+        // indeed
+        
+        if homevideotype != UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) ?? "default" {
+            homevideotype = UserDefaults.standard.string(forKey: settingsKeys.homePageVideoType) ?? "default"
+            awake(withContext: false)
         }
     }
     

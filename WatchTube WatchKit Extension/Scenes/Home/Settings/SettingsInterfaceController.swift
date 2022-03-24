@@ -17,36 +17,27 @@ class SettingsInterfaceController: WKInterfaceController {
     @IBOutlet weak var audioOnlyToggle: WKInterfaceSwitch!
     @IBOutlet weak var resultsLabel: WKInterfaceLabel!
     @IBOutlet weak var itemsLabel: WKInterfaceLabel!
-    @IBOutlet weak var homeVideosPicker: WKInterfacePicker!
     @IBOutlet weak var qualityToggle: WKInterfaceSwitch!
     @IBOutlet weak var sizeLabel: WKInterfaceLabel!
     @IBOutlet weak var sizeCaptionTestLabel: WKInterfaceLabel!
+    @IBOutlet weak var typeButton: WKInterfaceLabel!
     
     let userDefaults = UserDefaults.standard
     
-    var videoTypes: [String] = [
-        "default",
-        "music",
-        "gaming",
-        "news",
-        "curated"
-    ]
+//    var videoTypes: [String] = [
+//        "default",
+//        "music",
+//        "gaming",
+//        "news",
+//        "curated"
+//    ]
     
     var instances: Array<String> = []
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
-        // set the picker items up
-        let pickerItems: [WKPickerItem] = videoTypes.map {
-            let pickerItem = WKPickerItem()
-            pickerItem.title = $0.capitalizingFirstLetter()
-            return pickerItem
-        }
-        homeVideosPicker.setItems(pickerItems)
-        
+
         // set all the properties of settings to match userdefaults
-        homeVideosPicker.setSelectedItemIndex(Int(videoTypes.firstIndex(of: userDefaults.string(forKey: settingsKeys.homePageVideoType)!)!))
         thumbnailsToggle.setOn(userDefaults.bool(forKey: settingsKeys.thumbnailsToggle))
         audioOnlyToggle.setOn(userDefaults.bool(forKey: settingsKeys.audioOnlyToggle))
         qualityToggle.setOn(userDefaults.bool(forKey: settingsKeys.qualityToggle))
@@ -55,32 +46,6 @@ class SettingsInterfaceController: WKInterfaceController {
         updateLabel()
         
         // Configure interface objects here.
-    }
-    
-//    @IBAction func selectInstance(_ value: Int) {
-//        self.instancePicker.setEnabled(false)
-//        self.instanceStatus.setTextColor(.lightGray)
-//        self.instanceStatus.setText("Loading...")
-//        AF.request("https://\(instances[value])/api/v1/search?q=e") { $0.timeoutInterval = 6 }.validate().responseJSON {resp in
-//            switch resp.result {
-//            case .success(_):
-//                self.instancePicker.setEnabled(true)
-//
-//                self.instanceStatus.setTextColor(.green)
-//                self.instanceStatus.setText("\(self.instances[value]) works")
-//                self.userDefaults.set(self.instances[value], forKey: settingsKeys.instanceUrl)
-//            case .failure(_):
-//                self.instancePicker.setEnabled(true)
-//
-//                self.instanceStatus.setTextColor(.red)
-//                self.instanceStatus.setText("\(self.instances[value]) is broken")
-//                break
-//            }
-//        }
-//    }
-//
-    @IBAction func homeVideosSelection(_ value: Int) {
-        userDefaults.set(videoTypes[value], forKey: settingsKeys.homePageVideoType)
     }
     
     @IBAction func thumbnailsToggle(_ value: Bool) {
@@ -161,6 +126,7 @@ class SettingsInterfaceController: WKInterfaceController {
     
     override func willActivate() {
         instanceButton.setText(userDefaults.string(forKey: settingsKeys.instanceUrl))
+        typeButton.setText(userDefaults.string(forKey: settingsKeys.homePageVideoType)?.capitalizingFirstLetter())
     }
 }
 
