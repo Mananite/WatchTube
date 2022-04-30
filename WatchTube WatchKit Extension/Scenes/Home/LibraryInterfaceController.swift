@@ -9,27 +9,7 @@ import WatchKit
 import Foundation
 
 class LibraryInterfaceController: WKInterfaceController {
-
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
+    override func awake(withContext context: Any?) {
     }
 
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
-    }
-
-    @IBAction func history() {
-        pushController(withName: "HistoryInterfaceController", context: "")
-    }
-    @IBAction func likes() {
-        pushController(withName: "LikedVideosInterfaceController", context: "")
-    }
-    @IBAction func collections() {
-        pushController(withName: "CollectionsInterfaceController", context: "")
-    }
-    @IBAction func subscriptions() {
-        pushController(withName: "SubscriptionsInterfaceController", context: "")
-    }
 }

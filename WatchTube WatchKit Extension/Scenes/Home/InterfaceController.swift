@@ -172,7 +172,7 @@ class InterfaceController: WKInterfaceController {
 //                self.presentController(withName: "FirstTimeInterfaceController", context: "")
 //            })
 //            UserDefaults.standard.setValue(true, forKey: settingsKeys.firstTimeGuide)
-//            presentAlert(withTitle: "Welcome!", message: "Thanks for downloading WatchTube! Would you like to go through the first time help guide?", preferredStyle: .sideBySideButtonsAlert, actions: [nope, sure])
+//            presentAlert(withTitle: "Welcome!", message: "Thanks for downloading WatchTube! Would you like to go through the first time introduction?", preferredStyle: .sideBySideButtonsAlert, actions: [nope, sure])
 //        }
 //    }
     

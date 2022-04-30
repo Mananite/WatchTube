@@ -142,88 +142,75 @@
         <!--Library-->
         <scene sceneID="bkw-8H-NO2">
             <objects>
-                <controller identifier="LibraryInterfaceController" title="Library" id="YgX-XY-IDf" customClass="LibraryInterfaceController" customModule="WatchTube_WatchKit_Extension">
+                <controller identifier="LibraryInterfaceController" title="Library" spacing="2" id="YgX-XY-IDf" customClass="LibraryInterfaceController" customModule="WatchTube_WatchKit_Extension">
                     <items>
-                        <button alignment="left" id="mGh-sP-0ge" userLabel="history">
-                            <group key="contentGroup" width="1" height="40" alignment="left" id="SFH-vU-2ML">
+                        <button alignment="left" title="About WatchTube" id="Msm-mR-bB4" userLabel="History">
+                            <group key="contentGroup" width="1" height="40" alignment="left" id="6OH-f9-Phd">
                                 <items>
-                                    <imageView alignment="left" verticalAlignment="center" image="clock.arrow.circlepath" catalog="system" id="5hr-8E-Vgq"/>
-                                    <label alignment="center" verticalAlignment="center" text="History" minimumScaleFactor="0.0" id="4vy-DY-J0s">
-                                        <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <group alignment="left" verticalAlignment="center" radius="0.0" id="flQ-12-c4s">
+                                        <items>
+                                            <imageView width="30" height="29" alignment="left" verticalAlignment="center" image="clock.arrow.circlepath" catalog="system" contentMode="scaleAspectFit" id="5iB-p5-8Iw">
+                                                <variation key="device=watch38mm" height="20" width="20"/>
+                                            </imageView>
+                                        </items>
+                                    </group>
+                                    <label width="0.80000000000000004" alignment="center" verticalAlignment="center" text="History" minimumScaleFactor="0.0" id="8x0-9u-fdQ">
+                                        <fontDescription key="font" type="system" pointSize="21"/>
                                         <variation key="device=watch38mm">
-                                            <fontDescription key="font" type="system" pointSize="13"/>
+                                            <fontDescription key="font" type="system" pointSize="16"/>
                                         </variation>
                                     </label>
                                 </items>
-                                <color key="backgroundColor" red="0.1333208978" green="0.1332592964" blue="0.13741382960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <edgeInsets key="margins" left="15" right="0.0" top="0.0" bottom="0.0"/>
                                 <variation key="device=watch38mm" height="35"/>
                             </group>
-                            <connections>
-                                <action selector="history" destination="YgX-XY-IDf" id="9zB-vJ-HNv"/>
-                            </connections>
                         </button>
-                        <button alignment="left" id="T36-6Y-9Vf" userLabel="likes">
-                            <group key="contentGroup" width="1" height="40" alignment="left" id="NHZ-vx-UMu">
+                        <button alignment="left" title="About WatchTube" id="s8G-YV-lIf" userLabel="History">
+                            <group key="contentGroup" width="1" height="40" alignment="left" id="FcI-au-w6K">
                                 <items>
-                                    <imageView alignment="left" verticalAlignment="center" image="hand.thumbsup.circle.fill" catalog="system" id="AiE-u6-4IS"/>
-                                    <label alignment="center" verticalAlignment="center" text="Liked Videos" minimumScaleFactor="0.0" id="k27-7D-Fdy">
-                                        <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <group alignment="left" verticalAlignment="center" radius="0.0" id="KI9-Ve-zpr">
+                                        <items>
+                                            <imageView width="30" height="29" alignment="left" verticalAlignment="center" image="hand.thumbsup.circle" catalog="system" contentMode="scaleAspectFit" id="l3I-kh-eCU">
+                                                <variation key="device=watch38mm" height="20" width="20"/>
+                                            </imageView>
+                                        </items>
+                                    </group>
+                                    <label width="0.80000000000000004" alignment="center" verticalAlignment="center" text="Liked Videos" minimumScaleFactor="0.0" id="0Ni-hc-mHG">
+                                        <fontDescription key="font" type="system" pointSize="21"/>
                                         <variation key="device=watch38mm">
-                                            <fontDescription key="font" type="system" pointSize="13"/>
+                                            <fontDescription key="font" type="system" pointSize="16"/>
                                         </variation>
                                     </label>
                                 </items>
-                                <color key="backgroundColor" red="0.1333208978" green="0.1332592964" blue="0.13741382960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <edgeInsets key="margins" left="15" right="0.0" top="0.0" bottom="0.0"/>
                                 <variation key="device=watch38mm" height="35"/>
                             </group>
-                            <connections>
-                                <action selector="likes" destination="YgX-XY-IDf" id="m1U-nY-gbK"/>
-                            </connections>
                         </button>
-                        <button alignment="left" hidden="YES" enabled="NO" id="mHg-es-pn2" userLabel="collections">
-                            <group key="contentGroup" width="1" height="40" alignment="left" id="LTd-Pk-iRp">
+                        <button alignment="left" title="About WatchTube" id="gLI-pp-ySJ" userLabel="History">
+                            <group key="contentGroup" width="1" height="40" alignment="left" id="y4U-jq-lJb">
                                 <items>
-                                    <imageView alignment="left" verticalAlignment="center" image="rectangle.stack" catalog="system" id="XCQ-o2-pgz"/>
-                                    <label alignment="center" verticalAlignment="center" text="Coming Soon!" id="NGd-Mb-jng">
-                                        <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                    <group alignment="left" verticalAlignment="center" radius="0.0" id="RTv-FX-R1U">
+                                        <items>
+                                            <imageView width="30" height="29" alignment="left" verticalAlignment="center" image="rectangle.stack.fill" catalog="system" contentMode="scaleAspectFit" id="5Gg-O5-8CA">
+                                                <variation key="device=watch38mm" height="20" width="20"/>
+                                            </imageView>
+                                        </items>
+                                    </group>
+                                    <label width="0.80000000000000004" alignment="center" verticalAlignment="center" text="Subscriptions" minimumScaleFactor="0.0" id="fen-Hl-58y">
+                                        <fontDescription key="font" type="system" pointSize="21"/>
                                         <variation key="device=watch38mm">
-                                            <fontDescription key="font" type="system" pointSize="13"/>
+                                            <fontDescription key="font" type="system" pointSize="16"/>
                                         </variation>
                                     </label>
                                 </items>
-                                <color key="backgroundColor" red="0.13333333333333333" green="0.1332592964" blue="0.13741382960000001" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <edgeInsets key="margins" left="15" right="0.0" top="0.0" bottom="0.0"/>
                                 <variation key="device=watch38mm" height="35"/>
                             </group>
-                            <connections>
-                                <action selector="collections" destination="YgX-XY-IDf" id="TNd-6g-5gg"/>
-                            </connections>
-                        </button>
-                        <button alignment="left" id="sED-we-qzW" userLabel="subscriptions">
-                            <group key="contentGroup" width="1" height="40" alignment="left" id="HS4-3a-Bcp">
-                                <items>
-                                    <imageView alignment="left" verticalAlignment="center" image="rectangle.stack.badge.play.fill" catalog="system" id="o3n-kb-nEL"/>
-                                    <label alignment="center" verticalAlignment="center" text="Subscriptions" minimumScaleFactor="0.0" id="Ed1-ST-9Wl">
-                                        <fontDescription key="font" style="UICTFontTextStyleBody"/>
-                                        <variation key="device=watch38mm">
-                                            <fontDescription key="font" type="system" pointSize="13"/>
-                                        </variation>
-                                    </label>
-                                </items>
-                                <color key="backgroundColor" red="0.1333208978" green="0.1332592964" blue="0.13741382960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <edgeInsets key="margins" left="15" right="0.0" top="0.0" bottom="0.0"/>
-                                <variation key="device=watch38mm" height="35"/>
-                            </group>
-                            <connections>
-                                <action selector="subscriptions" destination="YgX-XY-IDf" id="AOJ-5M-lFB"/>
-                            </connections>
                         </button>
                     </items>
-                    <connections>
-                        <segue destination="BVh-TY-jCX" kind="relationship" relationship="nextPage" id="YGs-DF-AKS"/>
-                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="-282" y="-620"/>
@@ -1026,7 +1013,7 @@ Go watch something!</string>
                         <separator alignment="left" id="uKv-u5-Icf">
                             <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </separator>
-                        <group width="1" alignment="left" layout="vertical" id="9S1-3K-8W2">
+                        <group width="1" alignment="left" layout="vertical" spacing="1" id="9S1-3K-8W2">
                             <items>
                                 <group width="1" alignment="center" id="za5-21-8eO">
                                     <items>
@@ -1442,26 +1429,24 @@ Go watch something!</string>
                                 <segue destination="252-Fw-M0F" kind="push" id="rDn-zE-fVR"/>
                             </connections>
                         </button>
-                        <button alignment="left" title="About WatchTube" id="eDy-oI-T24">
-                            <group key="contentGroup" width="1" height="40" alignment="left" id="Uej-5O-aWY">
-                                <items>
-                                    <label alignment="center" verticalAlignment="center" text="Open Guide" id="2I0-2A-woq">
-                                        <fontDescription key="font" type="system" pointSize="21"/>
-                                        <variation key="device=watch38mm">
-                                            <fontDescription key="font" type="system" pointSize="16"/>
-                                        </variation>
-                                    </label>
-                                </items>
-                                <color key="backgroundColor" name="buttons"/>
-                                <variation key="device=watch38mm" height="35"/>
-                            </group>
-                            <connections>
-                                <segue destination="yAx-Nv-pcz" kind="modal" id="efp-Eb-voa"/>
-                            </connections>
-                        </button>
                         <separator alignment="left" id="6m8-1W-2Ve">
                             <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </separator>
+                        <button alignment="left" id="K7t-mk-AQc">
+                            <group key="contentGroup" width="1" height="40" alignment="left" id="vHV-33-MF4">
+                                <items>
+                                    <label width="0.90000000000000002" alignment="left" verticalAlignment="center" text="Debug Stats" minimumScaleFactor="0.69999999999999996" id="ejx-zB-GHG"/>
+                                    <imageView alignment="right" verticalAlignment="center" image="chevron.right" catalog="system" id="5GP-Dw-Jcd">
+                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                </items>
+                                <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <edgeInsets key="margins" left="10" right="10" top="0.0" bottom="0.0"/>
+                            </group>
+                            <connections>
+                                <segue destination="4av-nl-9df" kind="push" id="aq5-Ys-y3d"/>
+                            </connections>
+                        </button>
                     </items>
                     <connections>
                         <outlet property="audioOnlyToggle" destination="5qL-2L-XaO" id="bgK-9O-RSr"/>
@@ -1528,7 +1513,22 @@ Go watch something!</string>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="253" y="-268"/>
+            <point key="canvasLocation" x="253" y="-340"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="EeD-2I-MLk">
+            <objects>
+                <controller id="4av-nl-9df">
+                    <items>
+                        <group width="1" alignment="left" id="csD-Q2-IKM">
+                            <items>
+                                <label alignment="left" text="Cache Data" id="xI1-59-tj1"/>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="253" y="-15"/>
         </scene>
         <!--Instances-->
         <scene sceneID="f9D-jc-lmn">
@@ -2013,9 +2013,9 @@ Go watch something!</string>
                     <items>
                         <group width="1" height="0.20000000000000001" heightAdjustment="-2" alignment="center" spacing="1" id="mwX-YA-dMZ" userLabel="row of thumbs">
                             <items>
-                                <imageView width="0.33333333333330001" height="1" heightAdjustment="1" alignment="left" verticalAlignment="center" image="maxresdefault" contentMode="scaleAspectFit" id="qjM-KK-6L3"/>
-                                <imageView width="0.33333333333330001" height="1" heightAdjustment="1" alignment="left" verticalAlignment="center" image="maxresdefault" contentMode="scaleAspectFit" id="YjA-PY-UCy"/>
-                                <imageView width="0.33333333333330001" height="1" heightAdjustment="1" alignment="left" verticalAlignment="center" image="maxresdefault" contentMode="scaleAspectFit" id="0NJ-ST-JD9"/>
+                                <imageView width="0.33333333333330001" height="1" heightAdjustment="1" alignment="left" verticalAlignment="center" image="maxresdefault" id="qjM-KK-6L3"/>
+                                <imageView width="0.33333333333330001" height="1" heightAdjustment="1" alignment="left" verticalAlignment="center" image="maxresdefault" id="YjA-PY-UCy"/>
+                                <imageView width="0.33333333333330001" height="1" heightAdjustment="1" alignment="left" verticalAlignment="center" image="maxresdefault" id="0NJ-ST-JD9"/>
                             </items>
                         </group>
                         <group width="1" alignment="left" layout="vertical" spacing="0.0" id="id4-mL-GbY" userLabel="details">
@@ -2300,105 +2300,6 @@ Go watch something!</string>
             </objects>
             <point key="canvasLocation" x="-490" y="-283"/>
         </scene>
-        <!--Close-->
-        <scene sceneID="dy8-Z2-59O">
-            <objects>
-                <controller identifier="FirstTimeInterfaceController" title="Close" id="yAx-Nv-pcz">
-                    <items>
-                        <label alignment="left" numberOfLines="0" id="gxa-56-6A0">
-                            <string key="text">WatchTube tries to present itself as close to the official YouTube app it can, though changes have to be made to fit it on a watch! Don't worry though, it's simple! </string>
-                        </label>
-                        <label alignment="left" text="Here's the current list of features available!" numberOfLines="0" id="B5b-Rf-uSo"/>
-                        <separator width="0.80000000000000004" alignment="center" id="Mv8-ei-1Fc">
-                            <color key="color" red="0.1333208978" green="0.1332592964" blue="0.13741382960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </separator>
-                        <label alignment="left" text="• Home screen of top videos" numberOfLines="0" id="eUz-9I-cy0">
-                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                        </label>
-                        <label alignment="left" text="• Streams videos" numberOfLines="0" id="BZ9-r3-ajT">
-                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                        </label>
-                        <label alignment="left" text="• Subscriptions, likes and more" numberOfLines="0" id="Mco-TL-hOX">
-                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                        </label>
-                        <label alignment="left" text="• Completely standalone" numberOfLines="0" id="8o5-80-jnU">
-                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                        </label>
-                        <label alignment="left" text="• Captions support" numberOfLines="0" id="6bj-lG-wZc">
-                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                        </label>
-                        <label alignment="left" text="• Audio only mode with background play" numberOfLines="0" id="AzH-po-fAZ">
-                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                        </label>
-                        <label alignment="left" text="• Shows channels and playlists in addition to videos" numberOfLines="0" id="IZv-rZ-Ys4">
-                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                        </label>
-                        <label alignment="left" text="• Fast bug fixes from us!" numberOfLines="0" id="wcd-GZ-0iU">
-                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                        </label>
-                        <separator width="0.80000000000000004" alignment="center" id="1uD-p0-IzB">
-                            <color key="color" red="0.1333208978" green="0.1332592964" blue="0.13741382960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </separator>
-                        <label alignment="left" numberOfLines="0" id="uoS-A2-3y0">
-                            <string key="text">And thats pretty much all you need to know! You can either continue reading on or find your way around the app! The rest of this guide will show you all the features in detail if you can't find something. We suggest joining our discord server to help make the app better!</string>
-                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
-                        </label>
-                        <imageView alignment="left" image="trendingfeed" contentMode="scaleAspectFit" id="rcI-CR-3OB"/>
-                        <label alignment="left" numberOfLines="0" id="2Xd-Dt-6Qf">
-                            <string key="text">WatchTube shows whatever is trending currently on YouTube! You can tap on any of these videos to watch them! WatchTube uses a page-based system, you can swipe to different pages such as search and settings.</string>
-                        </label>
-                        <imageView alignment="left" image="searchrecents" contentMode="scaleAspectFit" id="i67-Z0-iQy"/>
-                        <label alignment="left" numberOfLines="0" id="FR1-OW-s0B">
-                            <string key="text">Search will store your recent searches for use later. You can type a query in and WatchTube will show you suggestions from YouTube!</string>
-                        </label>
-                        <imageView alignment="left" image="searchresults" id="h0f-ph-LDK"/>
-                        <label alignment="left" numberOfLines="0" id="1vP-az-SEC">
-                            <string key="text">Search results are also similar to YouTube, you can see videos, playlists and channels. Channels and playlists can be browsed and you can play a video inside them.</string>
-                        </label>
-                        <imageView alignment="left" image="nowplaying" id="fiX-W3-5dR"/>
-                        <label alignment="left" numberOfLines="0" id="wS8-UC-Ij8">
-                            <string key="text">Once you've tapped on a video to play, you can get watching! Just wait for it to load some data from YouTube to stream your video. From here, you can tap the play button in the center of your screen to play. You can access video information from the info button in the bottom right or tap the channel name in the bottom left to go to that channel.</string>
-                        </label>
-                        <imageView alignment="left" image="infoscreencaptions" id="zXl-fF-AYc"/>
-                        <label alignment="left" numberOfLines="0" id="ieq-lS-eKX">
-                            <string key="text">You can scroll down the Information screen to find the captions, the language you set here will be your preferred language across all videos.</string>
-                        </label>
-                        <imageView alignment="left" image="channelview" id="D4H-Sn-yAq"/>
-                        <label alignment="left" numberOfLines="0" id="AfP-Iw-ykC">
-                            <string key="text">When you open a channel, you can see a list of recent videos from the channel. The UI here was designed to follow the YouTube aesthetic! You can change the amount of videos you see here in settings. You can scroll all the way down to find details about the channel and related channels. You can tap on the profile image of a channel to enlarge it.</string>
-                        </label>
-                        <imageView alignment="left" image="playlistview" id="Ob6-Ix-MEf"/>
-                        <label alignment="left" numberOfLines="0" id="u0Y-Um-2my">
-                            <string key="text">When you open a playlist, you'll be able to see a list of all the videos in it in a paged view. You can find the page controls at the bottom of the first page, and at the top of every subsequent page. You can tap the channel on the first page to be taken to that channel.</string>
-                        </label>
-                        <imageView alignment="left" image="settingspage" id="HHH-5s-Usr"/>
-                        <label alignment="left" numberOfLines="0" id="blg-qs-jad">
-                            <mutableString key="text">The settings page is the last page in the home menu. You can change many aspects of the app and how it behaves. You can change the quality of the media WatchTube loads depending on your network conditions. You can play a video's audio only to save data and have the ability to leave WatchTube and have music play in the background. You can change your invidious instance if needed. You can disable thumbnails to save data (it's recommended that you disable thumbnails on Series 3). You can change the quantity of items and results WatchTube should load (keep these settings at default or below on Series 3). You can change what kind of content shows in your trending feed.</mutableString>
-                        </label>
-                        <separator alignment="left" id="Mmt-rw-Wso">
-                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </separator>
-                        <separator alignment="left" id="mcP-lS-yFg">
-                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </separator>
-                        <separator alignment="left" id="kTR-BX-G0n">
-                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </separator>
-                        <label alignment="left" numberOfLines="0" id="wDv-TB-EpR">
-                            <string key="text">Thank you for taking the time to read this! We hope it helps you out and you love our app! Go to About in the settings page to join our discord server!</string>
-                        </label>
-                        <separator alignment="left" id="iq2-hO-bwP">
-                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </separator>
-                        <separator alignment="left" id="DGM-8K-pRL">
-                            <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </separator>
-                        <label alignment="left" text="By the way, there's a few easter eggs in WatchTube. Have fun finding them!" numberOfLines="0" id="bBG-g0-egY"/>
-                    </items>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="1050" y="348"/>
-        </scene>
         <!--Done-->
         <scene sceneID="oAe-4v-6TH">
             <objects>
@@ -2432,7 +2333,6 @@ Go watch something!</string>
         <image name="arrowshape.turn.up.left" catalog="system" width="128" height="105"/>
         <image name="captions.bubble" catalog="system" width="128" height="110"/>
         <image name="channelbanner" width="2176" height="360"/>
-        <image name="channelview" width="396" height="484"/>
         <image name="checkmark" catalog="system" width="128" height="110"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="clock.arrow.circlepath" catalog="system" width="128" height="112"/>
@@ -2443,26 +2343,19 @@ Go watch something!</string>
         <image name="github" width="556" height="556"/>
         <image name="gradient" width="259" height="58"/>
         <image name="hand.thumbsup" catalog="system" width="128" height="128"/>
+        <image name="hand.thumbsup.circle" catalog="system" width="128" height="121"/>
         <image name="hand.thumbsup.circle.fill" catalog="system" width="128" height="121"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
-        <image name="infoscreencaptions" width="396" height="484"/>
         <image name="loading" width="128" height="128"/>
         <image name="loading0" width="164" height="181"/>
         <image name="maxresdefault" width="1280" height="720"/>
         <image name="message" catalog="system" width="128" height="112"/>
-        <image name="nowplaying" width="396" height="484"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <image name="pfp" width="512" height="512"/>
         <image name="play.circle" catalog="system" width="128" height="121"/>
-        <image name="playlistview" width="396" height="484"/>
         <image name="qrcode" catalog="system" width="128" height="114"/>
-        <image name="rectangle.stack" catalog="system" width="128" height="121"/>
-        <image name="rectangle.stack.badge.play.fill" catalog="system" width="128" height="116"/>
-        <image name="searchrecents" width="396" height="484"/>
-        <image name="searchresults" width="396" height="484"/>
-        <image name="settingspage" width="396" height="484"/>
-        <image name="trendingfeed" width="396" height="484"/>
+        <image name="rectangle.stack.fill" catalog="system" width="128" height="121"/>
         <image name="twitter" width="556" height="556"/>
         <image name="watchtube" width="556" height="556"/>
         <namedColor name="AccentColor">

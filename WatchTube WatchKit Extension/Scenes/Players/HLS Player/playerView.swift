@@ -30,6 +30,7 @@ class ViewModel: ObservableObject {
     var subtitleText = Subtitle(text: "WatchTube", beginning: 0, end: 10)
     
     init() {
+        
         if subtitlesEnabled == false {
             return
         }
@@ -127,11 +128,9 @@ struct playerView: View {
     
     var body: some View {
         ZStack {
-            VideoPlayer(player: viewModel.player)
-                .onAppear { viewModel.player.play() }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .cornerRadius(0)
-                .overlay(alignment: .bottom, content: {
+            VideoPlayer(player: viewModel.player, videoOverlay: {
+                VStack {
+                    Spacer()
                     if (viewModel.subtitlesEnabled == true) {
                         if (viewModel.subtitleText.end <= viewModel.player.currentTime().seconds) {
                             // the text wont display, the subtitle isnt declared. do whatever here
@@ -144,9 +143,14 @@ struct playerView: View {
                                 .background(Color(.displayP3, red: 0, green: 0, blue: 0, opacity: 0.5))
                                 .cornerRadius(5)
                                 .allowsHitTesting(false)
+                                .frame(alignment: .bottom)
                         }
                     }
-                })
+                }
+            })
+                .onAppear { viewModel.player.play() }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .cornerRadius(0)
                 .onAppear {
                     viewModel.player.play()
                 }

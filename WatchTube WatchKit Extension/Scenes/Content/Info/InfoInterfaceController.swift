@@ -12,14 +12,11 @@ import Alamofire
 class InfoInterfaceController: WKInterfaceController {
     
     var isLiked: Bool = false
-    
+
     @IBOutlet weak var viewsIcon: WKInterfaceImage!
     @IBOutlet weak var likesIcon: WKInterfaceImage!
     @IBOutlet weak var authorIcon: WKInterfaceImage!
     @IBOutlet weak var uploadIcon: WKInterfaceImage!
-    
-    @IBOutlet weak var subsLabel: WKInterfaceLabel!
-    @IBOutlet weak var subtitlePicker: WKInterfacePicker!
     
     @IBOutlet weak var titleLabel: WKInterfaceLabel!
     @IBOutlet weak var viewsLabel: WKInterfaceLabel!

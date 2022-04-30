@@ -240,7 +240,15 @@ class Video {
                 videos.append(video)
             }
             let final = videos.prefix(UserDefaults.standard.integer(forKey: settingsKeys.itemsCount))
-            completion(Array(final))
+            if final.count == 0 {
+                UserDefaults.standard.set("default", forKey: settingsKeys.homePageVideoType)
+                self.getTrending { data in
+                    completion(data)
+                }
+                UserDefaults.standard.set("curated", forKey: settingsKeys.homePageVideoType)
+            } else {
+                completion(Array(final))
+            }
         }
     }
 }
