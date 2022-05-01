@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="20037" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ywf-Lb-AX0">
+    <device id="watch45"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="20006"/>
+    </dependencies>
+    <scenes>
+        <!--Home-->
+        <scene sceneID="V5o-2m-Hgm">
+            <objects>
+                <hostingController id="ywf-Lb-AX0" customClass="Home" customModule="WatchTube_WatchKit_Extension">
+                    <connections>
+                        <segue destination="Amt-nD-pi9" kind="relationship" relationship="nextPage" id="rFN-yZ-aZT"/>
+                    </connections>
+                </hostingController>
+            </objects>
+            <point key="canvasLocation" x="-5" y="-32"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="fP1-88-97S">
+            <objects>
+                <hostingController id="Amt-nD-pi9" customClass="Search" customModule="WatchTube_WatchKit_Extension">
+                    <connections>
+                        <segue destination="xvx-84-TTU" kind="relationship" relationship="nextPage" id="GBk-kn-14u"/>
+                    </connections>
+                </hostingController>
+            </objects>
+            <point key="canvasLocation" x="214" y="-32"/>
+        </scene>
+        <!--Library-->
+        <scene sceneID="ZBH-bS-xjd">
+            <objects>
+                <hostingController id="xvx-84-TTU" customClass="Library" customModule="WatchTube_WatchKit_Extension">
+                    <connections>
+                        <segue destination="bct-Jt-7rW" kind="relationship" relationship="nextPage" id="ETV-9h-0FA"/>
+                    </connections>
+                </hostingController>
+            </objects>
+            <point key="canvasLocation" x="431" y="-32"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="HAR-Q7-Dbd">
+            <objects>
+                <hostingController id="bct-Jt-7rW" customClass="Settings" customModule="WatchTube_WatchKit_Extension"/>
+            </objects>
+            <point key="canvasLocation" x="646" y="-32"/>
+        </scene>
+    </scenes>
+</document>
