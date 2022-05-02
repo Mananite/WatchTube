@@ -206,7 +206,9 @@ struct CommentsView: View {
                             videoComments = data!
                         }
                     }
-                    CommentsArray = videoComments.comments
+                    if videoComments != nil {
+                        CommentsArray = videoComments.comments
+                    }
                 }
         }
     }
