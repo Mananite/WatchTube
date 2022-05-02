@@ -81,7 +81,6 @@ struct OptionsView: View {
                 }
             }
         }
-        .navigationTitle("Close")
     }
 }
 
