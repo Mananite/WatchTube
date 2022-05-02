@@ -34,5 +34,6 @@ struct QrCodeView: View {
                     }
                 }
         }
+        .navigationTitle("QR Code")
     }
 }

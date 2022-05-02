@@ -49,5 +49,6 @@ struct InformationView: View {
                     .font(.caption2)
             }
         }
+        .navigationTitle("Information")
     }
 }

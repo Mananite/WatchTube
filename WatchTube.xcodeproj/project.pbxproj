@@ -35,7 +35,6 @@
 		AAA58C11281F294E00F9E4CD /* OptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA58C0D281F294E00F9E4CD /* OptionsView.swift */; };
 		AAA58C12281F294E00F9E4CD /* InfomationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA58C0E281F294E00F9E4CD /* InfomationView.swift */; };
 		AAA58C13281F294E00F9E4CD /* CaptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA58C0F281F294E00F9E4CD /* CaptionsView.swift */; };
-		AAA58C17281F296F00F9E4CD /* SubCommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA58C15281F296F00F9E4CD /* SubCommentsView.swift */; };
 		AAA58C18281F296F00F9E4CD /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA58C16281F296F00F9E4CD /* CommentsView.swift */; };
 		AAA58C20281F2A8B00F9E4CD /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AAA58C1F281F2A8B00F9E4CD /* SDWebImageSwiftUI */; };
 		AAA58C22281F2A9100F9E4CD /* Invidious-Swift in Frameworks */ = {isa = PBXBuildFile; productRef = AAA58C21281F2A9100F9E4CD /* Invidious-Swift */; };
@@ -117,7 +116,6 @@
 		AAA58C0D281F294E00F9E4CD /* OptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsView.swift; sourceTree = "<group>"; };
 		AAA58C0E281F294E00F9E4CD /* InfomationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfomationView.swift; sourceTree = "<group>"; };
 		AAA58C0F281F294E00F9E4CD /* CaptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptionsView.swift; sourceTree = "<group>"; };
-		AAA58C15281F296F00F9E4CD /* SubCommentsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubCommentsView.swift; sourceTree = "<group>"; };
 		AAA58C16281F296F00F9E4CD /* CommentsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		AAF0F22F27C2FFF900BE51C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D72C93CF257D97740056D0BA /* WatchTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,14 +223,14 @@
 			path = "Content Views";
 			sourceTree = "<group>";
 		};
-		AAA58BF4281F15E500F9E4CD /* HostingViews */ = {
+		AAA58BF4281F15E500F9E4CD /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				AAA58C06281F166100F9E4CD /* Player */,
 				AAA58BF8281F160500F9E4CD /* Home */,
 				AAA58BF5281F15F900F9E4CD /* Content */,
 			);
-			path = HostingViews;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		AAA58BF5281F15F900F9E4CD /* Content */ = {
@@ -276,22 +274,13 @@
 		AAA58C07281F166800F9E4CD /* SupportViews */ = {
 			isa = PBXGroup;
 			children = (
-				AAA58C14281F296000F9E4CD /* Comments */,
-				AAA58C0F281F294E00F9E4CD /* CaptionsView.swift */,
-				AAA58C0E281F294E00F9E4CD /* InfomationView.swift */,
 				AAA58C0D281F294E00F9E4CD /* OptionsView.swift */,
+				AAA58C0E281F294E00F9E4CD /* InfomationView.swift */,
+				AAA58C0F281F294E00F9E4CD /* CaptionsView.swift */,
+				AAA58C16281F296F00F9E4CD /* CommentsView.swift */,
 				AAA58C0C281F294E00F9E4CD /* QrCodeView.swift */,
 			);
 			path = SupportViews;
-			sourceTree = "<group>";
-		};
-		AAA58C14281F296000F9E4CD /* Comments */ = {
-			isa = PBXGroup;
-			children = (
-				AAA58C16281F296F00F9E4CD /* CommentsView.swift */,
-				AAA58C15281F296F00F9E4CD /* SubCommentsView.swift */,
-			);
-			path = Comments;
 			sourceTree = "<group>";
 		};
 		AAF0F25327C3006F00BE51C5 /* Frameworks */ = {
@@ -334,7 +323,7 @@
 		D72C93E6257D97770056D0BA /* WatchTube WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				AAA58BF4281F15E500F9E4CD /* HostingViews */,
+				AAA58BF4281F15E500F9E4CD /* Views */,
 				AAA58BDF281F156A00F9E4CD /* Utilities */,
 				AAA58BD6281F155700F9E4CD /* Root Controllers */,
 				89826E7E2778B10600896853 /* Complications */,
@@ -505,7 +494,6 @@
 				AAA58BE7281F15A900F9E4CD /* Misc.swift in Sources */,
 				AAA58BF3281F15D900F9E4CD /* Channel.swift in Sources */,
 				AAA58C0A281F167200F9E4CD /* PlayerView.swift in Sources */,
-				AAA58C17281F296F00F9E4CD /* SubCommentsView.swift in Sources */,
 				AAA58BFE281F160E00F9E4CD /* LibraryView.swift in Sources */,
 				AAA58C10281F294E00F9E4CD /* QrCodeView.swift in Sources */,
 				AAA58C05281F161E00F9E4CD /* SearchView.swift in Sources */,
