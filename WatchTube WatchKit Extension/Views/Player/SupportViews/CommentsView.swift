@@ -12,8 +12,9 @@ struct CommentsView: View {
 
     var video: InvVideo // you need the video id for api calls
     var sourceComment: InvComment! = nil
+    @State private var CommentsArray: [InvComment]! = nil
     @State private var videoComments: InvComments! = nil // we make it optional and make it nil so we know it didnt load
-    
+    @State private var stopRequests = false
     var body: some View {
         if videoComments != nil { // data exists, show it
             ScrollView {
@@ -69,8 +70,8 @@ struct CommentsView: View {
                         }
                         Divider()
                     }
-                    ForEach(0..<videoComments.comments.count, id: \.self) { i in  // only count data you have
-                        let comment = videoComments.comments[i] // save yourself from excessive typing bro
+                    ForEach(0..<CommentsArray.count, id: \.self) { i in  // only count data you have
+                        let comment = CommentsArray[i] // save yourself from excessive typing bro
                         if sourceComment != nil {
                             // is a reply branch
                             Button {
@@ -170,6 +171,22 @@ struct CommentsView: View {
                             }
                         }
                     }
+                    if !stopRequests {
+                        ProgressView()
+                            .task {
+                                let data = await inv.comments(id: video.videoID, continuation: videoComments.continuation)
+                                if data != nil {
+                                    videoComments = data
+                                    CommentsArray.append(contentsOf: videoComments.comments)
+                                } else {
+                                    stopRequests = true
+                                }
+                            }
+                    } else {
+                        Text("You're all wrapped up!")
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
+                    }
                 }
             }
             .navigationTitle("Comment\(sourceComment == nil ? "s" : "")")
@@ -189,6 +206,7 @@ struct CommentsView: View {
                             videoComments = data!
                         }
                     }
+                    CommentsArray = videoComments.comments
                 }
         }
     }
