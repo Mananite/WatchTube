@@ -24,7 +24,7 @@ struct CaptionsView: View {
                         Button {
                             Task {
                                 selected = ""
-                                UserDefaults.standard.string(forKey: settingsKeys.preferredCaptionsLanguage)
+                                UserDefaults.standard.set(selected, forKey: settingsKeys.preferredCaptionsLanguage)
                             }
                         } label: {
                             HStack {
