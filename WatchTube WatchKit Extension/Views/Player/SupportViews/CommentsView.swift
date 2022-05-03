@@ -12,7 +12,7 @@ struct CommentsView: View {
 
     var video: InvVideo // you need the video id for api calls
     var sourceComment: InvComment! = nil
-    @State private var CommentsArray: [InvComment]! = nil
+    @State private var CommentsArray: [InvComment]! = []
     @State private var videoComments: InvComments! = nil // we make it optional and make it nil so we know it didnt load
     @State private var stopRequests = false
     var body: some View {
@@ -71,9 +71,9 @@ struct CommentsView: View {
                         Divider()
                     }
                         ForEach(0..<CommentsArray.count, id: \.self) { i in  // only count data you have
-                        let comment = CommentsArray[i] // save yourself from excessive typing bro
-                        if sourceComment != nil {
-                            // is a reply branch
+                            let comment = CommentsArray[i] // save yourself from excessive typing bro
+                            if (comment.replies?.replyCount ?? 0) == 0 {
+                            // is a reply branch or has no replies
                             Button {
                                 // Nothing needed...
                             } label: {
@@ -89,7 +89,6 @@ struct CommentsView: View {
                                     }
                                     HStack {
                                         Text(comment.content)
-                                            .lineLimit(5)
                                             .multilineTextAlignment(.leading)
                                             .font(.caption2)
                                         Spacer()
@@ -139,7 +138,6 @@ struct CommentsView: View {
                                     }
                                     HStack {
                                         Text(comment.content)
-                                            .lineLimit(5)
                                             .multilineTextAlignment(.leading)
                                             .font(.caption2)
                                         Spacer()
@@ -174,7 +172,9 @@ struct CommentsView: View {
                     if !stopRequests {
                         ProgressView()
                             .task {
-                                if videoComments.continuation != nil {
+                                if videoComments.continuation == nil {
+                                    stopRequests = true
+                                } else {
                                     let data = await inv.comments(id: video.videoID, continuation: videoComments.continuation)
                                     if data != nil {
                                         videoComments = data
@@ -198,12 +198,6 @@ struct CommentsView: View {
                 .task {
                     // we'll load the data from here
                     if sourceComment != nil {
-                        if sourceComment.replies?.replyCount == 0 {
-                            CommentsArray = []
-                            return
-                        }
-                    }
-                    if sourceComment != nil {
                         let data = await inv.comments(id: video.videoID, continuation: sourceComment.replies?.continuation)
                         if data != nil {
                             videoComments = data!
@@ -214,11 +208,7 @@ struct CommentsView: View {
                             videoComments = data!
                         }
                     }
-                    if videoComments != nil {
-                        CommentsArray = videoComments.comments
-                    } else {
-                        stopRequests = true
-                    }
+                    CommentsArray = videoComments.comments
                 }
         }
     }
