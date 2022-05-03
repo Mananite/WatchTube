@@ -32,6 +32,8 @@ class av: ObservableObject {
         
         timeObserverToken = player.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [self] time in
             let seconds: Double = CMTimeGetSeconds(time)
+            let totalTime: Double = CMTimeGetSeconds((player.currentItem?.asset.duration)!)
+            let currentRemaining = totalTime - seconds
             
             objectWillChange.send()
             if ((player.rate != 0) && (player.error == nil)) {
@@ -39,9 +41,10 @@ class av: ObservableObject {
             } else {
                 isPaused = true
             }
+            if currentRemaining <= 0.6 {
+                isPaused = true
+            }
             if player.currentItem?.asset.duration != nil {
-                let totalTime: Double = CMTimeGetSeconds((player.currentItem?.asset.duration)!)
-                let currentRemaining = totalTime - seconds
                 let minutes = Int((currentRemaining.truncatingRemainder(dividingBy: 3600)) / 60)
                 let seconds = Int(currentRemaining.truncatingRemainder(dividingBy: 60))
                 timeText = "-\(minutes):\(seconds <= 9 && seconds >= 0 ? "0\(seconds)" : "\(seconds)")"

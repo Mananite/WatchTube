@@ -174,12 +174,14 @@ struct CommentsView: View {
                     if !stopRequests {
                         ProgressView()
                             .task {
-                                let data = await inv.comments(id: video.videoID, continuation: videoComments.continuation)
-                                if data != nil {
-                                    videoComments = data
-                                    CommentsArray.append(contentsOf: videoComments.comments)
-                                } else {
-                                    stopRequests = true
+                                if videoComments.continuation != nil {
+                                    let data = await inv.comments(id: video.videoID, continuation: videoComments.continuation)
+                                    if data != nil {
+                                        videoComments = data
+                                        CommentsArray.append(contentsOf: videoComments.comments)
+                                    } else {
+                                        stopRequests = true
+                                    }
                                 }
                             }
                     } else {
