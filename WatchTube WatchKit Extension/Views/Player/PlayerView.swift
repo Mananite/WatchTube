@@ -30,12 +30,6 @@ class av: ObservableObject {
         // the thing that periodically checks what subtitle should be displayed and changes subtitletext as needed
         let interval = CMTime(seconds: 0.2, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         
-        NotificationCenter.default
-            .addObserver(self,
-            selector: #selector(playerDidFinishPlaying),
-            name: .AVPlayerItemDidPlayToEndTime,
-            object: player.currentItem
-        )
         timeObserverToken = player.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [self] time in
             let seconds: Double = CMTimeGetSeconds(time)
             
@@ -50,7 +44,7 @@ class av: ObservableObject {
                 let currentRemaining = totalTime - seconds
                 let minutes = Int((currentRemaining.truncatingRemainder(dividingBy: 3600)) / 60)
                 let seconds = Int(currentRemaining.truncatingRemainder(dividingBy: 60))
-                timeText = "-\(minutes):\(seconds)"
+                timeText = "-\(minutes):\(seconds <= 9 && seconds >= 0 ? "0\(seconds)" : "\(seconds)")"
             }
             objectWillChange.send()
             if subtitlesEnabled == true {
@@ -64,9 +58,6 @@ class av: ObservableObject {
                 }
             }
         }
-    }
-    @objc func playerDidFinishPlaying(note: NSNotification) {
-        isPaused = true
     }
 }
 

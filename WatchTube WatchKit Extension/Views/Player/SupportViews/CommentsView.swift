@@ -16,7 +16,7 @@ struct CommentsView: View {
     @State private var videoComments: InvComments! = nil // we make it optional and make it nil so we know it didnt load
     @State private var stopRequests = false
     var body: some View {
-        if videoComments != nil { // data exists, show it
+        if videoComments != nil || stopRequests { // data exists, show it
             ScrollView {
                 // List(0..<videoComments.commentCount, id: \.self) { i in
                 // i removed this line because this count shows you all the comments in the entire video, this is not programmatically usable
@@ -70,7 +70,7 @@ struct CommentsView: View {
                         }
                         Divider()
                     }
-                    ForEach(0..<CommentsArray.count, id: \.self) { i in  // only count data you have
+                        ForEach(0..<CommentsArray.count, id: \.self) { i in  // only count data you have
                         let comment = CommentsArray[i] // save yourself from excessive typing bro
                         if sourceComment != nil {
                             // is a reply branch
@@ -196,6 +196,12 @@ struct CommentsView: View {
                 .task {
                     // we'll load the data from here
                     if sourceComment != nil {
+                        if sourceComment.replies?.replyCount == 0 {
+                            CommentsArray = []
+                            return
+                        }
+                    }
+                    if sourceComment != nil {
                         let data = await inv.comments(id: video.videoID, continuation: sourceComment.replies?.continuation)
                         if data != nil {
                             videoComments = data!
@@ -208,6 +214,8 @@ struct CommentsView: View {
                     }
                     if videoComments != nil {
                         CommentsArray = videoComments.comments
+                    } else {
+                        stopRequests = true
                     }
                 }
         }
