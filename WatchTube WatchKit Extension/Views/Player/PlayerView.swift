@@ -83,7 +83,7 @@ struct PlayerView: View {
                             // the text wont display, the subtitle isnt declared to be seen here. do whatever
                         } else {
                             Text(vm.subtitleText.text)
-                                .font(.system(size: 14))
+                                .font(.system(size: UserDefaults.standard.double(forKey: settingsKeys.captionsFontSize)))
                                 .lineLimit(5)
                                 .multilineTextAlignment(.center)
                                 .background(Color(.displayP3, red: 0, green: 0, blue: 0, opacity: 0.5))
@@ -112,54 +112,6 @@ struct PlayerView: View {
                         vm.main()
                     }
                 }
-//                .overlay(content: {
-//                    VStack {
-//                        HStack {
-//                            if vm.isPaused == true {
-//                                Button {
-//                                    playerIsShowing = false
-//                                } label: {
-//                                    Text("Close")
-//                                        .foregroundColor(.white)
-//                                        .background(
-//                                            RoundedRectangle(cornerRadius: 4)
-//                                                .foregroundColor(.gray)
-//                                                .brightness(-0.5)
-//                                        )
-//                                }
-//                                .padding(.top, 8)
-//                                .padding(.leading, 10)
-//                                .buttonStyle(.plain)
-//                            }
-//                            Spacer()
-//                        }
-//                        Spacer()
-//                    }
-//                    .ignoresSafeArea()
-//                })
-//                .overlay(content: {
-//                    VStack {
-//                        HStack {
-//                            Spacer()
-//                            if vm.isPaused == true {
-//                                Button {
-//                                } label: {
-//                                    Text(vm.timeText)
-//                                        .foregroundColor(.white)
-//                                        .background(
-//                                            RoundedRectangle(cornerRadius: 4)
-//                                                .foregroundColor(.gray)
-//                                                .brightness(-0.5)
-//                                        )
-//                                }
-//                                .padding(.top, 8)
-//                                .padding(.trailing, 2)
-//                                .buttonStyle(.plain)
-//                            }
-//                        }
-//                        Spacer()
-//                    }
-//                })
         }
     }
 }

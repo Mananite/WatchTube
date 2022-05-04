@@ -11,29 +11,50 @@ import Invidious_Swift
 struct SettingsView: View {
     
     @State private var currentInstance: String = URL(string: UserDefaults.standard.string(forKey: "InvidiousInstanceURL") ?? "https://invidious.osi.kr")!.host!
-    
+    @State private var captionsFontSize: Double = UserDefaults.standard.double(forKey: settingsKeys.captionsFontSize)
     var body: some View {
         NavigationView {
             ScrollView {
-                HStack {
-                    Text("Instance")
-                        .font(.footnote)
-                        .foregroundColor(.secondary)
-                    Spacer()
-                }
-                NavigationLink(destination: {
-                    InstancesView()
-                }, label: {
+                Group {
                     HStack {
-                        Text(currentInstance)
-                        Spacer()
-                        Text(Image(systemName: "chevron.right"))
+                        Text("Instance")
+                            .font(.footnote)
                             .foregroundColor(.secondary)
+                        Spacer()
                     }
-                })
-                .onAppear {
-                    currentInstance = (URL(string: UserDefaults.standard.string(forKey: "InvidiousInstanceURL") ?? "https://invidious.osi.kr")?.host)!
-                }
+                    NavigationLink(destination: {
+                        InstancesView()
+                    }, label: {
+                        HStack {
+                            Text(currentInstance)
+                            Spacer()
+                            Text(Image(systemName: "chevron.right"))
+                                .foregroundColor(.secondary)
+                        }
+                    })
+                    .onAppear {
+                        currentInstance = (URL(string: UserDefaults.standard.string(forKey: "InvidiousInstanceURL") ?? "https://invidious.osi.kr")?.host)!
+                    }
+                } // Instance Settings
+                Group {
+                    HStack {
+                        Text("Captions Font Size")
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
+                        Spacer()
+                    }
+                    Slider(value: $captionsFontSize, in: 9...18) {
+                        Text("idk how this looks")
+                    }
+                    Text("This is a sample caption!")
+                        .font(.system(size: CGFloat(captionsFontSize)))
+                        .animation(.easeInOut)
+                        .lineLimit(5)
+                        .multilineTextAlignment(.center)
+                        .background(Color(.displayP3, red: 0, green: 0, blue: 0, opacity: 0.5))
+                        .cornerRadius(5)
+                        .allowsHitTesting(false)
+                } // Captions Font Size
             }
             .navigationTitle("Settings")
         }
@@ -105,5 +126,11 @@ fileprivate struct InstancesView: View {
                     }
                 }
         }
+    }
+} // Instances subview
+
+struct SettingsViewPreview: PreviewProvider {
+    static var previews: some View {
+        SettingsView()
     }
 }

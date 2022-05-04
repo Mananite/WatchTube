@@ -13,4 +13,5 @@ struct Constants {
 struct settingsKeys {
     static let instanceUrl = "settingsKeys.instanceUrl"
     static let preferredCaptionsLanguage = "settingsKeys.preferredCaptionsLanguage"
+    static let captionsFontSize = "settingsKeys.captionsFontSize"
 }
