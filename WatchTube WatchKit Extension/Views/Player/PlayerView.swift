@@ -20,7 +20,7 @@ class av: ObservableObject {
     var isPaused = true
     var timeText = "-0:00"
     
-    func main(video: InvVideo, subs: CaptionSet! = nil) {
+    func main(subs: CaptionSet! = nil) {
         if subs != nil {self.subs = subs!}
         if UserDefaults.standard.string(forKey: settingsKeys.preferredCaptionsLanguage) ?? "" == "" {subtitlesEnabled = false} else {subtitlesEnabled = true}
         objectWillChange.send()
@@ -100,15 +100,16 @@ struct PlayerView: View {
                     vm.player = AVPlayer()
                 }
                 .task {
+                    history.addToHistory(id: video.videoID)
                     if UserDefaults.standard.string(forKey: settingsKeys.preferredCaptionsLanguage) ?? "" != "" {
                         let subs = await video.captions.filter {$0.label == UserDefaults.standard.string(forKey: settingsKeys.preferredCaptionsLanguage) ?? ""}.first?.createCaptions()
                         if subs != nil {
-                            vm.main(video: video, subs: subs!)
+                            vm.main(subs: subs!)
                         } else {
-                            vm.main(video: video)
+                            vm.main()
                         }
                     } else {
-                        vm.main(video: video)
+                        vm.main()
                     }
                 }
 //                .overlay(content: {
