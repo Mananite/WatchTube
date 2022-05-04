@@ -12,6 +12,7 @@ struct CommentsView: View {
 
     var video: InvVideo // you need the video id for api calls
     var sourceComment: InvComment! = nil
+    @State private var isDoneLoading = false
     @State private var CommentsArray: [InvComment]! = []
     @State private var videoComments: InvComments! = nil // we make it optional and make it nil so we know it didnt load
     @State private var stopRequests = false
@@ -208,7 +209,8 @@ struct CommentsView: View {
                             videoComments = data!
                         }
                     }
-                    CommentsArray = videoComments.comments
+                    CommentsArray = videoComments != nil ? videoComments.comments : []
+                    stopRequests = true
                 }
         }
     }
