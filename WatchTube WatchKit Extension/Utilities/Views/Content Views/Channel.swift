@@ -42,6 +42,10 @@ struct Channel: View {
                 }
             }
         }
-
+        .task {
+            if metadata.getChannelData(udid, key: .author) == nil {
+                await metadata.cacheChannelData(udid)
+            }
+        }
     }
 }

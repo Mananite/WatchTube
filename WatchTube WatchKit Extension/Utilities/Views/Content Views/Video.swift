@@ -50,13 +50,11 @@ struct Video: View {
             }
             .frame(width: WKInterfaceDevice.current().screenBounds.width - 25)
             .buttonStyle(.plain)
-//            .background{
-//                WebImage(url: URL(string: url))
-//                    .resizable()
-//                    .scaledToFill()
-//                    .brightness(-0.3)
-//                    .blur(radius: 20)
-//            }
+        }
+        .task {
+            if metadata.getVideoData(id, key: .title) == nil {
+                await metadata.cacheVideoData(id)
+            }
         }
     }
 }

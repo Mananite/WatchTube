@@ -34,6 +34,10 @@ struct NarrowChannel: View {
             }
             .frame(width: 100)
         }
-
+        .task {
+            if metadata.getChannelData(udid, key: .author) == nil {
+                await metadata.cacheChannelData(udid)
+            }
+        }
     }
 }

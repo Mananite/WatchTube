@@ -79,14 +79,14 @@ struct ChannelView: View {
                             }
                         } label: {
                             Text(isSubscribed ? "Subscribed" : "Subscribe")
+                                .animation(.easeInOut(duration: 0.2))
                                 .font(.footnote)
-                                .padding(2)
+                                .padding(3)
                                 .background {
-                                    withAnimation(.easeInOut(duration: 0.5)) {
-                                        RoundedRectangle(cornerRadius: 7)
-                                            .foregroundColor(isSubscribed ? .gray : .red)
-                                            .brightness(isSubscribed ? -0.5 : 0)
-                                    }
+                                    RoundedRectangle(cornerRadius: 7)
+                                        .foregroundColor(isSubscribed ? .gray : .red)
+                                        .brightness(isSubscribed ? -0.5 : 0)
+                                        .animation(.easeInOut(duration: 0.2))
                                 }
                         }
                         .buttonStyle(.plain)

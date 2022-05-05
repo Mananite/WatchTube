@@ -11,7 +11,8 @@ import Invidious_Swift
 struct SettingsView: View {
     
     @State private var currentInstance: String = URL(string: UserDefaults.standard.string(forKey: "InvidiousInstanceURL") ?? "https://invidious.osi.kr")!.host!
-    @State private var captionsFontSize: Double = UserDefaults.standard.double(forKey: settingsKeys.captionsFontSize)
+    @State private var currentType: String = UserDefaults.standard.string(forKey: settingsKeys.trendingType) ?? "default"
+    @AppStorage(settingsKeys.captionsFontSize) var captionsFontSize: Double = UserDefaults.standard.double(forKey: settingsKeys.captionsFontSize) >= 8 && UserDefaults.standard.double(forKey: settingsKeys.captionsFontSize) <= 18 ? UserDefaults.standard.double(forKey: settingsKeys.captionsFontSize) : 10
     var body: some View {
         NavigationView {
             ScrollView {
@@ -38,23 +39,42 @@ struct SettingsView: View {
                 } // Instance Settings
                 Group {
                     HStack {
-                        Text("Captions Font Size")
+                        Text("Home Page Content")
                             .font(.footnote)
                             .foregroundColor(.secondary)
                         Spacer()
                     }
-                    Slider(value: $captionsFontSize, in: 9...18) {
-                        Text("idk how this looks")
+                    NavigationLink(destination: {
+                        HomePageType()
+                    }, label: {
+                        HStack {
+                            Text(currentType.capitalizingFirstLetter())
+                            Spacer()
+                            Text(Image(systemName: "chevron.right"))
+                                .foregroundColor(.secondary)
+                        }
+                    })
+                    .onAppear {
+                        currentType = UserDefaults.standard.string(forKey: settingsKeys.trendingType) ?? "default"
                     }
+                } // Captions Font Size
+                Group {
+                    HStack {
+                        Text("Caption Size")
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
+                        Spacer()
+                    }
+                    Slider(value: $captionsFontSize, in: 8...18) {}
                     Text("This is a sample caption!")
                         .font(.system(size: CGFloat(captionsFontSize)))
                         .animation(.easeInOut)
                         .lineLimit(5)
-                        .multilineTextAlignment(.center)
+                        .multilineTextAlignment(.leading)
                         .background(Color(.displayP3, red: 0, green: 0, blue: 0, opacity: 0.5))
                         .cornerRadius(5)
                         .allowsHitTesting(false)
-                } // Captions Font Size
+                } // Home Page Content
             }
             .navigationTitle("Settings")
         }
@@ -128,6 +148,48 @@ fileprivate struct InstancesView: View {
         }
     }
 } // Instances subview
+
+fileprivate struct HomePageType: View {
+    
+    @AppStorage(settingsKeys.trendingType) private var selected: String = UserDefaults.standard.string(forKey: settingsKeys.trendingType) ?? "default"
+    private var allTypes = ["default", "music", "gaming", "news", "movies", "curated"]
+    
+    var body: some View {
+        ScrollView {
+            VStack(spacing: 10) {
+                ForEach(0..<allTypes.count, id: \.self) { i in
+                    let type = allTypes[i]
+                    Button {
+                        Task {
+                            selected = type
+                        }
+                    } label: {
+                        HStack {
+                            Text(type.capitalizingFirstLetter())
+                                .font(.footnote)
+                            Spacer()
+                            Text(Image(systemName: "checkmark"))
+                                .foregroundColor(Color.green)
+                                .font(.title3)
+                                .opacity(type == selected ? 1 : 0)
+                        }
+                    }
+                    .buttonStyle(.plain)
+                    if type != allTypes.last {
+                        Divider()
+                            .foregroundColor(Color(.sRGB, white: 0.1, opacity: 1))
+                    }
+                }
+            }
+            .padding()
+            .background {
+                RoundedRectangle(cornerRadius: 15)
+                    .foregroundColor(Color(.sRGB, white: 0.15, opacity: 1))
+            }
+        }
+            .navigationTitle("Types")
+        }
+} // Home page config subview
 
 struct SettingsViewPreview: PreviewProvider {
     static var previews: some View {

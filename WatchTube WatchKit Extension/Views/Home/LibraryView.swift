@@ -11,9 +11,9 @@ import SDWebImageSwiftUI
 
 struct LibraryView: View {
     
-    var historyVideoIds = history.getHistory()
-    var likedVideoIds = liked.getLikes()
-    var subbedChannelUdids = subscriptions.getSubscriptions()
+    @State private var historyVideoIds = history.getHistory()
+    @State private var likedVideoIds = liked.getLikes()
+    @State private var subbedChannelUdids = subscriptions.getSubscriptions()
 
     @State private var videoData: [String:InvVideo] = [:]
     @State private var channelData: [String:InvChannel] = [:]
@@ -27,11 +27,16 @@ struct LibraryView: View {
                         .foregroundColor(.secondary)
                     Spacer()
                 }
+                .onAppear(perform: {
+                    historyVideoIds = history.getHistory()
+                    likedVideoIds = liked.getLikes()
+                    subbedChannelUdids = subscriptions.getSubscriptions()
+                })
                 .navigationTitle("Library")
                 
                 ScrollView(.horizontal, showsIndicators: true) { // liked videos
                     LazyHStack {
-                        ForEach(likedVideoIds, id: \.self) { id in
+                        ForEach(historyVideoIds, id: \.self) { id in
                             VStack {
                                 if videoData[id] != nil {
                                     let video = videoData[id]!
@@ -45,7 +50,7 @@ struct LibraryView: View {
                             .task {
                                 if videoData[id] == nil {
                                     let data = await inv.video(id: id)
-                                    if data != nil {
+                                    if data != nil && videoData[id] == nil {
                                         videoData[id] = data
                                     }
                                 }
@@ -75,7 +80,7 @@ struct LibraryView: View {
                                 }
                             }
                             .task {
-                                if videoData[id] == nil {
+                                if videoData[id] == nil && videoData[id] == nil {
                                     let data = await inv.video(id: id)
                                     if data != nil {
                                         videoData[id] = data
@@ -110,7 +115,7 @@ struct LibraryView: View {
                             .task {
                                 if channelData[udid] == nil {
                                     let data = await inv.channel(udid: udid)
-                                    if data != nil {
+                                    if data != nil && channelData[udid] == nil {
                                         channelData[udid] = data
                                     }
                                 }
@@ -126,6 +131,6 @@ struct LibraryView: View {
 
 struct LibraryView_Previews: PreviewProvider {
     static var previews: some View {
-        LibraryView(historyVideoIds: ["liJac6RysE4"], likedVideoIds: ["liJac6RysE4"], subbedChannelUdids: ["UCQP4qSCj1eHMHisDDR4iPzw"])
+        LibraryView()
     }
 }
