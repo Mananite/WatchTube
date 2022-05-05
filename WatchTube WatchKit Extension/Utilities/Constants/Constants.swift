@@ -22,6 +22,6 @@ struct algorithmConfig {
     static let quantityOfVideosToGetFromRelatedVideos = 6
     static let channelsToSample = 10
     static let quantityOfVideosToGetFromChannels = 6
-    static let historyToSample = 15
+    static let historyToSample = 10
     static let quantityOfVideosToGetFromHistory = 6
 }

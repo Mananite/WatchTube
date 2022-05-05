@@ -40,7 +40,7 @@ struct HomeView: View {
                         .clipShape(Circle())
                     }
                         .navigationTitle("Error")
-                } else if UserDefaults.standard.string(forKey: settingsKeys.trendingType) ?? "default" != "curated" {
+                } else if curatedData.isEmpty && !trendingData.isEmpty {
                     ScrollView{
                         LazyVStack {
                             ForEach(0..<trendingData.count, id: \.self) { i in
@@ -54,7 +54,7 @@ struct HomeView: View {
                         .cornerRadius(10)
                         .navigationTitle("WatchTube")
                     }
-                } else {
+                } else if !curatedData.isEmpty && trendingData.isEmpty {
                     ScrollView{
                         LazyVStack {
                             ForEach(0..<curatedData.count, id: \.self) { i in
@@ -87,7 +87,7 @@ struct HomeView: View {
                     finishedLoading = true
                     return
                 }
-                for i in 0..<algorithmConfig.latestLikedVideosToSample {
+                for i in 0..<(algorithmConfig.latestLikedVideosToSample > liked.getLikes().count ? algorithmConfig.latestLikedVideosToSample : liked.getLikes().count - 1) {
                     // get last 10 liked videos
                     let likedVideos = liked.getLikes()
                     if i >= likedVideos.count { break }
@@ -109,7 +109,7 @@ struct HomeView: View {
                     }
                 }
                 
-                for i in 0..<algorithmConfig.historyToSample {
+                for i in 0..<(algorithmConfig.historyToSample > history.getHistory().count ? algorithmConfig.historyToSample : history.getHistory().count - 1) {
                     // get last 10 history videos
                     let historyvideos = history.getHistory()
                     if i >= historyvideos.count { break }
@@ -152,9 +152,10 @@ struct HomeView: View {
                 }
                 
                 var videos = [customData]()
-                videosSelected = Array(Set(videosSelected))
                 videosSelected.shuffle()
+                var added = [String]()
                 for id in videosSelected {
+                    if added.contains(id) {continue} else {added.append(id)}
                     await metadata.cacheVideoData(id, doNotCacheRelated: true)
                     let title = metadata.getVideoData(id, key: .title)
                     let thumb = metadata.getVideoData(id, key: .thumbnail)
@@ -163,7 +164,7 @@ struct HomeView: View {
                     let video = customData(title: title as! String, author: channel as! String, id: id, url: thumb as! String)
                     videos.append(video)
                 }
-                                
+                                                
                 if videos.isEmpty {
                     let data = await inv.trending(cc: Locale.current.regionCode)
                     if data != nil {
@@ -187,6 +188,12 @@ struct HomeView: View {
     }
 }
 
-fileprivate struct customData {
+fileprivate struct customData: Hashable {
     let title, author, id, url: String
+}
+
+struct homepreview: PreviewProvider {
+    static var previews: some View {
+        HomeView()
+    }
 }
