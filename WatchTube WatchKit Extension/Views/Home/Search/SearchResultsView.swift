@@ -36,8 +36,14 @@ struct SearchResultsView: View {
                        let item = results[i]
                        if item.type == "video" {
                            Video(title: item.title!, author: item.author, id: item.videoID!, url: item.videoThumbnails![0].url)
+                               .task {
+                                   await metadata.cacheVideoData(item.videoID!)
+                               }
                        } else if item.type == "channel" {
                            Channel(author: item.author, url: URL(string: "https:\(item.authorThumbnails!.last!.url)")!, subs: item.subCount!, udid: item.authorID)
+                               .task {
+                                   await metadata.cacheChannelData(item.authorID)
+                               }
                        } else if item.type == "playlist" {
                            // TODO: Add playlist view
                        }

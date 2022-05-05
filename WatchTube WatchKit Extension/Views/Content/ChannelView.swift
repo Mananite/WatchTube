@@ -148,14 +148,12 @@ struct ChannelView: View {
             ProgressView()
                 .progressViewStyle(.circular)
                 .task {
-                    print(udid)
                     let data = await inv.channel(udid: udid)
                     if data != nil {
                         channel = data
-                        print("Success")
                     }
-                    print("finished")
                     isDoneLoading = true
+                    await metadata.cacheChannelData(udid)
                 }
         }
     }

@@ -41,6 +41,9 @@ struct LibraryView: View {
                                 if videoData[id] != nil {
                                     let video = videoData[id]!
                                     NarrowVideo(title: video.title, author: video.author, id: id, url: video.videoThumbnails[0].url)
+                                        .task {
+                                            await metadata.cacheVideoData(id)
+                                        }
                                 } else {
                                     ProgressView()
                                         .progressViewStyle(.circular)
@@ -54,6 +57,7 @@ struct LibraryView: View {
                                         videoData[id] = data
                                     }
                                 }
+                                await metadata.cacheVideoData(id)
                             }
                         }
                     }
@@ -73,6 +77,9 @@ struct LibraryView: View {
                                 if videoData[id] != nil {
                                     let video = videoData[id]!
                                     NarrowVideo(title: video.title, author: video.author, id: id, url: video.videoThumbnails[0].url)
+                                        .task {
+                                            await metadata.cacheVideoData(id)
+                                        }
                                 } else {
                                     ProgressView()
                                         .progressViewStyle(.circular)
@@ -86,6 +93,7 @@ struct LibraryView: View {
                                         videoData[id] = data
                                     }
                                 }
+                                await metadata.cacheVideoData(id)
                             }
                         }
                     }
@@ -106,6 +114,9 @@ struct LibraryView: View {
                                     // add channel view here
                                     let channel = channelData[udid]!
                                     NarrowChannel(udid: udid, author: channel.author, url: channel.authorThumbnails.last!.url)
+                                        .task {
+                                            await metadata.cacheChannelData(udid)
+                                        }
                                 } else {
                                     ProgressView()
                                         .progressViewStyle(.circular)
@@ -119,6 +130,7 @@ struct LibraryView: View {
                                         channelData[udid] = data
                                     }
                                 }
+                                await metadata.cacheChannelData(udid)
                             }
                         }
                     }

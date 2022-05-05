@@ -46,6 +46,9 @@ struct HomeView: View {
                             ForEach(0..<trendingData.count, id: \.self) { i in
                                 let video = trendingData[i]
                                 Video(title: video.title, author: video.author, id: video.videoID, url: video.videoThumbnails[0].url)
+                                    .task {
+                                        await metadata.cacheVideoData(video.videoID)
+                                    }
                             }
                         }
                         .cornerRadius(10)
@@ -57,6 +60,9 @@ struct HomeView: View {
                             ForEach(0..<curatedData.count, id: \.self) { i in
                                 let video = curatedData[i]
                                 Video(title: video.title, author: video.author, id: video.id, url: video.url)
+                                    .task {
+                                        await metadata.cacheVideoData(video.id)
+                                    }
                             }
                         }
                         .cornerRadius(10)
@@ -66,6 +72,7 @@ struct HomeView: View {
             }
         }
         .task {
+            if !curatedData.isEmpty || !trendingData.isEmpty {return}
             if UserDefaults.standard.string(forKey: settingsKeys.trendingType) ?? "default" == "curated" {
                 // the almighty youtube algorithm
                 // scrape whatever for curated data

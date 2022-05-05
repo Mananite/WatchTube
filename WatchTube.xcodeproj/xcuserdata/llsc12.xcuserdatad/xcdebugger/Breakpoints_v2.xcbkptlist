@@ -62,72 +62,10 @@
             filePath = "WatchTube WatchKit Extension/Views/Home/HomeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
             landmarkName = "body"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "FA8E72F3-413D-47D8-9C65-FE498D4C4ACC - ef9bf4a2d32da691"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #2 @Sendable () async -&gt; () in WatchTube_WatchKit_Extension.HomeView.body.getter : some"
-                  moduleName = "WatchTube WatchKit Extension"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/llsc12/Documents/GitHub/WatchTube/WatchTube%20WatchKit%20Extension/Views/Home/HomeView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "168"
-                  endingLineNumber = "168"
-                  offsetFromSymbolStart = "14012">
-               </Location>
-               <Location
-                  uuid = "FA8E72F3-413D-47D8-9C65-FE498D4C4ACC - 560a08c3f7d42c9d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(5) suspend resume partial function for closure #2 @Sendable () async -&gt; () in WatchTube_WatchKit_Extension.HomeView.body.getter : some"
-                  moduleName = "WatchTube WatchKit Extension"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/llsc12/Documents/GitHub/WatchTube/WatchTube%20WatchKit%20Extension/Views/Home/HomeView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "168"
-                  endingLineNumber = "168"
-                  offsetFromSymbolStart = "12951">
-               </Location>
-               <Location
-                  uuid = "FA8E72F3-413D-47D8-9C65-FE498D4C4ACC - 5311f339a53ef9b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(7) suspend resume partial function for closure #2 @Sendable () async -&gt; () in WatchTube_WatchKit_Extension.HomeView.body.getter : some"
-                  moduleName = "WatchTube WatchKit Extension"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/llsc12/Documents/GitHub/WatchTube/WatchTube%20WatchKit%20Extension/Views/Home/HomeView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "168"
-                  endingLineNumber = "168"
-                  offsetFromSymbolStart = "8833">
-               </Location>
-               <Location
-                  uuid = "FA8E72F3-413D-47D8-9C65-FE498D4C4ACC - b0f82d6408df5299"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(9) suspend resume partial function for closure #2 @Sendable () async -&gt; () in WatchTube_WatchKit_Extension.HomeView.body.getter : some"
-                  moduleName = "WatchTube WatchKit Extension"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/llsc12/Documents/GitHub/WatchTube/WatchTube%20WatchKit%20Extension/Views/Home/HomeView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "168"
-                  endingLineNumber = "168"
-                  offsetFromSymbolStart = "4892">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -140,8 +78,8 @@
             filePath = "WatchTube WatchKit Extension/Views/Home/HomeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -156,8 +94,8 @@
             filePath = "WatchTube WatchKit Extension/Views/Home/HomeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -172,42 +110,10 @@
             filePath = "WatchTube WatchKit Extension/Views/Home/HomeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "body"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "D472CC90-CA65-444A-8F9E-BFC526EB9AC6 - ef9bf4a2d32dae70"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #2 @Sendable () async -&gt; () in WatchTube_WatchKit_Extension.HomeView.body.getter : some"
-                  moduleName = "WatchTube WatchKit Extension"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/llsc12/Documents/GitHub/WatchTube/WatchTube%20WatchKit%20Extension/Views/Home/HomeView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "105"
-                  endingLineNumber = "105"
-                  offsetFromSymbolStart = "6250">
-               </Location>
-               <Location
-                  uuid = "D472CC90-CA65-444A-8F9E-BFC526EB9AC6 - 560a08c3f7d4247c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(5) suspend resume partial function for closure #2 @Sendable () async -&gt; () in WatchTube_WatchKit_Extension.HomeView.body.getter : some"
-                  moduleName = "WatchTube WatchKit Extension"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/llsc12/Documents/GitHub/WatchTube/WatchTube%20WatchKit%20Extension/Views/Home/HomeView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "105"
-                  endingLineNumber = "105"
-                  offsetFromSymbolStart = "5189">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -220,57 +126,10 @@
             filePath = "WatchTube WatchKit Extension/Views/Home/HomeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "body"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "43BB0A3C-D98B-410C-9961-C85F8674AED2 - ef9bf4a2d32dab26"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #2 @Sendable () async -&gt; () in WatchTube_WatchKit_Extension.HomeView.body.getter : some"
-                  moduleName = "WatchTube WatchKit Extension"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/llsc12/Documents/GitHub/WatchTube/WatchTube%20WatchKit%20Extension/Views/Home/HomeView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "127"
-                  endingLineNumber = "127"
-                  offsetFromSymbolStart = "10127">
-               </Location>
-               <Location
-                  uuid = "43BB0A3C-D98B-410C-9961-C85F8674AED2 - 560a08c3f7d4212a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(5) suspend resume partial function for closure #2 @Sendable () async -&gt; () in WatchTube_WatchKit_Extension.HomeView.body.getter : some"
-                  moduleName = "WatchTube WatchKit Extension"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/llsc12/Documents/GitHub/WatchTube/WatchTube%20WatchKit%20Extension/Views/Home/HomeView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "127"
-                  endingLineNumber = "127"
-                  offsetFromSymbolStart = "9066">
-               </Location>
-               <Location
-                  uuid = "43BB0A3C-D98B-410C-9961-C85F8674AED2 - 5311f339a53e22c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(7) suspend resume partial function for closure #2 @Sendable () async -&gt; () in WatchTube_WatchKit_Extension.HomeView.body.getter : some"
-                  moduleName = "WatchTube WatchKit Extension"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/llsc12/Documents/GitHub/WatchTube/WatchTube%20WatchKit%20Extension/Views/Home/HomeView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "127"
-                  endingLineNumber = "127"
-                  offsetFromSymbolStart = "4948">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -283,57 +142,10 @@
             filePath = "WatchTube WatchKit Extension/Views/Home/HomeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "body"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "12F1D945-83FC-4972-B036-78472350BEF7 - ef9bf4a2d32da5ca"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #2 @Sendable () async -&gt; () in WatchTube_WatchKit_Extension.HomeView.body.getter : some"
-                  moduleName = "WatchTube WatchKit Extension"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/llsc12/Documents/GitHub/WatchTube/WatchTube%20WatchKit%20Extension/Views/Home/HomeView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "147"
-                  endingLineNumber = "147"
-                  offsetFromSymbolStart = "11887">
-               </Location>
-               <Location
-                  uuid = "12F1D945-83FC-4972-B036-78472350BEF7 - 560a08c3f7d42fc6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(5) suspend resume partial function for closure #2 @Sendable () async -&gt; () in WatchTube_WatchKit_Extension.HomeView.body.getter : some"
-                  moduleName = "WatchTube WatchKit Extension"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/llsc12/Documents/GitHub/WatchTube/WatchTube%20WatchKit%20Extension/Views/Home/HomeView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "147"
-                  endingLineNumber = "147"
-                  offsetFromSymbolStart = "10826">
-               </Location>
-               <Location
-                  uuid = "12F1D945-83FC-4972-B036-78472350BEF7 - 5311f339a53ecc0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(7) suspend resume partial function for closure #2 @Sendable () async -&gt; () in WatchTube_WatchKit_Extension.HomeView.body.getter : some"
-                  moduleName = "WatchTube WatchKit Extension"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/llsc12/Documents/GitHub/WatchTube/WatchTube%20WatchKit%20Extension/Views/Home/HomeView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "147"
-                  endingLineNumber = "147"
-                  offsetFromSymbolStart = "6708">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

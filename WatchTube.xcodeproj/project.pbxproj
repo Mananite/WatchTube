@@ -258,8 +258,8 @@
 		AAA58C01281F161000F9E4CD /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				AAA58C02281F161E00F9E4CD /* SearchResultsView.swift */,
 				AAA58C03281F161E00F9E4CD /* SearchView.swift */,
+				AAA58C02281F161E00F9E4CD /* SearchResultsView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";

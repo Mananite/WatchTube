@@ -108,6 +108,7 @@ struct PrePlayView: View {
                             let final = streams.filter { $0.isProgressive && $0.subtype == "mp4" }.highestResolutionStream()
                             UserDefaults.standard.set(final?.url, forKey: "hls.streamUrl")
                         }
+                        await metadata.cacheVideoData(id)
                     }
                 HStack {
                     NavigationLink {
