@@ -61,7 +61,7 @@ struct HomeView: View {
                                 let video = curatedData[i]
                                 Video(title: video.title, author: video.author, id: video.id, url: video.url)
                                     .task {
-                                        await metadata.cacheVideoData(video.id)
+                                        await metadata.cacheVideoData(video.id, doNotCacheRelated: true)
                                     }
                             }
                         }
@@ -98,7 +98,7 @@ struct HomeView: View {
                             let related = metadata.getVideoData(likedVideo, key: .related) as? Array<String> ?? []
                             if related.count == 0 { break }
                             let selectedId = related.randomElement()!
-                            await metadata.cacheVideoData(selectedId, doNotCacheRelated: true)
+                            if metadata.getVideoData(selectedId, key: .title) == nil {continue}
                             if selectedVideosToAdd.contains(selectedId) { continue } else {
                                 selectedVideosToAdd.append(selectedId)
                             }
@@ -120,7 +120,7 @@ struct HomeView: View {
                             let related = metadata.getVideoData(historyVideo, key: .related) as? Array<String> ?? []
                             if related.count == 0 { break }
                             let selectedId = related.randomElement()!
-                            await metadata.cacheVideoData(selectedId)
+                            if metadata.getVideoData(selectedId, key: .title) == nil {continue}
                             if selectedVideosToAdd.contains(selectedId) { continue } else {
                                 selectedVideosToAdd.append(selectedId)
                             }

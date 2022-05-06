@@ -27,11 +27,15 @@ struct ChannelView: View {
                 ScrollView {
                     VStack { // banner and pfp
                         ZStack {
-                            NavigationLink {
+                            NavigationLink { // banner
                                 ImageView(url: URL(string: channel.authorBanners[0].url))
                             } label: {
                                 VStack {
                                     WebImage(url: URL(string: channel.authorBanners[0].url))
+                                        .placeholder {
+                                            ProgressView()
+                                                .progressViewStyle(.circular)
+                                        }
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .cornerRadius(3)
@@ -40,11 +44,15 @@ struct ChannelView: View {
                             }
                             .buttonStyle(.plain)
                             HStack {
-                                NavigationLink {
+                                NavigationLink { // pfp
                                     ImageView(url: URL(string: channel.authorThumbnails.last!.url))
                                 } label: {
                                     VStack {
                                         WebImage(url: URL(string: channel.authorThumbnails.last!.url))
+                                            .placeholder {
+                                                ProgressView()
+                                                    .progressViewStyle(.circular)
+                                            }
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
                                             .frame(width: 40)
@@ -123,6 +131,7 @@ struct ChannelView: View {
                     }
                     .cornerRadius(10)
                 }
+                .transition(.slide)
                 .navigationTitle("Channel")
             } else {
                 // error message and reload button
