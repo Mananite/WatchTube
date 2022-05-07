@@ -10,9 +10,12 @@ import Invidious_Swift
 
 struct SettingsView: View {
     
+    @State private var debugIsShown: Bool = false
+    
     @State private var currentInstance: String = URL(string: UserDefaults.standard.string(forKey: "InvidiousInstanceURL") ?? "https://invidious.osi.kr")!.host!
     @State private var currentType: String = UserDefaults.standard.string(forKey: settingsKeys.trendingType) ?? "default"
     @AppStorage(settingsKeys.captionsFontSize) var captionsFontSize: Double = UserDefaults.standard.double(forKey: settingsKeys.captionsFontSize) >= 8 && UserDefaults.standard.double(forKey: settingsKeys.captionsFontSize) <= 18 ? UserDefaults.standard.double(forKey: settingsKeys.captionsFontSize) : 10
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -75,6 +78,26 @@ struct SettingsView: View {
                         .cornerRadius(5)
                         .allowsHitTesting(false)
                 } // Home Page Content
+                
+                Group {
+                    HStack {
+                        Text("Debugging Tools")
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
+                        Spacer()
+                    }
+                    NavigationLink {
+                        RebuildCache()
+                    } label: {
+                        HStack {
+                            Text("Rebuild cache")
+                            Spacer()
+                            Text(Image(systemName: "chevron.right"))
+                                .foregroundColor(.secondary)
+                        }
+                    }
+
+                } // debug settings
             }
             .navigationTitle("Settings")
         }
@@ -96,7 +119,7 @@ fileprivate struct InstancesView: View {
                         Button {
                             Task {
                                 selected = instance
-                                await inv.setInstance(url: URL(string: "https://\(instance)")!, skipCheck: true)
+                                let _ = await inv.setInstance(url: URL(string: "https://\(instance)")!, skipCheck: true)
                             }
                         } label: {
                             HStack {
@@ -190,6 +213,72 @@ fileprivate struct HomePageType: View {
             .navigationTitle("Types")
         }
 } // Home page config subview
+
+fileprivate struct RebuildCache: View {
+    @State private var consentGiven: Bool = false
+    
+    @State private var progressBarCurrent: Double = 0
+    @State private var progressBarMax: Double = 1
+    @State private var isFinished: Bool = false
+    
+    var body: some View {
+        if isFinished {
+            VStack {
+                Text("All finished!")
+            }
+        } else {
+            if !consentGiven {
+                if history.getHistory().count + liked.getLikes().count + subscriptions.getSubscriptions().count == 0 {
+                    Text("There is no userdata to rebuild from.")
+                } else {
+                    VStack {
+                        Text("Rebuilding cache will take some time")
+                        Button {
+                            consentGiven.toggle()
+                        } label: {
+                            Text("Okay")
+                        }
+                    }
+                }
+            } else {
+                VStack {
+                    Text("Rebuilding...")
+                    Text("\(Int(progressBarCurrent)) of \(Int(progressBarMax))")
+                    ProgressView(value: progressBarCurrent, total: progressBarMax)
+                        .foregroundColor(.accentColor)
+                        .task {
+                            progressBarMax = Double(history.getHistory().count + liked.getLikes().count + subscriptions.getSubscriptions().count)
+                            try? FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/videoCache/")
+                            try? FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/channelCache/")
+
+                            for vid in history.getHistory() {
+                                await metadata.cacheVideoData(vid)
+                                progressBarCurrent += 1
+                            }
+                            for vid in liked.getLikes() {
+                                await metadata.cacheVideoData(vid)
+                                progressBarCurrent += 1
+                            }
+                            for channel in subscriptions.getSubscriptions() {
+                                await metadata.cacheChannelData(channel)
+                                progressBarCurrent += 1
+                            }
+                            for channel in subscriptions.getSubscriptions() {
+                                let videos = metadata.getChannelData(channel, key: .videos) as! [String]
+                                progressBarMax += Double(videos.count)
+                                for video in videos {
+                                    await metadata.cacheVideoData(video, doNotCacheRelated: true)
+                                    progressBarCurrent += 1
+                                }
+                            }
+                            progressBarCurrent = progressBarMax
+                            isFinished.toggle()
+                        }
+                }
+            }
+        }
+    }
+}
 
 struct SettingsViewPreview: PreviewProvider {
     static var previews: some View {

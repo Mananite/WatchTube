@@ -39,7 +39,7 @@ struct CaptionsView: View {
                         }
                         .buttonStyle(.plain)
                         Divider()
-                            .foregroundColor(Color(.sRGB, white: 0.1, opacity: 1))
+                            .foregroundColor(Color(.sRGB, white: 0.1, opacity: captionsData.captions.count == 0 ? 0 : 1))
                         ForEach(0..<captionsData.captions.count, id: \.self) { i in
                             let caption = captionsData.captions[i]
                             

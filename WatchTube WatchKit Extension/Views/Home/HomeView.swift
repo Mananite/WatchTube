@@ -93,15 +93,13 @@ struct HomeView: View {
                     if i >= likedVideos.count { break }
                     let likedVideo = likedVideos[i]
                     var selectedVideosToAdd: [String] = []
-                    for i in 0..<algorithmConfig.quantityOfVideosToGetFromRelatedVideos {
-                        while selectedVideosToAdd.count != i + 1 {
-                            let related = metadata.getVideoData(likedVideo, key: .related) as? Array<String> ?? []
-                            if related.count == 0 { break }
-                            let selectedId = related.randomElement()!
-                            if metadata.getVideoData(selectedId, key: .title) == nil {continue}
-                            if selectedVideosToAdd.contains(selectedId) { continue } else {
-                                selectedVideosToAdd.append(selectedId)
-                            }
+                    for _ in 0..<algorithmConfig.quantityOfVideosToGetFromRelatedVideos {
+                        let related = metadata.getVideoData(likedVideo, key: .related) as? Array<String> ?? []
+                        if related.count == 0 { break }
+                        let selectedId = related.randomElement()!
+                        if metadata.getVideoData(selectedId, key: .title) == nil {continue}
+                        if selectedVideosToAdd.contains(selectedId) { continue } else {
+                            selectedVideosToAdd.append(selectedId)
                         }
                     }
                     for id in selectedVideosToAdd {
@@ -115,15 +113,13 @@ struct HomeView: View {
                     if i >= historyvideos.count { break }
                     let historyVideo = historyvideos[i]
                     var selectedVideosToAdd: [String] = []
-                    for i in 0..<algorithmConfig.quantityOfVideosToGetFromHistory {
-                        while selectedVideosToAdd.count != i + 1 {
-                            let related = metadata.getVideoData(historyVideo, key: .related) as? Array<String> ?? []
-                            if related.count == 0 { break }
-                            let selectedId = related.randomElement()!
-                            if metadata.getVideoData(selectedId, key: .title) == nil {continue}
-                            if selectedVideosToAdd.contains(selectedId) { continue } else {
-                                selectedVideosToAdd.append(selectedId)
-                            }
+                    for _ in 0..<algorithmConfig.quantityOfVideosToGetFromHistory {
+                        let related = metadata.getVideoData(historyVideo, key: .related) as? Array<String> ?? []
+                        if related.count == 0 { break }
+                        let selectedId = related.randomElement()!
+                        if metadata.getVideoData(selectedId, key: .title) == nil {continue}
+                        if selectedVideosToAdd.contains(selectedId) { continue } else {
+                            selectedVideosToAdd.append(selectedId)
                         }
                     }
                     for id in selectedVideosToAdd {

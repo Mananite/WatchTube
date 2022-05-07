@@ -45,12 +45,12 @@ class metadata {
                 let videoInfo = await inv.video(id: relatedIds)
                 
                 if videoInfo == nil {return}
-                var data: [String: Any] = [:]
+                var relateddata: [String: Any] = [:]
                 
-                data["title"] = videoInfo!.title as String
-                data["author"] = videoInfo!.author as String
-                data["thumbnail"] = videoInfo!.videoThumbnails[0].url as String
-                data["id"] = videoInfo!.videoID as String
+                relateddata["title"] = videoInfo!.title as String
+                relateddata["author"] = videoInfo!.author as String
+                relateddata["thumbnail"] = videoInfo!.videoThumbnails[0].url as String
+                relateddata["id"] = videoInfo!.videoID as String
                 let ids: [String] = {
                     var ids = [String]()
                     for video in videoInfo!.recommendedVideos {
@@ -58,14 +58,14 @@ class metadata {
                     }
                     return ids
                 }()
-                data["related"] = ids
+                relateddata["related"] = ids
                 
                 do {
                     if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
                         let fileURL = dir.appendingPathComponent("videoCache/"+id)
                         try FileManager.default.createDirectory(at: dir.appendingPathComponent("videoCache"), withIntermediateDirectories: true)
                         //writing
-                        NSDictionary(dictionary: data).write(to: fileURL, atomically: true)
+                        NSDictionary(dictionary: relateddata).write(to: fileURL, atomically: true)
                     }
                 } catch {debugPrint(error)}
             }
