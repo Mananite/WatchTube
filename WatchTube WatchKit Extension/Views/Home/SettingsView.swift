@@ -216,7 +216,7 @@ fileprivate struct HomePageType: View {
 
 fileprivate struct RebuildCache: View {
     @State private var consentGiven: Bool = false
-    
+    @State private var title = ""
     @State private var progressBarCurrent: Double = 0
     @State private var progressBarMax: Double = 1
     @State private var isFinished: Bool = false
@@ -242,23 +242,28 @@ fileprivate struct RebuildCache: View {
                 }
             } else {
                 VStack {
+                    Spacer()
+                        .navigationTitle(title)
                     Text("Rebuilding...")
                     Text("\(Int(progressBarCurrent)) of \(Int(progressBarMax))")
                     ProgressView(value: progressBarCurrent, total: progressBarMax)
-                        .foregroundColor(.accentColor)
+                        .tint(.accentColor)
                         .task {
                             progressBarMax = Double(history.getHistory().count + liked.getLikes().count + subscriptions.getSubscriptions().count)
                             try? FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/videoCache/")
                             try? FileManager.default.removeItem(atPath: NSHomeDirectory()+"/Documents/channelCache/")
-
+                            
+                            title="History"
                             for vid in history.getHistory() {
                                 await metadata.cacheVideoData(vid)
                                 progressBarCurrent += 1
                             }
+                            title="Liked"
                             for vid in liked.getLikes() {
                                 await metadata.cacheVideoData(vid)
                                 progressBarCurrent += 1
                             }
+                            title="Channels"
                             for channel in subscriptions.getSubscriptions() {
                                 await metadata.cacheChannelData(channel)
                                 progressBarCurrent += 1
@@ -266,6 +271,7 @@ fileprivate struct RebuildCache: View {
                             for channel in subscriptions.getSubscriptions() {
                                 let videos = metadata.getChannelData(channel, key: .videos) as! [String]
                                 progressBarMax += Double(videos.count)
+                                title=metadata.getChannelData(channel, key: .author) as! String
                                 for video in videos {
                                     await metadata.cacheVideoData(video, doNotCacheRelated: true)
                                     progressBarCurrent += 1
@@ -274,6 +280,7 @@ fileprivate struct RebuildCache: View {
                             progressBarCurrent = progressBarMax
                             isFinished.toggle()
                         }
+                    ProgressView()
                 }
             }
         }
