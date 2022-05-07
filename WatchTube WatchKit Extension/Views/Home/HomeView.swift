@@ -133,7 +133,7 @@ struct HomeView: View {
                 manipulatableChannelList.shuffle()
                 for channel in manipulatableChannelList {
                     // makes sure channels have at least x videos and stuff
-                    if selectedChannels.count != algorithmConfig.channelsToSample && (metadata.getChannelData(channel, key: .videos) as! [String]).count >= algorithmConfig.quantityOfVideosToGetFromChannels {
+                    if selectedChannels.count != algorithmConfig.channelsToSample && (metadata.getChannelData(channel, key: .videos) as? [String] ?? []).count >= algorithmConfig.quantityOfVideosToGetFromChannels {
                         selectedChannels.append(channel)
                     }
                 }
