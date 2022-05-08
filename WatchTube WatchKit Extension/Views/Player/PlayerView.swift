@@ -83,7 +83,9 @@ struct PlayerView: View {
                             // the text wont display, the subtitle isnt declared to be seen here. do whatever
                         } else {
                             Text(vm.subtitleText.text)
-                                .font(.system(size: UserDefaults.standard.double(forKey: settingsKeys.captionsFontSize)))
+                                .font(.system(size:
+                                                UserDefaults.standard.double(forKey: settingsKeys.captionsFontSize) >= 8 && UserDefaults.standard.double(forKey: settingsKeys.captionsFontSize) <= 18 ? UserDefaults.standard.double(forKey: settingsKeys.captionsFontSize) : 15
+                                             ))
                                 .lineLimit(5)
                                 .multilineTextAlignment(.center)
                                 .background(Color(.displayP3, red: 0, green: 0, blue: 0, opacity: 0.5))

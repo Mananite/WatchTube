@@ -14,8 +14,8 @@ struct SettingsView: View {
     
     @State private var currentInstance: String = URL(string: UserDefaults.standard.string(forKey: "InvidiousInstanceURL") ?? "https://invidious.osi.kr")!.host!
     @State private var currentType: String = UserDefaults.standard.string(forKey: settingsKeys.trendingType) ?? "default"
-    @AppStorage(settingsKeys.captionsFontSize) var captionsFontSize: Double = UserDefaults.standard.double(forKey: settingsKeys.captionsFontSize) >= 8 && UserDefaults.standard.double(forKey: settingsKeys.captionsFontSize) <= 18 ? UserDefaults.standard.double(forKey: settingsKeys.captionsFontSize) : 10
-    
+    @AppStorage(settingsKeys.captionsFontSize) var captionsFontSize: Double = UserDefaults.standard.double(forKey: settingsKeys.captionsFontSize) >= 8 && UserDefaults.standard.double(forKey: settingsKeys.captionsFontSize) <= 18 ? UserDefaults.standard.double(forKey: settingsKeys.captionsFontSize) : 15
+    @AppStorage("InvidiousInternalCaching") var cachingToggle = UserDefaults.standard.bool(forKey: "InvidiousInternalCaching")
     var body: some View {
         NavigationView {
             ScrollView {
@@ -86,6 +86,7 @@ struct SettingsView: View {
                             .foregroundColor(.secondary)
                         Spacer()
                     }
+                    .padding(.top, 10)
                     NavigationLink {
                         RebuildCache()
                     } label: {
@@ -94,6 +95,13 @@ struct SettingsView: View {
                             Spacer()
                             Text(Image(systemName: "chevron.right"))
                                 .foregroundColor(.secondary)
+                        }
+                    }
+                    Button {} label: {
+                        Toggle(isOn: $cachingToggle) {
+                            Text("InvWrapper Caching")
+                                .minimumScaleFactor(0.1)
+                                .lineLimit(1)
                         }
                     }
 
@@ -269,7 +277,7 @@ fileprivate struct RebuildCache: View {
                                 progressBarCurrent += 1
                             }
                             for channel in subscriptions.getSubscriptions() {
-                                let videos = metadata.getChannelData(channel, key: .videos) as! [String]
+                                let videos = metadata.getChannelData(channel, key: .videos) as? [String] ?? []
                                 progressBarMax += Double(videos.count)
                                 title=metadata.getChannelData(channel, key: .author) as! String
                                 for video in videos {
