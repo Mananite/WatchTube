@@ -72,6 +72,9 @@ struct HomeView: View {
             }
         }
         .task {
+            if UserDefaults.standard.value(forKey: "InvidiousInternalCaching") == nil {
+                UserDefaults.standard.set(true, forKey: "InvidiousInternalCaching")
+            }
             if !curatedData.isEmpty || !trendingData.isEmpty {return}
             if UserDefaults.standard.string(forKey: settingsKeys.trendingType) ?? "default" == "curated" {
                 // the almighty youtube algorithm
