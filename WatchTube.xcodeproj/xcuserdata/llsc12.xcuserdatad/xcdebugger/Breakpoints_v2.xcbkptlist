@@ -7,15 +7,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C218BA0B-1811-4ADF-8516-357BE35C89E2"
+            uuid = "0510A552-1F13-4DB3-95F6-A7D896D50E62"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WatchTube WatchKit Extension/Views/Home/SettingsView.swift"
+            filePath = "WatchTube WatchKit Extension/Views/Home/HomeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "264"
-            endingLineNumber = "264"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -23,158 +23,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7B9328CA-DF3E-41E6-9A83-144BD077E17A"
+            uuid = "889F8505-409F-455D-9D47-74DC6DC99AC4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WatchTube WatchKit Extension/Views/Home/SettingsView.swift"
+            filePath = "../../../Library/Developer/Xcode/DerivedData/WatchTube-aglhlmwpnciprfgmfnxnjdsjaaxz/SourcePackages/checkouts/Invidious-Swift/Sources/Invidious-Swift/Invidious.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E32FE014-B3B2-484D-B654-48BD50E2EB6F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WatchTube WatchKit Extension/Views/Home/SettingsView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0B89A606-9D1A-414D-9F22-D5B53A930434"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WatchTube WatchKit Extension/Views/Home/SettingsView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D168C012-B787-4AF7-BD8B-D9C5B52E3A06"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WatchTube WatchKit Extension/Views/Home/SettingsView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
-            landmarkName = "body"
-            landmarkType = "24">
+            startingLineNumber = "229"
+            endingLineNumber = "229"
+            landmarkName = "trending(cc:type:)"
+            landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "D168C012-B787-4AF7-BD8B-D9C5B52E3A06 - 9964cf24825e52dc"
+                  uuid = "889F8505-409F-455D-9D47-74DC6DC99AC4 - 18dff58b10aa6606"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #3 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.navigationTitle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.StringProtocol&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0, SwiftUI.Text, SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.task(priority: Swift.TaskPriority, _: @Sendable () async -&gt; ()) -&gt; some&gt;&gt;.0, SwiftUI.ProgressView&lt;SwiftUI.EmptyView, SwiftUI.EmptyView&gt;)&gt; in WatchTube_WatchKit_Extension.RebuildCache.body.getter : some"
+                  symbolName = "static Invidious_Swift.inv.trending(cc: Swift.Optional&lt;Swift.String&gt;, type: Swift.Optional&lt;Invidious_Swift.TrendingType&gt;) async -&gt; Swift.Optional&lt;Swift.Array&lt;Invidious_Swift.InvTrendingVideo&gt;&gt;"
                   moduleName = "WatchTube WatchKit Extension"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/llsc12/Documents/GitHub/WatchTube/WatchTube%20WatchKit%20Extension/Views/Home/SettingsView.swift"
+                  urlString = "file:///Users/llsc12/Library/Developer/Xcode/DerivedData/WatchTube-aglhlmwpnciprfgmfnxnjdsjaaxz/SourcePackages/checkouts/Invidious-Swift/Sources/Invidious-Swift/Invidious.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "282"
-                  endingLineNumber = "282"
-                  offsetFromSymbolStart = "5368">
+                  startingLineNumber = "229"
+                  endingLineNumber = "229"
+                  offsetFromSymbolStart = "5548">
                </Location>
                <Location
-                  uuid = "D168C012-B787-4AF7-BD8B-D9C5B52E3A06 - f7ca30f3da7616de"
+                  uuid = "889F8505-409F-455D-9D47-74DC6DC99AC4 - 66049be90cb87e39"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #3 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.navigationTitle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.StringProtocol&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0, SwiftUI.Text, SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.task(priority: Swift.TaskPriority, _: @Sendable () async -&gt; ()) -&gt; some&gt;&gt;.0, SwiftUI.ProgressView&lt;SwiftUI.EmptyView, SwiftUI.EmptyView&gt;)&gt; in WatchTube_WatchKit_Extension.RebuildCache.body.getter : some"
+                  symbolName = "(1) await resume partial function for static Invidious_Swift.inv.trending(cc: Swift.Optional&lt;Swift.String&gt;, type: Swift.Optional&lt;Invidious_Swift.TrendingType&gt;) async -&gt; Swift.Optional&lt;Swift.Array&lt;Invidious_Swift.InvTrendingVideo&gt;&gt;"
                   moduleName = "WatchTube WatchKit Extension"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/llsc12/Documents/GitHub/WatchTube/WatchTube%20WatchKit%20Extension/Views/Home/SettingsView.swift"
+                  urlString = "file:///Users/llsc12/Library/Developer/Xcode/DerivedData/WatchTube-aglhlmwpnciprfgmfnxnjdsjaaxz/SourcePackages/checkouts/Invidious-Swift/Sources/Invidious-Swift/Invidious.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "282"
-                  endingLineNumber = "282"
-                  offsetFromSymbolStart = "3854">
-               </Location>
-               <Location
-                  uuid = "D168C012-B787-4AF7-BD8B-D9C5B52E3A06 - 2d91998a138eaad8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(5) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #3 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.navigationTitle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.StringProtocol&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0, SwiftUI.Text, SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.task(priority: Swift.TaskPriority, _: @Sendable () async -&gt; ()) -&gt; some&gt;&gt;.0, SwiftUI.ProgressView&lt;SwiftUI.EmptyView, SwiftUI.EmptyView&gt;)&gt; in WatchTube_WatchKit_Extension.RebuildCache.body.getter : some"
-                  moduleName = "WatchTube WatchKit Extension"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/llsc12/Documents/GitHub/WatchTube/WatchTube%20WatchKit%20Extension/Views/Home/SettingsView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "282"
-                  endingLineNumber = "282"
-                  offsetFromSymbolStart = "3151">
-               </Location>
-               <Location
-                  uuid = "D168C012-B787-4AF7-BD8B-D9C5B52E3A06 - 8a74c3416ba76eda"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(7) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #3 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.navigationTitle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.StringProtocol&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0, SwiftUI.Text, SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.task(priority: Swift.TaskPriority, _: @Sendable () async -&gt; ()) -&gt; some&gt;&gt;.0, SwiftUI.ProgressView&lt;SwiftUI.EmptyView, SwiftUI.EmptyView&gt;)&gt; in WatchTube_WatchKit_Extension.RebuildCache.body.getter : some"
-                  moduleName = "WatchTube WatchKit Extension"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/llsc12/Documents/GitHub/WatchTube/WatchTube%20WatchKit%20Extension/Views/Home/SettingsView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "282"
-                  endingLineNumber = "282"
-                  offsetFromSymbolStart = "2504">
-               </Location>
-               <Location
-                  uuid = "D168C012-B787-4AF7-BD8B-D9C5B52E3A06 - e0da341fa3ff22d4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(9) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #3 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.navigationTitle&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.StringProtocol&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0, SwiftUI.Text, SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.task(priority: Swift.TaskPriority, _: @Sendable () async -&gt; ()) -&gt; some&gt;&gt;.0, SwiftUI.ProgressView&lt;SwiftUI.EmptyView, SwiftUI.EmptyView&gt;)&gt; in WatchTube_WatchKit_Extension.RebuildCache.body.getter : some"
-                  moduleName = "WatchTube WatchKit Extension"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/llsc12/Documents/GitHub/WatchTube/WatchTube%20WatchKit%20Extension/Views/Home/SettingsView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "282"
-                  endingLineNumber = "282"
-                  offsetFromSymbolStart = "2039">
+                  startingLineNumber = "229"
+                  endingLineNumber = "229"
+                  offsetFromSymbolStart = "941">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "74078D56-832B-4567-BDD1-30C42DA59188"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WatchTube WatchKit Extension/Views/Home/SettingsView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "285"
-            endingLineNumber = "285"
-            landmarkName = "body"
-            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

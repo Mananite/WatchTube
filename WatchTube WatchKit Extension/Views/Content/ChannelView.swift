@@ -73,11 +73,13 @@ struct ChannelView: View {
                     
                     HStack {
                         Text(channel.author)
-                            .minimumScaleFactor(0.5)
+                            .minimumScaleFactor(isSubscribed ? 0.4 : 0.5)
                             .lineLimit(1)
                         Spacer()
                         Button {
-                            isSubscribed.toggle()
+                            withAnimation(.easeInOut) {
+                                isSubscribed.toggle()
+                            }
                             
                             switch isSubscribed {
                             case true:
@@ -94,7 +96,6 @@ struct ChannelView: View {
                                     RoundedRectangle(cornerRadius: 7)
                                         .foregroundColor(isSubscribed ? .gray : .red)
                                         .brightness(isSubscribed ? -0.5 : 0)
-                                        .animation(.easeInOut(duration: 0.2))
                                 }
                         }
                         .buttonStyle(.plain)

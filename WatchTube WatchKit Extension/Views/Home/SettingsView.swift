@@ -263,17 +263,17 @@ fileprivate struct RebuildCache: View {
                             
                             title="History"
                             for vid in history.getHistory() {
-                                await metadata.cacheVideoData(vid)
+                                await metadata.cacheVideoData(vid, ignoreExisting: true)
                                 progressBarCurrent += 1
                             }
                             title="Liked"
                             for vid in liked.getLikes() {
-                                await metadata.cacheVideoData(vid)
+                                await metadata.cacheVideoData(vid, ignoreExisting: true)
                                 progressBarCurrent += 1
                             }
                             title="Channels"
                             for channel in subscriptions.getSubscriptions() {
-                                await metadata.cacheChannelData(channel)
+                                await metadata.cacheChannelData(channel, ignoreExisting: true)
                                 progressBarCurrent += 1
                             }
                             for channel in subscriptions.getSubscriptions() {
@@ -281,7 +281,7 @@ fileprivate struct RebuildCache: View {
                                 progressBarMax += Double(videos.count)
                                 title=metadata.getChannelData(channel, key: .author) as! String
                                 for video in videos {
-                                    await metadata.cacheVideoData(video, doNotCacheRelated: true)
+                                    await metadata.cacheVideoData(video, doNotCacheRelated: true, ignoreExisting: true)
                                     progressBarCurrent += 1
                                 }
                             }

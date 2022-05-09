@@ -9,9 +9,9 @@ import Foundation
 import Invidious_Swift
 
 class metadata {
-    class func cacheVideoData(_ id: String, doNotCacheRelated: Bool = false) async {
+    class func cacheVideoData(_ id: String, doNotCacheRelated: Bool = false, ignoreExisting: Bool = false) async {
         
-        if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/videoCache/\(id)") {return}
+        if !ignoreExisting && FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/videoCache/\(id)") {return}
         
         let videoInfo = await inv.video(id: id)
         
@@ -72,9 +72,9 @@ class metadata {
         }
     }
     
-    class func cacheChannelData(_ udid: String) async {
+    class func cacheChannelData(_ udid: String, ignoreExisting: Bool = false) async {
         
-        if FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/channelCache/\(udid)") {return}
+        if !ignoreExisting && FileManager.default.fileExists(atPath: NSHomeDirectory()+"/Documents/channelCache/\(udid)") {return}
         
         let channelInfo = await inv.channel(udid: udid)
         

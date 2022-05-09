@@ -192,6 +192,7 @@ struct CommentsView: View {
                     }
                 }
             }
+            .transition(.fade)
             .navigationTitle("Comment\(sourceComment == nil ? "s" : "")")
         } else {
             ProgressView()
@@ -209,8 +210,10 @@ struct CommentsView: View {
                             videoComments = data!
                         }
                     }
-                    CommentsArray = videoComments != nil ? videoComments.comments : []
-                    stopRequests = true
+                    withAnimation {
+                        CommentsArray = videoComments != nil ? videoComments.comments : []
+                        stopRequests = true
+                    }
                 }
         }
     }

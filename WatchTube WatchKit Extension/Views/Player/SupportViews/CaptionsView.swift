@@ -38,8 +38,10 @@ struct CaptionsView: View {
                             }
                         }
                         .buttonStyle(.plain)
-                        Divider()
-                            .foregroundColor(Color(.sRGB, white: 0.1, opacity: captionsData.captions.count == 0 ? 0 : 1))
+                        if captionsData.captions.count != 0 {
+                            Divider()
+                                .foregroundColor(Color(.sRGB, white: 0.1))
+                        }
                         ForEach(0..<captionsData.captions.count, id: \.self) { i in
                             let caption = captionsData.captions[i]
                             
@@ -74,18 +76,26 @@ struct CaptionsView: View {
                             .foregroundColor(Color(.sRGB, white: 0.15, opacity: 1))
                     }
                 }
+                .transition(.fade)
                 .navigationTitle("\(captionsData.captions.count) caption\(captionsData.captions.count == 1 ? "" : "s")")
+                .onAppear {
+                    selected = UserDefaults.standard.string(forKey: settingsKeys.preferredCaptionsLanguage) ?? ""
+                }
             } else {
                 VStack(spacing: 10) {
                     Text("An error has occurred.")
                     Button {
                         Task {
-                            isFinished = false
-                            let data = await inv.captions(id: video.videoID)
-                            if data != nil {
-                                captionsData = data!
+                            withAnimation {
+                                isFinished = false
                             }
-                            isFinished = true
+                            let data = await inv.captions(id: video.videoID)
+                            withAnimation {
+                                if data != nil {
+                                    captionsData = data!
+                                }
+                                isFinished = true
+                            }
                         }
                     } label: {
                         Image(systemName: "arrow.triangle.2.circlepath")
@@ -100,10 +110,12 @@ struct CaptionsView: View {
                 .progressViewStyle(.circular)
                 .task {
                     let data = await inv.captions(id: video.videoID)
-                    if data != nil {
-                        captionsData = data
+                    withAnimation {
+                        if data != nil {
+                            captionsData = data
+                        }
+                        isFinished = true
                     }
-                    isFinished = true
                 }
         }
     }
