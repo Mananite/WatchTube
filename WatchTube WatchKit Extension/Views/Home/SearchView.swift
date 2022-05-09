@@ -161,10 +161,12 @@ fileprivate struct SearchResultsView: View {
                            kwh.append(searchTerm)
                            UserDefaults.standard.set(kwh, forKey: "SearchHistory")
                            let content = await inv.search(q: searchTerm, type: .all)
-                           if content != nil {
-                               results = content!
+                           withAnimation {
+                               if content != nil {
+                                   results = content!
+                               }
+                               isDoneLoading = true
                            }
-                           isDoneLoading = true
                        }
                }
            } else {
@@ -173,11 +175,16 @@ fileprivate struct SearchResultsView: View {
                        Text("An error has occurred.")
                        Button {
                            Task {
-                               let content = await inv.search(q: searchTerm, type: .all)
-                               if content != nil {
-                                   results = content!
+                               withAnimation {
+                                   isDoneLoading = false
                                }
-                               isDoneLoading = true
+                               let content = await inv.search(q: searchTerm, type: .all)
+                               withAnimation {
+                                   if content != nil {
+                                       results = content!
+                                   }
+                                   isDoneLoading = true
+                               }
                            }
                        } label: {
                            Image(systemName: "arrow.triangle.2.circlepath")
@@ -205,6 +212,7 @@ fileprivate struct SearchResultsView: View {
                            }
                        }
                    }
+                   .transition(.fade)
                    .navigationTitle("Results")
             }
         }
