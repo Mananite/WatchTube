@@ -132,7 +132,7 @@ struct ChannelView: View {
                     }
                     .cornerRadius(10)
                 }
-                .transition(.slide)
+                .transition(.fade)
                 .navigationTitle("Channel")
             } else {
                 // error message and reload button
@@ -140,12 +140,16 @@ struct ChannelView: View {
                     Text("An error has occurred.")
                     Button {
                         Task {
-                            isDoneLoading = false
-                            let data = await inv.channel(udid: udid)
-                            if data != nil {
-                                channel = data
+                            withAnimation {
+                                isDoneLoading = false
                             }
-                            isDoneLoading = true
+                            let data = await inv.channel(udid: udid)
+                            withAnimation {
+                                if data != nil {
+                                    channel = data
+                                }
+                                isDoneLoading = true
+                            }
                         }
                     } label: {
                         Image(systemName: "arrow.triangle.2.circlepath")
@@ -153,16 +157,19 @@ struct ChannelView: View {
                     .frame(width: 50, height: 50)
                     .clipShape(Circle())
                 }
+                .transition(.fade)
             }
         } else {
             ProgressView()
                 .progressViewStyle(.circular)
                 .task {
                     let data = await inv.channel(udid: udid)
-                    if data != nil {
-                        channel = data
+                    withAnimation {
+                        if data != nil {
+                            channel = data
+                        }
+                        isDoneLoading = true
                     }
-                    isDoneLoading = true
                     await metadata.cacheChannelData(udid)
                 }
         }

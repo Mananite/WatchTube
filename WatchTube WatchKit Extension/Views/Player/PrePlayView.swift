@@ -100,13 +100,15 @@ struct PrePlayView: View {
                     .task {
                         let ytvid = YouTube(videoID: id)
                         let vidstreams = try? await ytvid.streams
-                        if vidstreams == nil {
-                            isDoneLoading = true
-                            return
-                        } else {
-                            streams = vidstreams
-                            let final = streams.filter { $0.isProgressive && $0.subtype == "mp4" }.highestResolutionStream()
-                            UserDefaults.standard.set(final?.url, forKey: "hls.streamUrl")
+                        withAnimation(.easeInOut) {
+                            if vidstreams == nil {
+                                isDoneLoading = true
+                                return
+                            } else {
+                                streams = vidstreams
+                                let final = streams.filter { $0.isProgressive && $0.subtype == "mp4" }.highestResolutionStream()
+                                UserDefaults.standard.set(final?.url, forKey: "hls.streamUrl")
+                            }
                         }
                         await metadata.cacheVideoData(id)
                     }

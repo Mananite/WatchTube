@@ -18,6 +18,9 @@ struct SearchView: View {
         NavigationView {
             VStack {
                 TextField("Search", text: $searchTerm)
+                    .onAppear {
+                        recents = UserDefaults.standard.stringArray(forKey: "SearchHistory") ?? []
+                    }
                     .onSubmit {
                         Task {
                             let data = await inv.searchSuggestions(q: searchTerm)
@@ -98,6 +101,7 @@ struct SearchView: View {
                                     .foregroundColor(.secondary)
                                 Spacer()
                             }
+                            
                             if recents.isEmpty {
                                 Text("A tumbleweed tumbles...")
                                     .italic()
@@ -106,7 +110,7 @@ struct SearchView: View {
                                     .padding(.top, 15)
                                     .brightness(-0.5)
                             }
-                            ForEach(recents, id: \.self) { txt in
+                            ForEach(recents.reversed(), id: \.self) { txt in
                                 NavigationLink {
                                     SearchResultsView(searchTerm: txt)
                                 } label: {
@@ -150,6 +154,12 @@ fileprivate struct SearchResultsView: View {
                        .progressViewStyle(.circular)
                    Spacer()
                        .task {
+                           var kwh: [String] = UserDefaults.standard.stringArray(forKey: "SearchHistory") ?? []
+                           if let index = kwh.firstIndex(of: searchTerm) {
+                               kwh.remove(at: index)
+                           }
+                           kwh.append(searchTerm)
+                           UserDefaults.standard.set(kwh, forKey: "SearchHistory")
                            let content = await inv.search(q: searchTerm, type: .all)
                            if content != nil {
                                results = content!
@@ -191,7 +201,7 @@ fileprivate struct SearchResultsView: View {
                                        await metadata.cacheChannelData(item.authorID)
                                    }
                            } else if item.type == "playlist" {
-                               Playlist(title: item.title!, author: item.author, plid: item.playlistID!)
+                               Playlist(title: item.title!, author: item.author, plid: item.playlistID!, thumb: item.playlistThumbnail!)
                            }
                        }
                    }

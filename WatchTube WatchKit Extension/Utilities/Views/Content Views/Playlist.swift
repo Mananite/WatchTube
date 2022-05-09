@@ -13,34 +13,36 @@ struct Playlist: View {
     var title: String
     var author: String
     var plid: String
+    var thumb: String
     
-    @State private var playlistVideos = [InvPlaylistVideo]()
-    @State private var opacity: Double = 0
-    @State private var object: Int = 0
     var body: some View {
-        ZStack {
-            WebImage(url: URL(string: playlistVideos[object].videoThumbnails.first!.url))
-                .opacity(opacity)
-                .task {
-                    withAnimation(.easeInOut(duration: 3).repeatForever(autoreverses: true)) {
-                        opacity = 1
+        NavigationLink {
+            Text(plid)
+        } label: {
+            HStack {
+                WebImage(url: URL(string: thumb))
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .scaledToFit()
+                    .cornerRadius(5)
+                VStack {
+                    HStack {
+                        Text(title)
+                        Spacer()
                     }
-                    object += 1
-                    if object >= 5 {object = 0}
+                    HStack {
+                        Text(author)
+                        Spacer()
+                    }
                 }
-        }
-        .fixedSize()
-        .task {
-            let data = await inv.playlist(plid: plid)
-            if data != nil {
-                playlistVideos = data!.videos
             }
         }
+
     }
 }
 
 struct Playlist_Previews: PreviewProvider {
     static var previews: some View {
-        Playlist(title: "Egg", author: "Nog", plid: "")
+        Playlist(title: "Egg", author: "Nog", plid: "", thumb: "")
     }
 }

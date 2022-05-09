@@ -68,15 +68,19 @@ struct SettingsView: View {
                             .foregroundColor(.secondary)
                         Spacer()
                     }
-                    Slider(value: $captionsFontSize, in: 8...18) {}
-                    Text("This is a sample caption!")
-                        .font(.system(size: CGFloat(captionsFontSize)))
-                        .animation(.easeInOut)
-                        .lineLimit(5)
-                        .multilineTextAlignment(.leading)
-                        .background(Color(.displayP3, red: 0, green: 0, blue: 0, opacity: 0.5))
-                        .cornerRadius(5)
-                        .allowsHitTesting(false)
+//                    Slider(value: $captionsFontSize, in: 8...18) {}
+                    Slider(value: $captionsFontSize.animation(.easeInOut), in: 8...18)
+                    Group {
+                        Text("This is a sample caption!")
+                            .font(.system(size: CGFloat(captionsFontSize)))
+                            .lineLimit(5)
+                            .multilineTextAlignment(.leading)
+                            .background(Color(.displayP3, red: 0, green: 0, blue: 0, opacity: 0.5))
+                            .cornerRadius(5)
+                            .allowsHitTesting(false)
+                    }
+                    .padding(5)
+                    .foregroundColor(.white)
                 } // Home Page Content
                 
                 Group {
