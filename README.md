@@ -1,16 +1,15 @@
-WatchTube is a standalone WatchOS YouTube player utilizing [Invidious](https://invidious.io) for metadata and [YouTubeKit](https://github.com/alexeichhorn/YouTubeKit) for streaming. The app is based off of [Ziph0n's original Wristplayer](https://github.com/Ziph0n/WristPlayer) and is a fork of [akissu's youtubedl-watchos](https://github.com/akissu/youtubedl-watchos), it aims to achieve the following:
+WatchTube is a standalone WatchOS YouTube player using [Invidious](https://invidious.io) for metadata and [YouTubeKit](https://github.com/alexeichhorn/YouTubeKit) for streaming. The app is based off of [Ziph0n's original Wristplayer](https://github.com/Ziph0n/WristPlayer) and is a fork of [akissu's youtubedl-watchos](https://github.com/akissu/youtubedl-watchos).
 
-1. Fully standalone usage of the app relying on Invidious to not use the official YouTube API and avoid ratelimits
+Features:
 
-2. Not requiring people to provide a YouTube API Key for usage
+1. The app fully relies on [Invidious](https://invidious.io) to avoid using the official YouTube API.
 
-3. Free alternative to other apps on the App Store since you shouldn't be paying for, what is essentially, a gimmick
+2. Doesn't require a YouTube API Key
 
-4. There are no working apps that do this on GitHub already
+3. Free alternative to other apps on the App Store, as we believe in open-source software
 
-5. It should look nice
+4. Curated recommendations and subscriptions to channels
 
-6. Provide a good experience with things like subscriptions and some curated content
 
 # Installing
 [Open in TestFlight](https://testflight.apple.com/join/tpwIQJIR)
@@ -25,20 +24,16 @@ WatchTube is a standalone WatchOS YouTube player utilizing [Invidious](https://i
 Make sure you add your Apple ID to Xcode or else your personal team will not appear.
 4. Build and deploy WatchOS app
 > Plug your iPhone into your Mac and it should start preparing both devices for development.
-
 > We've had plenty of people have their Xcode progress stuck on "Running WatchTube". If this happens to you, make sure Xcode isn't installing any device support. If it is, wait. If not, restart Xcode and run the app again.
-4. Exhale 😮‍💨
-
+5. Exhale 😮‍💨
 # Demonstrations
 
 Using v1.0.4
 
 ![](./demo/1.gif)
 > Note that this is a demonstration of the simulator. The video playback controls were odd and the videos look long to load. This is not a problem on real devices.
-
 Using uncompleted development build of v1.2.2
 
 ![](./demo/2.gif)
 > Note that this is a demonstration of the simulator. This is an unfinished build of 1.2.2. I thought I should share to new viewers of this readme what WatchTube can really do! Also, I recorded this in school on mobile hotspot, so some things take time to load.
-
 More demonstrations coming soon!
